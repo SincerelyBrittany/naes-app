@@ -24,7 +24,7 @@ const useStyles = makeStyles((theme) => ({
   },
   link: {
     textDecoration: "none",
-    color: "white",
+    color: "black",
     fontSize: "20px",
     marginLeft: theme.spacing(20),
     borderBottom: "1px solid transparent",
@@ -45,11 +45,12 @@ function Navbar() {
   const Close = () => setClick(false);
 
   return (
-    <AppBar position="static">
-      <CssBaseline />
+    // <AppBar position="static">
+    <>
+      {/* <CssBaseline /> */}
       <Toolbar>
         <Typography variant="h4" className={classes.logo}>
-          Navbar
+          Nae's Place
         </Typography>
         {isMobile ? (
           <DrawerComponent />
@@ -70,7 +71,8 @@ function Navbar() {
           </div>
         )}
       </Toolbar>
-    </AppBar>
+    </>
+    // </AppBar>
   );
 }
 export default Navbar;
