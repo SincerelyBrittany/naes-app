@@ -1,4 +1,6 @@
 import React, { Component } from "react";
+import Nae from "../../assets/nae1.jpeg";
+import Finicky from "../../assets/finicky1.jpeg";
 import "./Home.css";
 
 const Home = () => {
@@ -7,17 +9,25 @@ const Home = () => {
     <div className="container">
       <div className="image-container">
         <div class="column">
-          <img src={"https://placehold.co/600x400"} alt="website logo" />
+          <p> Finicky Felicia is about . . . .</p>
+          <button class="button-53" role="button">
+            Purchase on Amazon
+          </button>
         </div>
         <div class="column">
-          <img src="https://placehold.co/600x400" alt="website logo" />
+          <img
+            src={Finicky}
+            style={{ width: 500, height: 550 }}
+            alt="website logo"
+          />
         </div>
       </div>
-      <div className="button-container">
+
+      {/* <div className="button-container">
         <button class="button-53" role="button">
           Purchase on Amazon
         </button>
-      </div>
+      </div> */}
     </div>
   );
 };

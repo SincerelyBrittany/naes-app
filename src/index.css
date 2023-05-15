@@ -1,3 +1,11 @@
+@import url("https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Castoro+Titling&family=Roboto:wght@300&display=swap");
+
 * {
   box-sizing: border-box;
+  font-family: "Bubblegum Sans", cursive;
+}
+
+body {
+  font-family: "Bubblegum Sans", cursive;
+  /* font-family: "Roboto", sans-serif; */
 }

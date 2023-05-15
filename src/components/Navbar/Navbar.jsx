@@ -20,17 +20,19 @@ const useStyles = makeStyles((theme) => ({
   },
   logo: {
     flexGrow: "1",
+    marginRight: theme.spacing(20),
     cursor: "pointer",
+    fontFamily: "Bubblegum Sans",
   },
   link: {
     textDecoration: "none",
     color: "black",
-    fontSize: "20px",
-    marginLeft: theme.spacing(20),
+    fontSize: "15px",
+    marginLeft: theme.spacing(9),
     borderBottom: "1px solid transparent",
     "&:hover": {
       color: "yellow",
-      borderBottom: "1px solid white",
+      borderBottom: "1px solid black",
     },
   },
 }));
@@ -46,10 +48,10 @@ function Navbar() {
 
   return (
     // <AppBar position="static">
-    <>
-      {/* <CssBaseline /> */}
+    <div className="navbar">
+      <CssBaseline />
       <Toolbar>
-        <Typography variant="h4" className={classes.logo}>
+        <Typography variant="h6" className={classes.logo}>
           Nae's Place
         </Typography>
         {isMobile ? (
@@ -68,10 +70,17 @@ function Navbar() {
             <Link to="/faq" className={classes.link}>
               FAQ
             </Link>
+            <Link
+              to="https://www.amazon.com/Finicky-Felicia-Narene-Russell/dp/B0B45CHGVW"
+              className={classes.link}
+              target="_blank"
+            >
+              Purchase Finicky Felicia
+            </Link>
           </div>
         )}
       </Toolbar>
-    </>
+    </div>
     // </AppBar>
   );
 }

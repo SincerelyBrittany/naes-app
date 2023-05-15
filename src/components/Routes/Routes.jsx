@@ -26,6 +26,7 @@ import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Home from "../Home/Home";
 import About from "../About/About";
+import Faq from "../Faq/faq";
 import "./Routes.css";
 
 const RoutesComponent = () => (
@@ -33,6 +34,7 @@ const RoutesComponent = () => (
     <Routes>
       <Route path="/" element={<Home />}></Route>
       <Route path="/about" element={<About />}></Route>
+      <Route path="/faq" element={<Faq />}></Route>
 
       {/* <Route path="/faq" element={<Faq />}></Route>
       <Route path="/contact" element={<Contact />}></Route> */}
