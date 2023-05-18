@@ -4,31 +4,99 @@ import Finicky from "../../assets/finicky1.jpeg";
 import "./Home.css";
 
 const Home = () => {
-  console.log("ehere");
   return (
-    <div className="container">
-      <div className="image-container">
-        <div class="column">
-          <p> Finicky Felicia is about . . . .</p>
-          <button class="button-53" role="button">
-            Purchase on Amazon
-          </button>
-        </div>
-        <div class="column">
-          <img
-            src={Finicky}
-            style={{ width: 500, height: 550 }}
-            alt="website logo"
-          />
+    <div class="row g-2 h-50">
+      <div class="col-md border home-bio-container">
+        <div className="home-bio">
+          <h1> Finicky Felicia</h1>
+          <h2>
+            Do you know a finicky eater? How about someone who doesn't like to
+            eat anything healthy? Well, let me introduce you to a little girl
+            named Felicia.  Felicia loves sweets and frowns upon foods that are
+            good for her, including oatmeal! Finicky Felicia is a book about how
+            she is surprised to taste vegetables while learning how important it
+            is to eat vegetables. Read more to learn how Finicky Felicia became
+            less finicky!
+          </h2>
+
+          <a href="https://www.instagram.com/naes.place/" target="_blank">
+            <p> By Narene Russell </p>
+          </a>
+
+          <a href="https://www.instagram.com/jscalesjrdesign/" target="_blank">
+            <p> Illustrated By: James Scales Jr</p>
+          </a>
         </div>
       </div>
-
-      {/* <div className="button-container">
-        <button class="button-53" role="button">
-          Purchase on Amazon
-        </button>
-      </div> */}
+      <div class="col-md  align-self-end">
+        <a
+          href="https://www.amazon.com/Finicky-Felicia-Narene-Russell/dp/B0B45CHGVW"
+          target="_blank"
+        >
+          <img
+            src={Finicky}
+            class="img-fluid"
+            alt=""
+            style={{ maxWidth: "100%", maxHeight: "600px" }}
+          />
+        </a>
+      </div>
+      <hr />
+      <div className="home-button-container">
+        <a
+          href="https://www.amazon.com/Finicky-Felicia-Narene-Russell/dp/B0B45CHGVW"
+          target="_blank"
+        >
+          <button class="home-button-53" role="button">
+            Purchase on Amazon
+          </button>
+        </a>
+      </div>
     </div>
+
+    // <div className="home-container">
+    //   <div className="home-image-container">
+    //     <div class="home-column">
+    //       <h1> Finicky Felicia</h1>
+    //       <h2>
+    //         Do you know a finicky eater? How about someone who doesn't like to
+    //         eat anything healthy? Well, let me introduce you to a little girl
+    //         named Felicia.  Felicia loves sweets and frowns upon foods that are
+    //         good for her, including oatmeal! Finicky Felicia is a book about how
+    //         she is surprised to taste vegetables while learning how important it
+    //         is to eat vegetables. Read more to learn how Finicky Felicia became
+    //         less finicky!
+    //       </h2>
+    //       <a href="https://www.instagram.com/naes.place/" target="_blank">
+    //         <p> By Narene Russell </p>
+    //       </a>
+    //       <a href="https://www.instagram.com/jscalesjrdesign/" target="_blank">
+    //         <p> Illustrated By: James Scales Jr</p>
+    //       </a>
+    //       <a
+    //         href="https://www.amazon.com/Finicky-Felicia-Narene-Russell/dp/B0B45CHGVW"
+    //         target="_blank"
+    //       >
+    //         <button class="home-button-53" role="button">
+    //           Purchase on Amazon
+    //         </button>
+    //       </a>
+    //     </div>
+    //     <div class="home-column">
+    //       <a
+    //         href="https://www.amazon.com/Finicky-Felicia-Narene-Russell/dp/B0B45CHGVW"
+    //         target="_blank"
+    //       >
+    //         <img
+    //           src={Finicky}
+    //           style={{ width: 500, height: 550 }}
+    //           alt="website logo"
+    //         />
+    //       </a>
+    //     </div>
+    //   </div>
+
+    // </div>
   );
 };
 

@@ -62,14 +62,14 @@ function Navbar() {
               Home
             </Link>
             <Link to="/about" className={classes.link}>
-              About
+              About Nae
             </Link>
             <Link to="/contact" className={classes.link}>
               Contact
             </Link>
-            <Link to="/faq" className={classes.link}>
+            {/* <Link to="/faq" className={classes.link}>
               FAQ
-            </Link>
+            </Link> */}
             <Link
               to="https://www.amazon.com/Finicky-Felicia-Narene-Russell/dp/B0B45CHGVW"
               className={classes.link}
