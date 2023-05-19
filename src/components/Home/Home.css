@@ -1,6 +1,6 @@
 .home-bio-container {
   padding-top: 30px;
-  border: #000000 red;
+  /* border: red solid; */
 }
 
 h1 {
@@ -8,9 +8,20 @@ h1 {
 }
 
 .home-bio {
-  padding: 10 10;
+  margin-right: 60px;
+  padding-left: 20px;
+  /* margin: 50px; */
   /* margin: 30px; */
-  width: 90%;
+  width: 80%;
+  /* border: #000000 solid; */
+}
+
+.home-image {
+  margin-right: 60px;
+  /* padding-left: 20px; */
+  /* margin: 50px; */
+  /* margin: 30px; */
+  /* width: 80%; */
   /* border: #000000 solid; */
 }
 
@@ -20,6 +31,11 @@ h1 {
   }
 
   .home-bio {
+    margin-left: 20px;
+  }
+
+  .home-image {
+    margin-right: 0px;
   }
   .home-column img {
     width: 90%;
