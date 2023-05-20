@@ -6,6 +6,8 @@ import "./Home.css";
 import Button from "../Buttons/Buttons";
 import Container from "react-bootstrap/Container";
 import Request from "../InstagramFeed/Request";
+import SimpleForm from "../Subscribe/Subscribe";
+import MailchimpForm from "../Subscribe/SubscribeTrial/MailChimpForm1";
 
 const Home = () => {
   return (
@@ -78,6 +80,9 @@ const Home = () => {
         <h2> Instagram Posts </h2>
         <Request />
       </div>
+      <h2> Subscribe </h2>
+      {/* <SimpleForm /> */}
+      <MailchimpForm />
     </Container>
 
     // <div className="home-container">
