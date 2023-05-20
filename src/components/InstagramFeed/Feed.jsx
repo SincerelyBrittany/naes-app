@@ -5,6 +5,7 @@ import "./Fetch.css";
 
 const Feed = (props) => {
   const { id, caption, media_type, media_url } = props.feed;
+  console.log(id, "this is id");
   let post;
 
   switch (media_type) {
@@ -36,9 +37,8 @@ const Feed = (props) => {
     //   <main class="containertwo">
     //     <div class="child">
 
-    <>
-      <div class="child">{post}</div>
-    </>
+    <div className="child">{post}</div>
+
     //     </div>
     //   </main>
     // </Container>

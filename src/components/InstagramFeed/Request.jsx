@@ -3,13 +3,15 @@ import "./Fetch.css";
 import React from "react";
 import { Container } from "react-bootstrap";
 import Feed from "./Feed";
+import { Testimonials } from "./Testimonials";
+import Review from "./Review";
 
 export default function Request() {
-  // const api = axios.create({
-  //   baseURL: `https://graph.instagram.com/me/media?fields=id,caption,media_url&access_token=IGQVJYbURoa1ZA2Wi1IcDVGYmM5bXJDMWZAsX2FNeHlkekc1eUg0WThLUEx5MnVsY3NyTXF1U0p6MEZALcHY4Nk1EcWRsV2FEM04zRUxZAVWNzaDVHVEpRWmZAqSVNvanQtdHVZAeElrazRueUVSZA1JfQXZAPMwZDZD`,
-  // });
-
+  console.log(Testimonials.testimonials);
   const [data, setData] = React.useState([]);
+  const num = data?.length;
+  console.log(num, "this is numer");
+  const [count, setCount] = React.useState(2);
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -31,14 +33,21 @@ export default function Request() {
     // fetchData();
   }, []);
 
-  // console.log(data?.data, "this is data");
+  console.log(count, "this is count");
 
   return (
     <Container>
       <div className="container">
         <main class="containertwo">
-          {data?.data?.map((feed) => (
-            <Feed key={feed.id} feed={feed} />
+          {data?.data?.map((feed, index) => (
+            <>
+              <Feed key={index} feed={feed} />
+              <Review testimonial={Testimonials.testimonials[count]} />
+              {count >= 0 ? setCount(count - 1) : null}
+            </>
+            // {Testimonials.testimonials.map((test) => (
+            //   <Review testimonial={test} />
+            // ))}
           ))}
         </main>
       </div>
