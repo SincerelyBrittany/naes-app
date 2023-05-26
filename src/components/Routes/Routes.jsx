@@ -27,13 +27,22 @@ import Navbar from "../Navbar/Navbar";
 import Home from "../Home/Home";
 import About from "../About/About";
 import Faq from "../Faq/faq";
+
+import Subscribe from "../Subscribe/SubscribeTrial/MailChimpForm1";
 import "./Routes.css";
 
 const RoutesComponent = () => (
   <>
     <Routes>
-      <Route path="/" element={<Home />}></Route>
-      <Route path="/about" element={<About />}></Route>
+      <Route path="/" element={<Home />}>
+        <Route path="/#about" element={<About />} />
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/subscribe" element={<Subscribe />}></Route>
+        <Route path="/#subscribe" element={<Subscribe />}></Route>
+        {/* <Route path="/#contact" element={<Contact />}></Route>
+        <Route path="/contact" element={<Contact />}></Route> */}
+      </Route>
+      {/* <Route path="/about" element={<About />}></Route> */}
       <Route path="/faq" element={<Faq />}></Route>
 
       {/* <Route path="/faq" element={<Faq />}></Route>

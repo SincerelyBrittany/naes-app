@@ -8,6 +8,7 @@ import {
   useTheme,
   useMediaQuery,
 } from "@material-ui/core";
+import { HashLink } from "react-router-hash-link";
 // import { Link } from "react-router-dom";
 import DrawerComponent from "./Drawer";
 import { BrowserRouter, Route, Link, NavLink } from "react-router-dom";
@@ -61,12 +62,24 @@ function Navbar() {
             <Link to="/" className={classes.link}>
               Home
             </Link>
-            <Link to="/about" className={classes.link}>
+            {/* <Link to="/about" className={classes.link}>
               About Nae
-            </Link>
+            </Link> */}
+            <HashLink smooth to="/#about" className={classes.link}>
+              About Nae
+            </HashLink>
+
+            <HashLink smooth to="/#subscribe" className={classes.link}>
+              Subscribe
+            </HashLink>
+            {/* 
+            <HashLink smooth to="/#contact" className={classes.link}>
+              Contact
+            </HashLink>
+
             <Link to="/contact" className={classes.link}>
               Contact
-            </Link>
+            </Link> */}
             {/* <Link to="/faq" className={classes.link}>
               FAQ
             </Link> */}
@@ -79,7 +92,6 @@ function Navbar() {
             </Link>
           </div>
         )}
-        
       </Toolbar>
     </div>
     // </AppBar>

@@ -75,14 +75,19 @@ const Home = () => {
         <br></br>
         <hr />
         <br></br>
-        <About />
+        <div className="section" id="about">
+          <About />
+        </div>
+
         <hr />
         <h2> Instagram Posts </h2>
         <Request />
       </div>
-      <h2> Subscribe </h2>
-      {/* <SimpleForm /> */}
-      <MailchimpForm />
+      <div className="section" id="subscribe">
+        <h2> Subscribe </h2>
+        {/* <SimpleForm /> */}
+        <MailchimpForm />
+      </div>
     </Container>
 
     // <div className="home-container">

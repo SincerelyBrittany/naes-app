@@ -1,17 +1,23 @@
 import axios from "axios";
 import "./Fetch.css";
-import React from "react";
+import React, { useEffect, useRef } from "react";
 import { Container } from "react-bootstrap";
 import Feed from "./Feed";
 import { Testimonials } from "./Testimonials";
 import Review from "./Review";
 
 export default function Request() {
-  console.log(Testimonials.testimonials);
   const [data, setData] = React.useState([]);
-  const num = data?.length;
-  console.log(num, "this is numer");
-  const [count, setCount] = React.useState(2);
+  const countRef = useRef(-1);
+
+  useEffect(() => {
+    countRef.current = countRef.current + 1;
+
+    // if (data)
+    //   data.forEach(() => {
+    //     countRef.current = countRef.current + 1;
+    //   });
+  }, [data]);
 
   React.useEffect(() => {
     const fetchData = async () => {
@@ -24,8 +30,6 @@ export default function Request() {
 
         setData(result.data);
       } catch (err) {
-        console.log(url, "result");
-        console.log(secret, " secret");
         console.log("error", err);
       }
     };
@@ -33,22 +37,21 @@ export default function Request() {
     // fetchData();
   }, []);
 
-  console.log(count, "this is count");
-
   return (
     <Container>
       <div className="container">
+        <h1>Count: {countRef.current}</h1>
         <main class="containertwo">
-          {data?.data?.map((feed, index) => (
-            <>
-              <Feed key={index} feed={feed} />
-              <Review testimonial={Testimonials.testimonials[count]} />
-              {count >= 0 ? setCount(count - 1) : null}
-            </>
-            // {Testimonials.testimonials.map((test) => (
-            //   <Review testimonial={test} />
-            // ))}
-          ))}
+          {/* {data?.data?.map((feed, index) => ( */}
+          <>
+            <Feed
+              // key={index}
+              // feed={feed}
+              testimonial={Testimonials.testimonials}
+              count={countRef.current}
+            />
+          </>
+          {/* ))} */}
         </main>
       </div>
     </Container>
