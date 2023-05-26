@@ -9,9 +9,8 @@ import {
   useMediaQuery,
 } from "@material-ui/core";
 import { HashLink } from "react-router-hash-link";
-// import { Link } from "react-router-dom";
 import DrawerComponent from "./Drawer";
-import { BrowserRouter, Route, Link, NavLink } from "react-router-dom";
+import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const useStyles = makeStyles((theme) => ({
@@ -48,7 +47,6 @@ function Navbar() {
   const Close = () => setClick(false);
 
   return (
-    // <AppBar position="static">
     <div className="navbar">
       <CssBaseline />
       <Toolbar>
@@ -59,30 +57,24 @@ function Navbar() {
           <DrawerComponent />
         ) : (
           <div className={classes.navlinks}>
-            <Link to="/" className={classes.link}>
+            {/* <Link to="/" className={classes.link}>
               Home
-            </Link>
-            {/* <Link to="/about" className={classes.link}>
-              About Nae
             </Link> */}
+            <HashLink smooth to="/#home" className={classes.link}>
+              Home
+            </HashLink>
             <HashLink smooth to="/#about" className={classes.link}>
               About Nae
             </HashLink>
-
             <HashLink smooth to="/#subscribe" className={classes.link}>
               Subscribe
             </HashLink>
-            {/* 
+            <HashLink smooth to="/#events" className={classes.link}>
+              Events
+            </HashLink>
             <HashLink smooth to="/#contact" className={classes.link}>
               Contact
             </HashLink>
-
-            <Link to="/contact" className={classes.link}>
-              Contact
-            </Link> */}
-            {/* <Link to="/faq" className={classes.link}>
-              FAQ
-            </Link> */}
             <Link
               to="https://www.amazon.com/Finicky-Felicia-Narene-Russell/dp/B0B45CHGVW"
               className={classes.link}
@@ -94,7 +86,6 @@ function Navbar() {
         )}
       </Toolbar>
     </div>
-    // </AppBar>
   );
 }
 export default Navbar;

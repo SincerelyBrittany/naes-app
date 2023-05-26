@@ -1,7 +1,4 @@
 import React, { Component } from "react";
-import Nae from "../../assets/nae1.jpeg";
-import Finicky from "../../assets/finicky1.jpeg";
-import About from "../About/About";
 import "../Home/Home.css";
 import Container from "react-bootstrap/Container";
 

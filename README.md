@@ -1,5 +1,14 @@
 # naes-app
 
+Want to complete/Adds
+
+Sticky navbar
+contact page
+Make navbar with drop downs parts
+Set up google docs forms
+Add a footer - Write about sister creating the logo and you creating websire.
+Create Notfound page for unknown routes
+
 Wix: https://manage.wix.com/dashboard/7d3834e7-4e04-431d-8da5-31ea4d9ae951/home?referralInfo=my-sites
 
 Crossfade image
@@ -16,7 +25,6 @@ http://css3.bradshawenterprises.com/cfimg/
 Mail set up? Mailchimp?
 
 https://us1.admin.mailchimp.com/website/dashboard/
-
 
 Carasal:
 

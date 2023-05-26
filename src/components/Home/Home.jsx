@@ -1,20 +1,19 @@
 import React, { Component } from "react";
-import Nae from "../../assets/nae1.jpeg";
 import Finicky from "../../assets/finicky1.jpeg";
 import About from "../About/About";
 import "./Home.css";
 import Button from "../Buttons/Buttons";
 import Container from "react-bootstrap/Container";
 import Request from "../InstagramFeed/Request";
-import SimpleForm from "../Subscribe/Subscribe";
-import MailchimpForm from "../Subscribe/SubscribeTrial/MailChimpForm1";
+
+import MailchimpForm from "../Subscribe/MailChimpForm";
 
 const Home = () => {
   return (
     <Container>
       <div class="row g-2 h-50">
         <div class="col-md home-bio-container ">
-          <div className="home-bio">
+          <div className="home-bio" id="home">
             <h1> Finicky Felicia</h1>
             <h2>
               Do you know a finicky eater? How about someone who doesn't like to
@@ -54,18 +53,6 @@ const Home = () => {
           </div>
         </div>
         <hr />
-
-        {/* <div className="home-button-container">
-          <a
-            href="https://www.amazon.com/Finicky-Felicia-Narene-Russell/dp/B0B45CHGVW"
-            target="_blank"
-          >
-            <button class="home-button-53" role="button">
-              Purchase on Amazon
-            </button>
-          </a>
-        </div> */}
-
         <Button />
         <br></br>
         <br></br>
@@ -80,59 +67,17 @@ const Home = () => {
         </div>
 
         <hr />
-        <h2> Instagram Posts </h2>
-        <Request />
+        <div className="section" id="events">
+          <h2> Instagram Posts </h2>
+          <Request />
+        </div>
       </div>
+
       <div className="section" id="subscribe">
         <h2> Subscribe </h2>
-        {/* <SimpleForm /> */}
         <MailchimpForm />
       </div>
     </Container>
-
-    // <div className="home-container">
-    //   <div className="home-image-container">
-    //     <div class="home-column">
-    //       <h1> Finicky Felicia</h1>
-    //       <h2>
-    //         Do you know a finicky eater? How about someone who doesn't like to
-    //         eat anything healthy? Well, let me introduce you to a little girl
-    //         named Felicia.  Felicia loves sweets and frowns upon foods that are
-    //         good for her, including oatmeal! Finicky Felicia is a book about how
-    //         she is surprised to taste vegetables while learning how important it
-    //         is to eat vegetables. Read more to learn how Finicky Felicia became
-    //         less finicky!
-    //       </h2>
-    //       <a href="https://www.instagram.com/naes.place/" target="_blank">
-    //         <p> By Narene Russell </p>
-    //       </a>
-    //       <a href="https://www.instagram.com/jscalesjrdesign/" target="_blank">
-    //         <p> Illustrated By: James Scales Jr</p>
-    //       </a>
-    //       <a
-    //         href="https://www.amazon.com/Finicky-Felicia-Narene-Russell/dp/B0B45CHGVW"
-    //         target="_blank"
-    //       >
-    //         <button class="home-button-53" role="button">
-    //           Purchase on Amazon
-    //         </button>
-    //       </a>
-    //     </div>
-    //     <div class="home-column">
-    //       <a
-    //         href="https://www.amazon.com/Finicky-Felicia-Narene-Russell/dp/B0B45CHGVW"
-    //         target="_blank"
-    //       >
-    //         <img
-    //           src={Finicky}
-    //           style={{ width: 500, height: 550 }}
-    //           alt="website logo"
-    //         />
-    //       </a>
-    //     </div>
-    //   </div>
-
-    // </div>
   );
 };
 
