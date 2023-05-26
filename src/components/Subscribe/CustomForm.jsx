@@ -69,14 +69,14 @@ const CustomForm = ({ status, message, onValidated }) => {
             isRequired
           />
 
-          <InputField
+          {/* <InputField
             label="Last Name"
             onChangeHandler={setLastName}
             type="text"
             value={lastName}
             placeholder="Doe"
             isRequired
-          />
+          /> */}
 
           <InputField
             label="Email"
@@ -100,7 +100,7 @@ const CustomForm = ({ status, message, onValidated }) => {
         <InputField
           label="subscribe"
           type="submit"
-          formValues={[email, firstName, lastName]}
+          formValues={[email, firstName]}
         />
       )}
     </form>

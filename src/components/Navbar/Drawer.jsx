@@ -9,6 +9,7 @@ import {
   makeStyles,
 } from "@material-ui/core";
 import { Link } from "react-router-dom";
+import { HashLink } from "react-router-hash-link";
 
 import MenuIcon from "@material-ui/icons/Menu";
 
@@ -32,33 +33,33 @@ function DrawerComponent() {
         <List>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/" className={classes.link}>
+              <HashLink to="/" className={classes.link}>
                 Home
-              </Link>
+              </HashLink>
             </ListItemText>
           </ListItem>
           <Divider />
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/about" className={classes.link}>
+              <HashLink to="/#about" className={classes.link}>
                 About
-              </Link>
+              </HashLink>
             </ListItemText>
           </ListItem>
           <Divider />
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/contact" className={classes.link}>
+              <HashLink to="/contact" className={classes.link}>
                 Contact
-              </Link>
+              </HashLink>
             </ListItemText>
           </ListItem>
-          <Divider />
+          <Divider></Divider>
           <ListItem onClick={() => setOpenDrawer(false)}>
             <ListItemText>
-              <Link to="/about" className={classes.link}>
-                Faq
-              </Link>
+              <HashLink to="/#subscribe" className={classes.link}>
+                Subscribe
+              </HashLink>
             </ListItemText>
           </ListItem>
           <Divider />

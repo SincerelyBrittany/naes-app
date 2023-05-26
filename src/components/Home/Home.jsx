@@ -1,4 +1,4 @@
-import React, { Component } from "react";
+import React, { Component, useEffect } from "react";
 import Finicky from "../../assets/finicky1.jpeg";
 import About from "../About/About";
 import "./Home.css";
@@ -9,6 +9,22 @@ import Request from "../InstagramFeed/Request";
 import MailchimpForm from "../Subscribe/MailChimpForm";
 
 const Home = () => {
+  // const [showButton, setShowButton] = React.useState(false);
+  // useEffect(() => {
+  //   // Button is displayed after scrolling for 300 pixels
+  //   const handleScrollButtonVisiblity = () => {
+  //     window.pageYOffset > 300 ? setShowButton(true) : setShowButton(false);
+  //   };
+  //   window.addEventListener("scroll", handleScrollButtonVisiblity);
+  //   return () => {
+  //     window.addEventListener("scroll", handleScrollButtonVisiblity);
+  //   };
+  // }, []);
+
+  // const handleScrollToTop = () => {
+  //   window.scrollTo({ top: 0, behavior: "smooth" });
+  // };
+
   return (
     <Container>
       <div class="row g-2 h-50">
