@@ -1,7 +1,7 @@
 import React, { Component, useEffect } from "react";
 import Finicky from "../../assets/finicky1.jpeg";
 import About from "../About/About";
-import "./Home.css";
+// import "./Home.css";
 import Button from "../Buttons/Buttons";
 import Container from "react-bootstrap/Container";
 import Request from "../InstagramFeed/Request";
@@ -85,15 +85,9 @@ const Home = () => {
         </div>
 
         <hr />
-        {/* <div className="section" id="events">
-          <h2> Instagram Posts </h2>
-          <Request />
-        </div> */}
       </div>
-
       <Contact />
       <hr />
-
       <div className="section" id="subscribe">
         <h2> Subscribe </h2>
         <MailchimpForm />

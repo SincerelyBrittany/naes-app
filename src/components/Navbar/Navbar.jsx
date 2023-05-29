@@ -14,6 +14,12 @@ import { Link } from "react-router-dom";
 import "./Navbar.css";
 
 const useStyles = makeStyles((theme) => ({
+  navbar: {
+    backgroundColor: "white",
+    position: "sticky",
+    top: 0,
+    zIndex: 100,
+  },
   navlinks: {
     marginLeft: theme.spacing(5),
     display: "flex",
@@ -30,8 +36,11 @@ const useStyles = makeStyles((theme) => ({
     fontSize: "15px",
     marginLeft: theme.spacing(9),
     borderBottom: "1px solid transparent",
+    opacity: 1,
+    transition: "all 0.5s ease",
+    zIndex: 1,
     "&:hover": {
-      color: "yellow",
+      color: "white",
       borderBottom: "1px solid black",
     },
   },
@@ -47,11 +56,11 @@ function Navbar() {
   const Close = () => setClick(false);
 
   return (
-    <div className="navbar">
-      <CssBaseline />
+    <div className={classes.navbar}>
+      {/* <CssBaseline /> */}
       <Toolbar>
         <Typography variant="h6" className={classes.logo}>
-          Nae's Place
+          Narene Russell
         </Typography>
         {isMobile ? (
           <DrawerComponent />
@@ -69,12 +78,12 @@ function Navbar() {
             <HashLink smooth to="/#subscribe" className={classes.link}>
               Subscribe
             </HashLink>
-            <HashLink smooth to="/#events" className={classes.link}>
+            {/* <HashLink smooth to="/#events" className={classes.link}>
               Events
             </HashLink>
             <HashLink smooth to="/#contact" className={classes.link}>
               Contact
-            </HashLink>
+            </HashLink> */}
             <Link
               to="https://www.amazon.com/Finicky-Felicia-Narene-Russell/dp/B0B45CHGVW"
               className={classes.link}

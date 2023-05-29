@@ -17,7 +17,10 @@ const About = () => {
 
   return (
     <Container>
-      <h2> About Narene Russell</h2>
+      <div>
+        <h2> About Narene Russell</h2>
+      </div>
+
       <br></br>
       <div class="row g-2">
         <div class="col-md ">

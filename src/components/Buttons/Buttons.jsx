@@ -15,7 +15,7 @@ const Buttons = () => {
           </button>
         </a>
       </div>
-      <div class="row g-2 h-50">
+      {/* <div class="row g-2 h-50">
         <div class="col-md home-bio-container ">
           <div className="home-button-container">
             <a
@@ -40,7 +40,7 @@ const Buttons = () => {
             </a>
           </div>
         </div>
-      </div>
+      </div> */}
     </Container>
   );
 };

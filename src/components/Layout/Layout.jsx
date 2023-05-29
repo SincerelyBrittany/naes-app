@@ -25,24 +25,19 @@ const Layout = ({ children }) => {
   return (
     <ThemeProvider>
       <CustomNavbar />
-
       <Container>{children}</Container>
       {showButton && (
         <div className={`scrollToTop`}>
-          {/* <button
-            // className=" fixed bottom-5 right-7 z-50 cursor-pointer p-4"
-            onClick={handleScrollToTop}
-          > */}
-          {/* <img src=" cons/new-up-arrow png" alt="scrollToTop" /> */}
           <ExpandLessIcon
             className="bottom-right-corner"
             onClick={handleScrollToTop}
           >
             Back
           </ExpandLessIcon>
-          {/* </button> */}
         </div>
       )}
+      <br></br>
+      <br></br>
       <Footer />
     </ThemeProvider>
   );
