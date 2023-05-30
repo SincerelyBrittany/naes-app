@@ -68,9 +68,7 @@ const CustomForm = ({ status, message, onValidated }) => {
       >
         <form className="mc__form" onSubmit={(e) => handleSubmit(e)}>
           <h3 className="mc__title">
-            {status === "success"
-              ? "Success!"
-              : "Join my email list for future updates."}
+            {status === "success" ? "Success!" : "Subscribe"}
           </h3>
           {status === "sending" && (
             <div className="mc__alert mc__alert--sending">sending...</div>

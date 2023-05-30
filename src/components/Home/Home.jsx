@@ -10,22 +10,6 @@ import MailchimpForm from "../Subscribe/MailChimpForm";
 import Contact from "../Contact/Contact";
 
 const Home = () => {
-  // const [showButton, setShowButton] = React.useState(false);
-  // useEffect(() => {
-  //   // Button is displayed after scrolling for 300 pixels
-  //   const handleScrollButtonVisiblity = () => {
-  //     window.pageYOffset > 300 ? setShowButton(true) : setShowButton(false);
-  //   };
-  //   window.addEventListener("scroll", handleScrollButtonVisiblity);
-  //   return () => {
-  //     window.addEventListener("scroll", handleScrollButtonVisiblity);
-  //   };
-  // }, []);
-
-  // const handleScrollToTop = () => {
-  //   window.scrollTo({ top: 0, behavior: "smooth" });
-  // };
-
   return (
     <Container>
       <div class="row g-2 h-50" id="home">
@@ -42,13 +26,18 @@ const Home = () => {
               Felicia became less finicky!
             </h2>
 
-            <a href="https://www.instagram.com/naes.place/" target="_blank">
+            <a
+              href="https://www.instagram.com/naes.place/"
+              target="_blank"
+              className="a-tag-button"
+            >
               <p> By Narene Russell </p>
             </a>
 
             <a
               href="https://www.instagram.com/jscalesjrdesign/"
               target="_blank"
+              className="a-tag-button"
             >
               <p> Illustrated By: James Scales Jr</p>
             </a>
@@ -69,34 +58,6 @@ const Home = () => {
             </a>
           </div>
         </div>
-        <hr />
-        <Button />
-        {/* <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br>
-        <br></br> */}
-        <div className="section" id="about">
-          <hr />
-          <br></br>
-
-          <About />
-        </div>
-
-        <hr />
-        {/* <div className="section" id="events">
-          <h2> Instagram Posts </h2>
-          <Request />
-        </div> */}
-      </div>
-
-      <Contact />
-      <hr />
-
-      <div className="section" id="subscribe">
-        <h2> Subscribe </h2>
-        <MailchimpForm />
       </div>
     </Container>
   );

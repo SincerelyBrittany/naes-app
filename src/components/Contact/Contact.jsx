@@ -9,6 +9,7 @@ import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
 import "./Contact.css";
+import MailchimpForm from "../Subscribe/MailChimpForm";
 
 const Contact = () => {
   return (
@@ -17,8 +18,8 @@ const Contact = () => {
         <h1> Contact</h1>
       </div>
       <br></br>
-      <div class="row ">
-        <div class="col-md ">
+      <div class="row">
+        <div class="col ">
           <div>
             <ThumbUpOffAltIcon />
           </div>
@@ -41,7 +42,10 @@ const Contact = () => {
             </a>
           </div>
         </div>
-        <div class="col-md ">
+        <div class="col-6 ">
+          <MailchimpForm />
+        </div>
+        <div class="col ">
           <div>
             <EmailIcon />
           </div>
