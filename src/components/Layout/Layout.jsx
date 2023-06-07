@@ -25,8 +25,9 @@ const Layout = ({ children }) => {
   return (
     <>
       <CustomNavbar />
+      <hr />
       <Container>{children}</Container>
-      {showButton && (
+      {/* {showButton && (
         <div className={`scrollToTop`}>
           <ExpandLessIcon
             className="bottom-right-corner"
@@ -35,7 +36,7 @@ const Layout = ({ children }) => {
             Back
           </ExpandLessIcon>
         </div>
-      )}
+      )} */}
       <br></br>
       <br></br>
       <Footer />

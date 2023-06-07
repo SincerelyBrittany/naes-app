@@ -24,11 +24,11 @@ const PagesLayout = () => {
           <About />
         </div>
         <hr />
-        <Daughters />
-        <hr />
+        {/* <Daughters /> */}
+        {/* <hr /> */}
       </div>
-      <Contact />
-      <hr />
+      {/* <Contact /> */}
+      {/* <hr /> */}
       {/* <div className="section" id="subscribe">
         <h2> Subscribe </h2>
         <MailchimpForm />

@@ -9,10 +9,10 @@ import Container from "react-bootstrap/Container";
 import "./About.css";
 
 const About = () => {
-  const [isShown, setIsShown] = React.useState(Nae);
+  const [isShown, setIsShown] = React.useState(NaeFour);
 
   const onHover = () => {
-    setIsShown(NaeFour);
+    setIsShown(Nae);
   };
 
   return (
@@ -27,9 +27,9 @@ const About = () => {
           <img
             src={isShown}
             className="img-fluid"
-            style={{ width: "350px", height: "430px" }}
+            style={{ width: "350px", height: "430px", borderRadius: "30px" }}
             onMouseOver={onHover}
-            onMouseLeave={() => setIsShown(Nae)}
+            onMouseLeave={() => setIsShown(NaeFour)}
           />
         </div>
         <div className="col-md  align-self-end">

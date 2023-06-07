@@ -11,9 +11,9 @@ import Contact from "../Contact/Contact";
 
 const Home = () => {
   return (
-    <Container>
-      <div className="row g-2 h-50" id="home">
-        <div className="col-md home-bio-container ">
+    <>
+      <div class="row g-1 h-50" id="home">
+        <div class="col-md home-bio-container ">
           <div className="home-bio">
             <h1> Finicky Felicia</h1>
             <h2>
@@ -31,7 +31,7 @@ const Home = () => {
               target="_blank"
               // className="a-tag-button"
             >
-              <p> By Narene Russell </p>
+              <h5> By: Narene Russell </h5>
             </a>
 
             <a
@@ -43,7 +43,7 @@ const Home = () => {
             </a>
           </div>
         </div>
-        <div className="col-md   align-self-end">
+        <div class="col-md   align-self-end">
           <div className="home-image">
             <a
               href="https://www.amazon.com/Finicky-Felicia-Narene-Russell/dp/B0B45CHGVW"
@@ -51,15 +51,19 @@ const Home = () => {
             >
               <img
                 src={Finicky}
-                className="img-fluid"
+                class="img-fluid"
                 alt=""
-                style={{ maxWidth: "100%", maxHeight: "600px" }}
+                style={{
+                  maxWidth: "90%",
+                  maxHeight: "550px",
+                  borderRadius: "30px",
+                }}
               />
             </a>
           </div>
         </div>
       </div>
-    </Container>
+    </>
   );
 };
 
