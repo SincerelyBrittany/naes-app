@@ -30,9 +30,7 @@ import Contact from "../Contact/Contact";
 import Faq from "../Faq/faq";
 import PagesLayout from "../PagesLayout/PagesLayout";
 
-import Subscribe from "../Subscribe/MailChimpForm";
 import "./Routes.css";
-import Daughters from "../Daughters/Daughters";
 
 const RoutesComponent = () => (
   <>
@@ -40,12 +38,8 @@ const RoutesComponent = () => (
       <Route path="/" element={<PagesLayout />}>
         <Route path="/#about" element={<About />} />
         <Route path="/about" element={<About />}></Route>
-        <Route path="/subscribe" element={<Subscribe />}></Route>
-        <Route path="/#subscribe" element={<Subscribe />}></Route>
       </Route>
-      <Route path="/daughters" element={<Daughters />}></Route>
       <Route path="/contact" element={<Contact />}></Route>
-
       <Route path="/#contact" element={<Contact />}></Route>
     </Routes>
   </>
