@@ -1,14 +1,10 @@
 import React, { Component, useEffect } from "react";
-import Finicky from "../../assets/finicky1.jpeg";
+
 import About from "../About/About";
-// import "./Home.css";
+
 import Button from "../Buttons/Buttons";
 import Container from "react-bootstrap/Container";
-import Request from "../InstagramFeed/Request";
-import Daughters from "../Daughters/Daughters";
 
-import MailchimpForm from "../Subscribe/MailChimpForm";
-import Contact from "../Contact/Contact";
 import Home from "../Home/Home";
 
 const PagesLayout = () => {

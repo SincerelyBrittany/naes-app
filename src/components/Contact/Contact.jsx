@@ -1,11 +1,6 @@
 import React from "react";
 
-import Container from "react-bootstrap/Container";
-
-import EmailIcon from "@material-ui/icons/Email";
-import ThumbUpOffAltIcon from "@mui/icons-material/ThumbUpOffAlt";
 import FacebookIcon from "@mui/icons-material/Facebook";
-import TwitterIcon from "@mui/icons-material/Twitter";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
 import "./Contact.css";
@@ -47,12 +42,7 @@ const Contact = () => {
                 >
                   <FacebookIcon />
                 </a>
-                {/* <a
-                  href="https://www.facebook.com/profile.php?id=100084813500514"
-                  target="_blank"
-                >
-                  <TwitterIcon />
-                </a> */}
+
                 <a href="https://www.instagram.com/naes.place/" target="_blank">
                   <InstagramIcon />
                 </a>

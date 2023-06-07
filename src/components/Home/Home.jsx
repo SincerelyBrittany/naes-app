@@ -1,13 +1,7 @@
 import React, { Component, useEffect } from "react";
 import Finicky from "../../assets/finicky1.jpeg";
-import About from "../About/About";
-import "./Home.css";
-import Button from "../Buttons/Buttons";
-import Container from "react-bootstrap/Container";
-import Request from "../InstagramFeed/Request";
 
-import MailchimpForm from "../Subscribe/MailChimpForm";
-import Contact from "../Contact/Contact";
+import "./Home.css";
 
 const Home = () => {
   return (
