@@ -22,17 +22,17 @@ const About = () => {
       </div>
 
       <br></br>
-      <div class="row g-2">
-        <div class="col-md ">
+      <div className="row g-2">
+        <div className="col-md ">
           <img
             src={isShown}
-            class="img-fluid"
+            className="img-fluid"
             style={{ width: "350px", height: "430px" }}
             onMouseOver={onHover}
             onMouseLeave={() => setIsShown(Nae)}
           />
         </div>
-        <div class="col-md  align-self-end">
+        <div className="col-md  align-self-end">
           <div className="about-bio">
             <h3>
               I am a mother of four and a grandmother of four. I have been

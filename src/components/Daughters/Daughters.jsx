@@ -13,13 +13,13 @@ function Daughters() {
 
       <div className="daughterContainer">
         {daughterList?.daughters?.map((daughter, index) => (
-          <div className="daughterItem">
+          <div className="daughterItem" key={index}>
             <h4> {daughter.name} </h4>
             <h6> {daughter.title} </h6>
             <div className="daughter-image">
               <img
                 src={NaeFour}
-                class="img-fluid"
+                className="img-fluid"
                 style={{ width: "100px", height: "100px" }}
               />
             </div>

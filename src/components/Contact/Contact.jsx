@@ -18,8 +18,8 @@ const Contact = () => {
         <h1> Contact</h1>
       </div>
       <br></br>
-      <div class="row">
-        <div class="col ">
+      <div className="row">
+        <div className="col ">
           <div>
             <ThumbUpOffAltIcon />
           </div>
@@ -42,10 +42,10 @@ const Contact = () => {
             </a>
           </div>
         </div>
-        <div class="col-6 ">
+        <div className="col-6 ">
           <MailchimpForm />
         </div>
-        <div class="col ">
+        <div className="col ">
           <div>
             <EmailIcon />
           </div>

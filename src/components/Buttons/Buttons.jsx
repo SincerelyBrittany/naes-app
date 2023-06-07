@@ -10,31 +10,31 @@ const Buttons = () => {
           href="https://www.amazon.com/Finicky-Felicia-Narene-Russell/dp/B0B45CHGVW"
           target="_blank"
         >
-          <button class="home-button-53" role="button">
+          <button className="home-button-53" role="button">
             Purchase on Amazon
           </button>
         </a>
       </div>
-      {/* <div class="row g-2 h-50">
-        <div class="col-md home-bio-container ">
+      {/* <div className="row g-2 h-50">
+        <div className="col-md home-bio-container ">
           <div className="home-button-container">
             <a
               href="https://www.amazon.com/Finicky-Felicia-Narene-Russell/dp/B0B45CHGVW"
               target="_blank"
             >
-              <button class="home-button-53" role="button">
+              <button className="home-button-53" role="button">
                 View Upcoming Events
               </button>
             </a>
           </div>
         </div>
-        <div class="col-md   align-self-end">
+        <div className="col-md   align-self-end">
           <div className="home-button-container">
             <a
               href="https://www.amazon.com/Finicky-Felicia-Narene-Russell/dp/B0B45CHGVW"
               target="_blank"
             >
-              <button class="home-button-53" role="button">
+              <button className="home-button-53" role="button">
                 Request Signed Copy
               </button>
             </a>

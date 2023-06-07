@@ -41,7 +41,7 @@ export default function Request() {
     <Container>
       <div className="container">
         <h1>Count: {countRef.current}</h1>
-        <main class="containertwo">
+        <main className="containertwo">
           {/* {data?.data?.map((feed, index) => ( */}
           <>
             <Feed
