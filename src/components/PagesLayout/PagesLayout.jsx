@@ -5,6 +5,7 @@ import About from "../About/About";
 import Button from "../Buttons/Buttons";
 import Container from "react-bootstrap/Container";
 import Request from "../InstagramFeed/Request";
+import Daughters from "../Daughters/Daughters";
 
 import MailchimpForm from "../Subscribe/MailChimpForm";
 import Contact from "../Contact/Contact";
@@ -22,6 +23,8 @@ const PagesLayout = () => {
           <br></br>
           <About />
         </div>
+        <hr />
+        <Daughters />
         <hr />
       </div>
       <Contact />

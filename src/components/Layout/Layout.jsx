@@ -23,7 +23,7 @@ const Layout = ({ children }) => {
     window.scrollTo({ top: 0, behavior: "smooth" });
   };
   return (
-    <ThemeProvider>
+    <>
       <CustomNavbar />
       <Container>{children}</Container>
       {showButton && (
@@ -39,7 +39,7 @@ const Layout = ({ children }) => {
       <br></br>
       <br></br>
       <Footer />
-    </ThemeProvider>
+    </>
   );
 };
 

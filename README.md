@@ -2,6 +2,8 @@
 
 Want to complete/Adds
 
+
+Events page - instagram 
 Sticky navbar
 contact page
 Make navbar with drop downs parts
@@ -29,3 +31,12 @@ https://us1.admin.mailchimp.com/website/dashboard/
 Carasal:
 
 https://codepen.io/nrifki/pen/LYVygxW
+
+Other goals 
+Allow people to order signed copies 
+Allow people to order shirts/blanket 
+Add sisters + me to site. 
+
+Promote a book of the month 
+
+Allow users to subscribe 

@@ -29,7 +29,7 @@ const Home = () => {
             <a
               href="https://www.instagram.com/naes.place/"
               target="_blank"
-              className="a-tag-button"
+              // className="a-tag-button"
             >
               <p> By Narene Russell </p>
             </a>
@@ -37,7 +37,7 @@ const Home = () => {
             <a
               href="https://www.instagram.com/jscalesjrdesign/"
               target="_blank"
-              className="a-tag-button"
+              // className="a-tag-button"
             >
               <p> Illustrated By: James Scales Jr</p>
             </a>
