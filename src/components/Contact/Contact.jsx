@@ -64,10 +64,7 @@ const Contact = () => {
         </div>
         <div class="row">
           <div class="column">
-            <div class="red-column">
-              {" "}
-              <MailchimpForm />
-            </div>
+            <div class="red-column"> {/* <MailchimpForm /> */}</div>
           </div>
         </div>
       </div>
