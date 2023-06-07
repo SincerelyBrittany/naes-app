@@ -1,34 +1,69 @@
-import React, { Component } from "react";
-import Nae from "../../assets/nae1.jpeg";
+import React, { Component, useEffect } from "react";
 import Finicky from "../../assets/finicky1.jpeg";
+import About from "../About/About";
 import "./Home.css";
+import Button from "../Buttons/Buttons";
+import Container from "react-bootstrap/Container";
+import Request from "../InstagramFeed/Request";
+
+import MailchimpForm from "../Subscribe/MailChimpForm";
+import Contact from "../Contact/Contact";
 
 const Home = () => {
-  console.log("ehere");
   return (
-    <div className="container">
-      <div className="image-container">
-        <div class="column">
-          <p> Finicky Felicia is about . . . .</p>
-          <button class="button-53" role="button">
-            Purchase on Amazon
-          </button>
+    <>
+      <div class="row g-1 h-50" id="home">
+        <div class="col-md home-bio-container ">
+          <div className="home-bio">
+            <h1> Finicky Felicia</h1>
+            <h2>
+              Do you know a finicky eater? How about someone who doesn't like to
+              eat anything healthy? Well, let me introduce you to a little girl
+              named Felicia.  Felicia loves sweets and frowns upon foods that
+              are good for her, including oatmeal! Finicky Felicia is a book
+              about how she is surprised to taste vegetables while learning how
+              important it is to eat vegetables. Read more to learn how Finicky
+              Felicia became less finicky!
+            </h2>
+
+            <a
+              href="https://www.instagram.com/naes.place/"
+              target="_blank"
+              // className="a-tag-button"
+            >
+              <h5> By: Narene Russell </h5>
+            </a>
+
+            <a
+              href="https://www.instagram.com/jscalesjrdesign/"
+              target="_blank"
+              // className="a-tag-button"
+            >
+              <p> Illustrated By: James Scales Jr</p>
+            </a>
+          </div>
         </div>
-        <div class="column">
-          <img
-            src={Finicky}
-            style={{ width: 500, height: 550 }}
-            alt="website logo"
-          />
+        <div class="col-md   align-self-end">
+          <div className="home-image">
+            <a
+              href="https://www.amazon.com/Finicky-Felicia-Narene-Russell/dp/B0B45CHGVW"
+              target="_blank"
+            >
+              <img
+                src={Finicky}
+                class="img-fluid"
+                alt=""
+                style={{
+                  maxWidth: "90%",
+                  maxHeight: "550px",
+                  borderRadius: "30px",
+                }}
+              />
+            </a>
+          </div>
         </div>
       </div>
-
-      {/* <div className="button-container">
-        <button class="button-53" role="button">
-          Purchase on Amazon
-        </button>
-      </div> */}
-    </div>
+    </>
   );
 };
 

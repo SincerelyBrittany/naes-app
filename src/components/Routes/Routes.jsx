@@ -26,18 +26,27 @@ import { BrowserRouter as Router, Route, Link, Routes } from "react-router-dom";
 import Navbar from "../Navbar/Navbar";
 import Home from "../Home/Home";
 import About from "../About/About";
+import Contact from "../Contact/Contact";
 import Faq from "../Faq/faq";
+import PagesLayout from "../PagesLayout/PagesLayout";
+
+import Subscribe from "../Subscribe/MailChimpForm";
 import "./Routes.css";
+import Daughters from "../Daughters/Daughters";
 
 const RoutesComponent = () => (
   <>
     <Routes>
-      <Route path="/" element={<Home />}></Route>
-      <Route path="/about" element={<About />}></Route>
-      <Route path="/faq" element={<Faq />}></Route>
+      <Route path="/" element={<PagesLayout />}>
+        <Route path="/#about" element={<About />} />
+        <Route path="/about" element={<About />}></Route>
+        <Route path="/subscribe" element={<Subscribe />}></Route>
+        <Route path="/#subscribe" element={<Subscribe />}></Route>
+      </Route>
+      <Route path="/daughters" element={<Daughters />}></Route>
+      <Route path="/contact" element={<Contact />}></Route>
 
-      {/* <Route path="/faq" element={<Faq />}></Route>
-      <Route path="/contact" element={<Contact />}></Route> */}
+      <Route path="/#contact" element={<Contact />}></Route>
     </Routes>
   </>
 );

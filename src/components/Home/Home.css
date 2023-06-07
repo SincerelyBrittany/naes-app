@@ -1,43 +1,67 @@
-.image-container {
-  display: flex; /* or inline-flex */
-  /* flex-wrap: wrap; */
-  flex-direction: row;
-  justify-content: space-around;
-}
-
-.column {
-  /* flex: 33.33%; */
+.home-bio-container {
   padding-top: 30px;
-  padding-bottom: 5%;
+  /* border: red solid; */
 }
 
-.column img {
-  margin: 0.7em 1;
+h1 {
+  margin: 30px;
+}
+
+.home-bio {
+  margin-right: 50px;
+  padding-left: 20px;
+  /* margin: 50px; */
+  /* margin: 30px; */
+  width: 90%;
+  /* border: #000000 solid; */
+}
+
+.home-image {
+  /* margin-right: 60px; */
+  /* padding-left: 20px; */
+  /* margin: 50px; */
+  /* margin: 30px; */
+  /* width: 80%; */
+  /* border: #000000 solid; */
 }
 
 @media (max-width: 740px) {
-  .image-container {
+  .home-image-container {
     flex-direction: column;
   }
-  .column img {
+
+  .home-bio {
+    margin-left: 20px;
+  }
+
+  .home-image {
+    margin-right: 0px;
+  }
+  .home-column img {
     width: 90%;
     padding: 0 0;
   }
 }
 
+.home-bio a {
+  text-decoration: none;
+  color: black;
+}
+
 /* Button CSS */
 
-.button-container {
+.home-button-container {
   display: flex;
   align-items: center;
   justify-content: center;
 }
 
-.button-53 {
-  background-color: #3dd1e7;
+.home-button-53 {
+  text-decoration: none;
+  background-color: white;
   border: 0 solid #e5e7eb;
   box-sizing: border-box;
-  color: #000000;
+  color: black;
   display: flex;
   font-family: "Bubblegum Sans", cursive;
   /* font-family: ui-sans-serif, system-ui, -apple-system, system-ui, "Segoe UI",
@@ -62,27 +86,35 @@
   touch-action: manipulation;
 }
 
-.button-53:focus {
+.home-button-53:focus {
   outline: 0;
 }
 
-.button-53:after {
+.home-button-container a {
+  text-decoration: none;
+}
+
+.home-button-53:after {
   content: "";
   position: absolute;
   border: 1px solid #000000;
   bottom: 4px;
   left: 4px;
+  color: black;
   width: calc(100% - 1px);
   height: calc(100% - 1px);
 }
 
-.button-53:hover:after {
+.home-button-53:hover {
   bottom: 2px;
   left: 2px;
+  color: black;
+  background-color: bisque;
+  /* background-color: bisque; */
 }
 
 @media (min-width: 768px) {
-  .button-53 {
+  .home-button-53 {
     padding: 0.75rem 3rem;
     font-size: 1.25rem;
   }
