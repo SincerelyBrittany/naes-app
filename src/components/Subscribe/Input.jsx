@@ -1,4 +1,5 @@
 import React from "react";
+import "../Home/Home.css";
 // import "./inputFieldStyles.scss";
 
 const InputField = (props) => {
@@ -13,7 +14,7 @@ const InputField = (props) => {
   if (props.type === "submit") {
     return (
       <input
-        className="primaryBtn primaryBtn--big g__justify-self-center"
+        className="primaryBtn primaryBtn--big g__justify-self-center home-button-53"
         type="submit"
         value={props.label}
         disabled={validateInput(props.formValues)}

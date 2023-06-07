@@ -4,7 +4,7 @@ import ReviewItem from "./ReviewItem";
 
 const Feed = (props) => {
   const count = props.count;
-  console.log(count, "COUNT");
+
   // const { id, caption, media_type, media_url } = props.feed;
   // let post;
 

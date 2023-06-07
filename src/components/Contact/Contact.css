@@ -7,6 +7,10 @@
   /* margin: 0 auto; */
 }
 
+.contact-container {
+  /* height: 70vh; */
+}
+
 .contact {
   margin-right: 60px;
   margin-top: 20px;
@@ -36,4 +40,60 @@
 
 #cf img.top:hover {
   opacity: 0;
+}
+.some-page-wrapper {
+  margin: 15px;
+  text-align: center;
+  /* background-color: red; */
+}
+
+.row {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  text-align: center;
+  /* width: 100%; */
+}
+
+.column {
+  text-align: center;
+
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 1;
+  /* border: solid black 1px; */
+  /* height: 50%; */
+}
+
+.green-column > a {
+  text-align: center;
+}
+
+.double-column {
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  flex-basis: 100%;
+  flex: 2;
+}
+
+.blue-column {
+  text-align: center;
+  /* background-color: blue; */
+  height: 100px;
+}
+
+.green-column {
+  text-align: center;
+  height: 100px;
+  /* background-color: green; */
+}
+
+.green-column .socials {
+  padding-top: 60%;
+}
+
+.blue-column .email {
+  padding-top: 10%;
 }

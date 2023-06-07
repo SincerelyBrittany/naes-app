@@ -11,3 +11,13 @@
   margin-top: 10px;
   font-size: 16px;
 }
+
+a {
+  color: black;
+  text-decoration: none;
+}
+
+.footer-name a {
+  color: black;
+  text-decoration: none;
+}

@@ -17,8 +17,6 @@ function MainNavbar() {
   const closeMobileMenu = () => setClick(false);
 
   const onMousEnter = () => {
-    console.log("here-mouseEnter");
-
     // setDropdown(!dropdown);
     // if (window.innerWidth < 960) {
     //   setDropdown(true);
@@ -28,7 +26,6 @@ function MainNavbar() {
   };
 
   const onMousLeave = () => {
-    console.log("here-mouseleave");
     // setDropdown(false);
     // if (window.innerWidth < 960) {
     //   setDropdown(true);
@@ -53,45 +50,18 @@ function MainNavbar() {
               Home
             </Link>
           </li>
-          <li
-            className="nav-item"
-            // onMouseEnter={onMousEnter}
-            // onMouseLeave={onMousLeave}
-            // onClick={onMousEnter}
-          >
-            {/* {dropdown ? null : (
-              <Link to="/about" className="nav-links" onClick={closeMobileMenu}>
-                About
-                <FaCaretDown className="fa-down" />
-              </Link>
-            )} */}
-            <Nav>
-              <NavDropdown
-                title="About"
-                id="navbar-dropdown"
-                // onClick={closeMobileMenu}
-              >
-                <Dropdown />
-                {/* {dropdown && <Dropdown />} */}
-              </NavDropdown>
-            </Nav>
-            {/* <Link to="/about" className="nav-links" onClick={closeMobileMenu}>
-              About
-              <FaCaretDown className="fa-down" />
-            </Link> */}
-          </li>
           <li className="nav-item">
-            <Link
-              to="/daughters"
+            <HashLink
+              to="/#about"
               className="nav-links"
               onClick={closeMobileMenu}
             >
-              Daughters
-            </Link>
+              About
+            </HashLink>
           </li>
           <li className="nav-item">
             <Link to="/contact" className="nav-links" onClick={closeMobileMenu}>
-              Contact Us
+              Contact
             </Link>
           </li>
         </ul>

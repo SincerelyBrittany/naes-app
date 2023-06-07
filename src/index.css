@@ -6,12 +6,14 @@
   padding: 2rem;
   text-align: center;
   background-color: #e3c4d783;
+
   /* background-color: linear-gradient(
     90deg,
     rgb(192, 144, 144) 0%,
     rgb(112, 86, 86) 100%
   ); */
 }
+
 *,
 html,
 body {

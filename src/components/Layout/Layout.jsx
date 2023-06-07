@@ -37,8 +37,7 @@ const Layout = ({ children }) => {
           </ExpandLessIcon>
         </div>
       )} */}
-      <br></br>
-      <br></br>
+
       <Footer />
     </>
   );

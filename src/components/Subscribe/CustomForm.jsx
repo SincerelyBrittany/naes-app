@@ -14,6 +14,8 @@ import {
   Box,
 } from "@material-ui/core";
 
+import "../Home/Home.css";
+
 // const useStyles = makeStyles((theme) => ({
 //   sideBySide: {
 //     display: "flex",
@@ -67,9 +69,10 @@ const CustomForm = ({ status, message, onValidated }) => {
         minHeight="100vh"
       >
         <form className="mc__form" onSubmit={(e) => handleSubmit(e)}>
-          <h3 className="mc__title">
+          <h1 className="mc__title">
             {status === "success" ? "Success!" : "Subscribe"}
-          </h3>
+          </h1>
+          <hr />
           {status === "sending" && (
             <div className="mc__alert mc__alert--sending">sending...</div>
           )}
@@ -95,10 +98,9 @@ const CustomForm = ({ status, message, onValidated }) => {
                 onChangeHandler={setFirstName}
                 type="text"
                 value={firstName}
-                placeholder="Jane"
+                placeholder="Name"
                 isRequired
-              />
-
+              />{" "}
               <InputField
                 label="Email"
                 onChangeHandler={setEmail}
@@ -110,14 +112,17 @@ const CustomForm = ({ status, message, onValidated }) => {
             </div>
           ) : null}
           {/*Close button appears if form was successfully sent*/}
+          <br />
           {status === "success" ? null : (
             <InputField
               label="subscribe"
               type="submit"
               formValues={[email, firstName]}
+              className="home-button-53"
             />
           )}
         </form>
+        <br />
       </Box>
     </Container>
   );

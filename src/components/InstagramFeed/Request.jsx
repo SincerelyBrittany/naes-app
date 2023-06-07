@@ -30,7 +30,7 @@ export default function Request() {
 
         setData(result.data);
       } catch (err) {
-        console.log("error", err);
+        // console.log("error", err);
       }
     };
 
