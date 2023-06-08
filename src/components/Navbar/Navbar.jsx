@@ -60,9 +60,13 @@ function MainNavbar() {
             </HashLink>
           </li>
           <li className="nav-item">
-            <Link to="/contact" className="nav-links" onClick={closeMobileMenu}>
+            <HashLink
+              to="/#contact"
+              className="nav-links"
+              onClick={closeMobileMenu}
+            >
               Contact
-            </Link>
+            </HashLink>
           </li>
         </ul>
         {/* <Button /> */}

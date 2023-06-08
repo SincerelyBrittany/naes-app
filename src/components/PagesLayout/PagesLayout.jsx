@@ -4,7 +4,7 @@ import About from "../About/About";
 
 import Button from "../Buttons/Buttons";
 import Container from "react-bootstrap/Container";
-
+import Contact from "../Contact/Contact";
 import Home from "../Home/Home";
 
 const PagesLayout = () => {
@@ -23,7 +23,9 @@ const PagesLayout = () => {
         {/* <Daughters /> */}
         {/* <hr /> */}
       </div>
-      {/* <Contact /> */}
+      <div className="section" id="contact">
+        <Contact />
+      </div>
       {/* <hr /> */}
       {/* <div className="section" id="subscribe">
         <h2> Subscribe </h2>
