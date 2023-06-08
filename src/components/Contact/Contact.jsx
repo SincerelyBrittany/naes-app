@@ -4,7 +4,7 @@ import FacebookIcon from "@mui/icons-material/Facebook";
 import InstagramIcon from "@mui/icons-material/Instagram";
 
 import "./Contact.css";
-import MailchimpForm from "../Subscribe/MailChimpForm";
+import MailchimpForm from "../Subscribe/MailChimpForm.jsx";
 
 const Contact = () => {
   return (
@@ -64,7 +64,10 @@ const Contact = () => {
         </div>
         <div class="row">
           <div class="column">
-            <div class="red-column"> {/* <MailchimpForm /> */}</div>
+            <div class="red-column">
+              {" "}
+              <MailchimpForm />
+            </div>
           </div>
         </div>
       </div>
