@@ -40,6 +40,7 @@ const RoutesComponent = () => (
         <Route path="/about" element={<About />}></Route>
         <Route path="/contact" element={<Contact />}></Route>
         <Route path="/#contact" element={<Contact />}></Route>
+        
       </Route>
     </Routes>
   </>

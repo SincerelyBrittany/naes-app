@@ -6,6 +6,7 @@ import Button from "../Buttons/Buttons";
 import Container from "react-bootstrap/Container";
 import Contact from "../Contact/Contact";
 import Home from "../Home/Home";
+import SubscribeForm from "../Subscribe/SubscribeForm";
 
 const PagesLayout = () => {
   return (
@@ -26,6 +27,7 @@ const PagesLayout = () => {
       <div className="section" id="contact">
         <Contact />
       </div>
+      <SubscribeForm />
       {/* <hr /> */}
       {/* <div className="section" id="subscribe">
         <h2> Subscribe </h2>
