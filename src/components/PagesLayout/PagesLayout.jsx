@@ -27,7 +27,7 @@ const PagesLayout = () => {
       <div className="section" id="contact">
         <Contact />
       </div>
-      <SubscribeForm />
+      {/* <SubscribeForm /> */}
       {/* <hr /> */}
       {/* <div className="section" id="subscribe">
         <h2> Subscribe </h2>

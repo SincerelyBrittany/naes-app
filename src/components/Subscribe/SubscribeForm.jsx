@@ -13,6 +13,8 @@ export default function Contact() {
     e.preventDefault();
     email && firstName;
     setStatus("success");
+    return email && firstName;
+
     //   &&
     //   //   lastName &&
     //   email.indexOf("@") > -1 &&
