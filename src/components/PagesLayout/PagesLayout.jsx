@@ -6,6 +6,8 @@ import Button from "../Buttons/Buttons";
 import Container from "react-bootstrap/Container";
 import Contact from "../Contact/Contact";
 import Home from "../Home/Home";
+import Feed from "../InstagramFeed/Feed";
+import Request from "../InstagramFeed/Request";
 
 const PagesLayout = () => {
   return (
@@ -20,9 +22,11 @@ const PagesLayout = () => {
           <About />
         </div>
         <hr />
+
         {/* <Daughters /> */}
         {/* <hr /> */}
       </div>
+      <Request />
       <div className="section" id="contact">
         <Contact />
       </div>

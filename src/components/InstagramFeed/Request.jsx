@@ -30,28 +30,28 @@ export default function Request() {
 
         setData(result.data);
       } catch (err) {
-        // console.log("error", err);
+        console.log("error", err);
       }
     };
 
-    // fetchData();
+    fetchData();
   }, []);
 
+  console.log(data, "this is the data i think");
   return (
     <Container>
       <div className="container">
-        <h1>Count: {countRef.current}</h1>
         <main className="containertwo">
-          {/* {data?.data?.map((feed, index) => ( */}
-          <>
-            <Feed
-              // key={index}
-              // feed={feed}
-              testimonial={Testimonials.testimonials}
-              count={countRef.current}
-            />
-          </>
-          {/* ))} */}
+          {data?.data?.map((feed, index) => (
+            <>
+              <Feed
+                key={index}
+                feed={feed}
+                testimonial={Testimonials.testimonials}
+                count={index}
+              />
+            </>
+          ))}
         </main>
       </div>
     </Container>
