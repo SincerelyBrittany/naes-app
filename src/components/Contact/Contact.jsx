@@ -54,10 +54,10 @@ const Contact = () => {
               <div
                 className="email"
                 onClick={(e) => {
-                  window.location.href = "mailto:naesplace57@gmail.com";
+                  window.location.href = "mailto:naesplace59@gmail.com";
                 }}
               >
-                <h3>naesplace57@gmail.com</h3>
+                <h3>naesplace59@gmail.com</h3>
               </div>
             </div>
           </div>
