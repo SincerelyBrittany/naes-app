@@ -21,19 +21,27 @@ export default function ReviewItem(props) {
       break;
     case "CAROUSEL_ALBUM":
       post = (
-        <img width="100%" height="auto" id={id} src={media_url} alt={caption} />
+        <img id={id} src={media_url} alt={caption} />
       );
       break;
     default:
       post = (
-        <img width="100%" height="auto" id={id} src={media_url} alt={caption} />
+        <img id={id} src={media_url} alt={caption} />
       );
+  }
+
+  let style = {
+  
   }
 
   return (
     <>
       <div className="child">{props?.review?.name}</div>
-      <div className="child">{post}</div>
+      <div className="child">
+        <div id="horizontal" style={style}>
+          {post}
+        </div>
+        </div>
     </>
   );
 }

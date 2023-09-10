@@ -12,7 +12,7 @@
 
 .child {
   margin-left: 0.5rem;
-  height: 80%;
+  /* height: 80%; */
   scroll-snap-align: start;
   padding: 1rem;
   display: flex;
@@ -43,23 +43,23 @@
 
 .child:nth-child(5n) {
   background-color: yellow;
-  flex: 0 0 80%;
+  flex: 0 0 ;
 }
 
 .child:nth-child(6n) {
   background-color: orange;
-  flex: 0 0 60%;
+  flex: 0 0 ;
 }
 
 .child:nth-child(7n) {
   background-color: tomato;
-  flex: 0 0 80%;
+  flex: 0 0 ;
 }
 
-.video {
+/* .video {
   width: 600px;
   height: 400px;
-}
+} */
 
 /* Responsive Styles */
 @media screen and (max-width: 768px) {
