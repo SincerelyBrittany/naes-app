@@ -5,6 +5,7 @@ import { Container } from "react-bootstrap";
 import Feed from "./Feed";
 import { Testimonials } from "./Testimonials";
 import Review from "./Review";
+import Slideshow from "./Slideshow"
 
 export default function Request() {
   const [data, setData] = React.useState([]);
@@ -12,18 +13,12 @@ export default function Request() {
 
   useEffect(() => {
     countRef.current = countRef.current + 1;
-
-    // if (data)
-    //   data.forEach(() => {
-    //     countRef.current = countRef.current + 1;
-    //   });
   }, [data]);
 
   React.useEffect(() => {
     const fetchData = async () => {
       const secret = import.meta.env.VITE_REACT_APP_API_KEY;
-      const url =
-        `https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url&limit=3&access_token=` +
+      const url =`https://graph.instagram.com/me/media?fields=id,caption,media_type,media_url&limit=3&access_token=` +
         `${secret}`;
       try {
         const result = await axios(url);
@@ -34,26 +29,14 @@ export default function Request() {
       }
     };
 
-    fetchData();
+    // fetchData();
   }, []);
 
   console.log(data, "this is the data i think");
   return (
     <Container>
-      <div className="container">
-        <main className="containertwo">
-          {data?.data?.map((feed, index) => (
-            <>
-              <Feed
-                key={index}
-                feed={feed}
-                testimonial={Testimonials.testimonials}
-                count={index}
-              />
-            </>
-          ))}
-        </main>
-      </div>
+      {data ?  
+      <Slideshow /> : null }
     </Container>
   );
 }
