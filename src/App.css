@@ -1,4 +1,4 @@
-#root {
+/* #root {
   max-width: 1280px;
 
   margin: 0 auto;
@@ -21,7 +21,7 @@ a {
   color: white;
   font-weight: bold;
   line-height: 25px;
-}
+} */
 
 /* .logo {
   height: 6em;
@@ -58,3 +58,23 @@ a {
 .read-the-docs {
   color: #888;
 } */
+
+@media screen and (max-width: 400px) {
+  #features {
+    padding: 20px;
+    width: 111%;
+  }
+  #about-the-book,
+  #about,
+  #events,
+  #testimonials,
+  #team,
+  #contact,
+  #footer {
+    width: 111%;
+  }
+
+  #portfolio {
+    width: 110%;
+  }
+}

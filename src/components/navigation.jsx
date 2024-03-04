@@ -28,9 +28,9 @@ export const Navigation = (props) => {
                 Home
               </a>
             </li>
-          <li className="dropdown">
+          {/* <li className="dropdown">
               <a
-                href="#"
+                // href="#about"
                 className="dropdown-toggle"
                 data-toggle="dropdown"
                 role="button"
@@ -47,8 +47,8 @@ export const Navigation = (props) => {
                   <a href="#about-the-book" className="page-scroll">About Finicky Felicia</a>
                 </li>
               </ul>
-            </li>
-            {/* <li>
+            </li> */}
+            <li>
               <a href="#about" className="page-scroll">
                 About The Author
               </a>
@@ -57,8 +57,8 @@ export const Navigation = (props) => {
               <a href="#about-the-book" className="page-scroll">
                 About The Book
               </a>
-            </li> */}
-            <li className="dropdown">
+            </li>
+            {/* <li className="dropdown">
               <a
                 href="#"
                 className="dropdown-toggle"
@@ -72,12 +72,12 @@ export const Navigation = (props) => {
               <ul className="dropdown-menu">
                 <li>
                   <a href="#upcoming-events">Upcoming Events</a>
-                </li>
+                </li> */}
                 {/* <li>
                   <a href="#past-events">Past Events</a>
                 </li> */}
-              </ul>
-            </li>
+              {/* </ul>
+            </li> */}
             {/* <li>
               <a href="#portfolio" className="page-scroll">
                 Gallery
