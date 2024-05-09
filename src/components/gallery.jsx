@@ -18,12 +18,27 @@ export const UpcomingEvents = (props) => {
                     className="col-sm-6 col-md-4 col-lg-4"
                   >
                     <Image
+                      title="See Finicky Felicia At Barnes And Noble"
+            
+                      largeImage="https://stores.barnesandnoble.com/event/9780062168403-0"
+                      smallImage="../../../img/portfolio/BN2.png"
+    
+                    />
+                     </div>
+
+                     <div
+                    key={`name`}
+                    className="col-sm-6 col-md-4 col-lg-4"
+                  >
+                    <Image
                       title="See Finicky Felicia In The Virtual Museum"
-                      largeImage="https://blackbabybooks.com/bcbw-sponsors/"
+                       largeImage="https://blackbabybooks.com/bcbw-sponsors/"
                       smallImage="../../../img/portfolio/10-large.png"
     
                     />
                      </div>
+
+                     {/* https://stores.barnesandnoble.com/event/9780062168403-0 */}
                   {/* <div
                     key={`name`}
                     className="col-sm-4 col-md-4 col-lg-4"
