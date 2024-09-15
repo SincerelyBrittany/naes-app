@@ -1,6 +1,6 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import emailjs from "emailjs-com";
-import React from "react";
+import ContactForm from "./contactForm";
 
 const initialState = {
   name: "",
@@ -37,6 +37,8 @@ export const Contact = (props) => {
   };
   return (
     <div>
+      <br/>
+      <ContactForm/>
       <div id="contact">
        
           <div className="col-md-12">

@@ -2,6 +2,7 @@
 
 Want to complete/Adds
 
+contact form - https://medium.com/weekly-webtips/simple-react-contact-form-without-back-end-9fa06eff52d9
 
 Events page - instagram 
 Sticky navbar
