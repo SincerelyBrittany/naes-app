@@ -1,69 +1,139 @@
-import { useState } from "react";
+
+
 import emailjs from "emailjs-com";
-import React from "react";
+import React from 'react';
 
-const initialState = {
-  name: "",
-  email: "",
-  message: "",
+// Define inline styles
+const styles = {
+  container: {
+    display: 'flex',
+    justifyContent: 'center',
+    alignItems: 'center',
+    // height: '100vh',
+    padding: '1rem',
+  },
+  form: {
+    width: '100%',
+    maxWidth: '600px',
+    backgroundColor: '#fff',
+    padding: '2rem',
+    borderRadius: '0.5rem',
+    boxShadow: '0 0 10px rgba(0, 0, 0, 0.1)',
+  },
+  input: {
+    width: '100%',
+    padding: '0.75rem',
+    marginBottom: '1rem',
+    border: '1px solid #ddd',
+    borderRadius: '0.25rem',
+    boxSizing: 'border-box',
+  },
+  textarea: {
+    width: '100%',
+    padding: '0.75rem',
+    marginBottom: '1rem',
+    border: '1px solid #ddd',
+    borderRadius: '0.25rem',
+    boxSizing: 'border-box',
+  },
+  button: {
+    width: '100%',
+    padding: '0.75rem',
+    border: 'none',
+    borderRadius: '0.25rem',
+    backgroundColor: '#17a2b8',
+    color: '#fff',
+    fontSize: '1rem',
+    cursor: 'pointer',
+    transition: 'background-color 0.2s',
+  },
+  buttonHover: {
+    backgroundColor: '#138496',
+  },
 };
-export const Contact = (props) => {
-  const [{ name, email, message }, setState] = useState(initialState);
 
-  const handleChange = (e) => {
-    const { name, value } = e.target;
-    setState((prevState) => ({ ...prevState, [name]: value }));
-  };
-  const clearState = () => setState({ ...initialState });
-  
-  
-  const handleSubmit = (e) => {
-    e.preventDefault();
-    console.log(name, email, message);
-    
-    {/* replace below with your own Service ID, Template ID and Public Key from your EmailJS account */ }
-    
-    emailjs
-      .sendForm("YOUR_SERVICE_ID", "YOUR_TEMPLATE_ID", e.target, "YOUR_PUBLIC_KEY")
-      .then(
-        (result) => {
-          console.log(result.text);
-          clearState();
-        },
-        (error) => {
-          console.log(error.text);
-        }
-      );
-  };
-  return (
-    <div>
-      <div id="contact">
-       
-          <div className="col-md-12">
-            <div className="row">
-              <div className="social">
-                <ul>
-                  <li>
-                    <a href={props.data ? props.data.facebook : "/"}>
-                      <i className="fa fa-facebook"></i>
-                    </a>
-                  </li>
-                  <li>
-                    <a href={props.data ? props.data.instagram : "/"}>
-                      <i className="fa fa-instagram"></i>
-                    </a>
-                  </li>
-                  {/* <li>
-                    <a href={props.data ? props.data.youtube : "/"}>
-                      <i className="fa fa-youtube"></i>
-                    </a>
-                  </li> */}
-                </ul>
-              </div>
+// export default function Contact() {
+  export const Contact = (props) => {
+    function sendEmail(e) {
+        e.preventDefault();
+        const emailCode = import.meta.env.VITE_EMAIL_JS_CODE;
+        emailjs.sendForm('contact_service', emailCode, e.target, 'VHZAaHAmIZgTxUswy')
+            .then((result) => {
+                console.log(result.text);
+            }, (error) => {
+                console.log(error.text);
+            });
+        e.target.reset();
+    }
+
+    return (
+    <div id="contact" className="text-center">
+      <div className="container">
+        <div className="section-title">
+        <h2>Contact The Author</h2>
+        <div style={styles.container}>
+            <div style={styles.form}>
+                <form onSubmit={sendEmail}>
+                    <div className="row pt-5 mx-auto">
+                        <div className="col-12 form-group mx-auto">
+                            <input
+                                type="text"
+                                style={styles.input}
+                                placeholder="Name"
+                                name="name"
+                                required
+                            />
+                        </div>
+                        <div className="col-12 form-group pt-2 mx-auto">
+                            <input
+                                type="email"
+                                style={styles.input}
+                                placeholder="Email Address"
+                                name="email"
+                                required
+                            />
+                        </div>
+                        <div className="col-12 form-group pt-2 mx-auto">
+                            <input
+                                type="tel"
+                                style={styles.input}
+                                placeholder="Phone Number (optional)"
+                                name="phone"
+                            />
+                        </div>
+                        <div className="col-12 form-group pt-2 mx-auto">
+                            <input
+                                type="text"
+                                style={styles.input}
+                                placeholder="Subject"
+                                name="subject"
+                            />
+                        </div>
+                        <div className="col-12 form-group pt-2 mx-auto">
+                            <textarea
+                                style={styles.textarea}
+                                cols="30"
+                                rows="8"
+                                placeholder="Your message"
+                                name="message"
+                                required
+                            ></textarea>
+                        </div>
+                        <div className="col-12 pt-3 mx-auto">
+                            <input
+                                type="submit"
+                                className="btn btn-custom btn-lg page-scroll"
+                                value="Send Message"
+                                onMouseOver={(e) => e.target.style.backgroundColor = styles.buttonHover.backgroundColor}
+                                onMouseOut={(e) => e.target.style.backgroundColor = styles.button.backgroundColor}
+                            />
+                        </div>
+                    </div>
+                </form>
             </div>
-          </div>
         </div>
-      </div>
-    
-  );
-};
+        </div>
+        </div>
+           </div>
+    );
+}

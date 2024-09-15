@@ -22,7 +22,7 @@ export const Header = (props) => {
                 </a>
                 {" "}
                 <a
-                  href="#about-the-book"
+                  href="about-the-book"
                   className="btn btn-custom btn-lg page-scroll"
                 >
                   Learn More
