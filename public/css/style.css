@@ -215,12 +215,12 @@ a:focus,
   background-size: cover;
   -o-background-size: cover;
 }
-.intro .overlay {
+.intro .overlays {
   background: rgba(0, 0, 0, 0.2);
 }
 .intro h1 {
   font-family: "Raleway", sans-serif;
-  color: #fff;
+  color: white;
   font-size: 82px;
   font-weight: 700;
   text-transform: uppercase;

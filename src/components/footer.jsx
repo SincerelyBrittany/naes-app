@@ -11,9 +11,11 @@ import {
 export default function Footer() {
   return (
     <>
-      <footer className="ftco-footer ftco-section">
-        <div className="container">
-          <div className="row mb-5">
+      {/* <footer className="ftco-footer ftco-section"> */}
+      <footer >
+      <div className="container">
+        {/* <div className="container"> */}
+          {/* <div className="row mb-5">
             <div className="col-md">
               <div className="ftco-footer-widget mb-4">
                 <h2 className="ftco-heading-2">About</h2>
@@ -118,18 +120,33 @@ export default function Footer() {
                 </div>
               </div>
             </div>
-          </div>
+          </div> */}
           <div className="row">
             <div className="col-md-12 text-center">
+            <div className="social">
+                <ul>
+                  <li>
+                  <a href="https://">
+                      <i className="fa fa-facebook"></i>
+                    </a>
+                  </li>
+                  <li>
+                    <a href="https://">
+                      <i className="fa fa-instagram"></i>
+                    </a>
+                  </li>
+               
+                </ul>
+              </div>
               <p>
                 {/* Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. */}
-                Copyright © All rights reserved | This template is made with{" "}
+                Copyright © All rights reserved | This website is made with{" "}
                 <i className="fa fa-heart" aria-hidden="true" /> by{" "}
-                <Link to="https://colorlib.com" target="_blank">
-                  Colorlib
+                <Link to="https://www.sincerelybrittany.com" target="_blank">
+                  SincerelyBrittany
                 </Link>
                 {/* Link back to Colorlib can't be removed. Template is licensed under CC BY 3.0. */}
-              </p>
+              </p>    
             </div>
           </div>
         </div>

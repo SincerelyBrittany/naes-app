@@ -6,6 +6,7 @@ import {
   FaPhoneAlt,
   FaRegPaperPlane
 } from "react-icons/fa";
+import ContactForm from "./contactForm";
 
 export default function Contact() {
   return (
@@ -18,15 +19,15 @@ export default function Contact() {
           <div className="row justify-content-center mb-5 pb-3">
             <div className="col-md-7 heading-section text-center">
               <h2 className="mb-4">Contact Me</h2>
-              <p>
+              {/* <p>
                 Far far away, behind the word mountains, far from the countries
                 Vokalia and Consonantia
-              </p>
+              </p> */}
             </div>
           </div>
           <div className="row d-flex contact-info mb-5">
-            <div className="col-md-6 col-lg-3 d-flex ">
-              <div className="align-self-stretch box text-center p-4 bg-light">
+            <div className="col-md-3 col-lg-2 d-flex ">
+              {/* <div className="align-self-stretch box text-center p-4 bg-light">
                 <div className="icon d-flex align-items-center justify-content-center">
                   <span>
                     <FaMapMarkerAlt />
@@ -36,19 +37,20 @@ export default function Contact() {
                   <h3 className="mb-4">Address</h3>
                   <p>198 West 21th Street, Suite 721 New York NY 10016</p>
                 </div>
-              </div>
+              </div> */}
             </div>
-            <div className="col-md-6 col-lg-3 d-flex">
+            <div className="col-md-3 col-lg-3 d-flex">
               <div className="align-self-stretch box text-center p-4 bg-light">
                 <div className="icon d-flex align-items-center justify-content-center">
                   <span>
-                    <FaPhoneAlt />
+                    {/* <FaPhoneAlt /> */}
+                    <i className="fa fa-instagram"></i>
                   </span>
                 </div>
                 <div>
-                  <h3 className="mb-4">Contact Number</h3>
+                  <h3 className="mb-4">Instagram</h3>
                   <p>
-                    <Link to="tel://1234567920">+ 1235 2355 98</Link>
+                    <Link to="https://www.instagram.com/naes.place/">Nae's Place</Link>
                   </p>
                 </div>
               </div>
@@ -63,7 +65,7 @@ export default function Contact() {
                 <div>
                   <h3 className="mb-4">Email Address</h3>
                   <p>
-                    <Link to="mailto:info@yoursite.com">info@yoursite.com</Link>
+                    <Link to="mailto:naesplace59@gmail.com">naesplace59@gmail.com</Link>
                   </p>
                 </div>
               </div>
@@ -72,19 +74,20 @@ export default function Contact() {
               <div className="align-self-stretch box text-center p-4 bg-light">
                 <div className="icon d-flex align-items-center justify-content-center">
                   <span>
-                    <FaGlobeAfrica />
+                    {/* <FaGlobeAfrica /> */}
+                    <i className="fa fa-facebook"></i>
                   </span>
                 </div>
                 <div>
-                  <h3 className="mb-4">Website</h3>
+                  <h3 className="mb-4">Facebook</h3>
                   <p>
-                    <Link to="#">yoursite.com</Link>
+                    <Link to="https://www.facebook.com/p/Finicky-Felicia-100084813500514/?paipv=0&eav=AfYZFEEW3U-F3YIHA84OywVP7iyvvNdSnCIbrOEfu4jeLNCMo7GnPwep9JMj4oUha0Y&_rdr">Finicky Felicia</Link>
                   </p>
                 </div>
               </div>
             </div>
           </div>
-          <div className="row no-gutters block-9">
+          {/* <div className="row no-gutters block-9">
             <div className="col-md-6 order-md-last d-flex">
               <form action="#" className="bg-light p-4 p-md-5 contact-form">
                 <div className="form-group">
@@ -130,9 +133,11 @@ export default function Contact() {
             </div>
             <div className="col-md-6 d-flex">
               <div id="map" className="map" />
-              {/* <div class="img" style="background-image: url(images/about.jpg);"></div> */}
+              <div class="img" style="background-image: url(images/about.jpg);"></div>
             </div>
-          </div>
+          </div> */}
+          
+          <ContactForm />
         </div>
       </section>
     </>

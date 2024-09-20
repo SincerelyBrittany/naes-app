@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import { Link } from "react-scroll";
 import BookStore from "../images/undraw_book_lover_mkck.svg";
 
 export default function HeroBanner() {
@@ -8,7 +8,7 @@ export default function HeroBanner() {
       <section className="hero-wrap js-fullheight">
       <header id="home-section">
       <div className="intro">
-        <div >
+      <div className="overlays">
           <div className="container">
             <div className="row">
               <div className="col-md-8 col-md-offset-2 col-sm-10 col-sm-offset-1 intro-text">
@@ -26,12 +26,19 @@ export default function HeroBanner() {
                  Amazon
                 </a>
                 {" "}
-                <a
-                  href="#about-the-book"
-                  className="btn btn-custom btn-lg page-scroll"
-                >
+                 {/* <Link
+            activeClass="active"
+            to="about-section"
+            spy={true}
+            smooth={true}
+            offset={50}
+            duration={500}
+            className="btn btn-custom btn-lg page-scroll"
+          >
+          
                   Learn More
-                </a>
+           
+                </Link> */}
                 {" "}
                 <a
                   href="https://www.barnesandnoble.com/w/finicky-felicia-narene-russell/1144045912"
