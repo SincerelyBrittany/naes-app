@@ -67,7 +67,7 @@ const styles = {
     }
 
     return (
-    <div id="contact" className="text-center">
+    <div id="upcoming-events" className="text-center">
       <div className="container">
         <div className="section-title">
         <h2>Contact The Author</h2>
