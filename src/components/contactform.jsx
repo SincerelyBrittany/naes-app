@@ -1,7 +1,7 @@
 import emailjs from "emailjs-com";
 import  React, {useState} from 'react';
 
-// Define inline styles
+
 const styles = {
   container: {
     display: 'flex',
