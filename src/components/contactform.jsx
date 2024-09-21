@@ -67,65 +67,83 @@ export default function ContactForm() {
     // }
 
     const [isSubmitted, setIsSubmitted] = useState(false);
-    async function sendEmail(e) {
-        e.preventDefault();
-        const emailCode = import.meta.env.VITE_EMAIL_JS_CODE;
-        const emailAuth = import.meta.env.VITE_EMAIL_AUTH;
-    
-        const postfields = {
-            user_id: 'rEj6kXSVO70sXjCXK',  // Your EmailJS user ID
-            service_id: 'contact_service',  // Your service ID
-            template_id: 'template_hkel2fd',  // Your template ID
-            template_params: {
-                name: e.target.name.value,
-                email: e.target.email.value,
-                subject: e.target.subject.value,
-                message: e.target.message.value,
-                phone: e.target.phone.value,
-                // Add your template parameters here, if any
-                // Example: name: e.target.name.value,
-            },
-        };
-    
-        try {
-            const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-                method: 'POST',
-                headers: {
-                    'Content-Type': 'application/json',
-                },
-                body: JSON.stringify(postfields),
-            });
-    
-            // Handle response as text first
-            const responseText = await response.text();
-    
-            if (!response.ok) {
-                throw new Error(responseText);  // Throw error with response text
-            }
-    
-            console.log(responseText);  // Log the response if needed
-            setIsSubmitted(true);  // Update state to indicate the form was submitted
-            e.target.reset();
-        } catch (error) {
-            debugger
-            console.log(error);  // Log any errors
-        }
-    }
-    
-
-    // function sendEmail(e) {
+    // async function sendEmail(e) {
     //     e.preventDefault();
     //     const emailCode = import.meta.env.VITE_EMAIL_JS_CODE;
     //     const emailAuth = import.meta.env.VITE_EMAIL_AUTH;
-    //     emailjs.sendForm('contact_service', emailCode, e.target, emailAuth)
-    //         .then((result) => {
-    //             console.log(result.text);
-    //             setIsSubmitted(true); // Update state to indicate the form was submitted
-    //         }, (error) => {
-    //             console.log(error.text);
+    
+    //     const postfields = {
+    //         user_id: 'rEj6kXSVO70sXjCXK',  // Your EmailJS user ID
+    //         service_id: 'contact_service',  // Your service ID
+    //         template_id: 'template_hkel2fd',  // Your template ID
+    //         template_params: {
+    //             name: e.target.name.value,
+    //             email: e.target.email.value,
+    //             subject: e.target.subject.value,
+    //             message: e.target.message.value,
+    //             phone: e.target.phone.value,
+    //             // Add your template parameters here, if any
+    //             // Example: name: e.target.name.value,
+    //         },
+    //     };
+    
+    //     try {
+    //         const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+    //             method: 'POST',
+    //             headers: {
+    //                 'Content-Type': 'application/json',
+    //             },
+    //             body: JSON.stringify(postfields),
     //         });
-    //     e.target.reset();
+    
+    //         // Handle response as text first
+    //         const responseText = await response.text();
+    
+    //         if (!response.ok) {
+    //             throw new Error(responseText);  // Throw error with response text
+    //         }
+    
+    //         console.log(responseText);  // Log the response if needed
+    //         setIsSubmitted(true);  // Update state to indicate the form was submitted
+    //         e.target.reset();
+    //     } catch (error) {
+    //         debugger
+    //         console.log(error);  // Log any errors
+    //     }
     // }
+    
+
+    function sendEmail(e) {
+        e.preventDefault();
+        const emailCode = import.meta.env.VITE_EMAIL_JS_CODE;
+        const emailAuth = import.meta.env.VITE_EMAIL_AUTH;
+        emailjs.sendForm('contact_service', 'template_hkel2fd', e.target, '6qBdG0NzwYGoZ24qr', 'x3D3jDne-sNbX-7ZbtxPq')
+            .then((result) => {
+                console.log(result.text);
+                setIsSubmitted(true); // Update state to indicate the form was submitted
+            }, (error) => {
+                console.log(error.text);
+            });
+        e.target.reset();
+    }
+
+    // const sendEmail = (e) => {
+    //     e.preventDefault();
+    
+    //     emailjs
+    //       .sendForm('contact_service', 'template_hkel2fd', e.target, {
+    //         publicKey: '6qBdG0NzwYGoZ24qr',
+    //       }, )
+    //       .then(
+    //         (result) => {
+    //             console.log(result.text);
+    //             setIsSubmitted(true);
+    //         },
+    //         (error) => {
+    //           console.log('FAILED...', error.text);
+    //         },
+    //       );
+    //   };
 
     return (
           <div  className="text-center">
@@ -152,7 +170,7 @@ export default function ContactForm() {
                                 style={styles.input}
                                 placeholder="Name"
                                 name="name"
-                                required
+                                // required
                             />
                         </div>
                         <div className="col-12 form-group pt-2 mx-auto">
@@ -161,7 +179,7 @@ export default function ContactForm() {
                                 style={styles.input}
                                 placeholder="Email Address"
                                 name="email"
-                                required
+                                // required
                             />
                         </div>
                         <div className="col-12 form-group pt-2 mx-auto">
@@ -187,7 +205,7 @@ export default function ContactForm() {
                                 rows="8"
                                 placeholder="Your message"
                                 name="message"
-                                required
+                                // required
                             ></textarea>
                         </div>
                         <div className="col-12 pt-3 mx-auto">
