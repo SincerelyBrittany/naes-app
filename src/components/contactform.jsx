@@ -75,7 +75,7 @@ export default function ContactForm() {
         const postfields = {
             user_id: emailAuth,  // Your EmailJS user ID
             service_id: 'contact_service',  // Your service ID
-            template_id: emailCode,  // Your template ID
+            template_id: 'template_hkel2fd',  // Your template ID
             template_params: {
                 name: e.target.name.value,
                 email: e.target.email.value,
