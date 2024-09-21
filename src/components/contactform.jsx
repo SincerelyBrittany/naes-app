@@ -73,7 +73,7 @@ export default function ContactForm() {
         const emailAuth = import.meta.env.VITE_EMAIL_AUTH;
     
         const postfields = {
-            user_id: emailAuth,  // Your EmailJS user ID
+            user_id: 'rEj6kXSVO70sXjCXK',  // Your EmailJS user ID
             service_id: 'contact_service',  // Your service ID
             template_id: 'template_hkel2fd',  // Your template ID
             template_params: {
