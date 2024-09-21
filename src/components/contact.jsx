@@ -6,7 +6,7 @@ import {
   FaPhoneAlt,
   FaRegPaperPlane
 } from "react-icons/fa";
-import ContactForm from "./contactForm";
+import ContactForm from "./contactform";
 
 export default function Contact() {
   return (
