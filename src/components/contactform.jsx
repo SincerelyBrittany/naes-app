@@ -67,20 +67,64 @@ export default function ContactForm() {
     // }
 
     const [isSubmitted, setIsSubmitted] = useState(false);
-
-    function sendEmail(e) {
+    async function sendEmail(e) {
         e.preventDefault();
         const emailCode = import.meta.env.VITE_EMAIL_JS_CODE;
         const emailAuth = import.meta.env.VITE_EMAIL_AUTH;
-        emailjs.sendForm('contact_service', emailCode, e.target, emailAuth)
-            .then((result) => {
-                console.log(result.text);
-                setIsSubmitted(true); // Update state to indicate the form was submitted
-            }, (error) => {
-                console.log(error.text);
+    
+        const postfields = {
+            user_id: emailAuth,  // Your EmailJS user ID
+            service_id: 'contact_service',  // Your service ID
+            template_id: emailCode,  // Your template ID
+            template_params: {
+                name: e.target.name.value,
+                email: e.target.email.value,
+                subject: e.target.subject.value,
+                message: e.target.message.value,
+                phone: e.target.phone.value,
+                // Add your template parameters here, if any
+                // Example: name: e.target.name.value,
+            },
+        };
+    
+        try {
+            const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify(postfields),
             });
-        e.target.reset();
+    
+            // Handle response as text first
+            const responseText = await response.text();
+    
+            if (!response.ok) {
+                throw new Error(responseText);  // Throw error with response text
+            }
+    
+            console.log(responseText);  // Log the response if needed
+            setIsSubmitted(true);  // Update state to indicate the form was submitted
+            e.target.reset();
+        } catch (error) {
+            console.log(error);  // Log any errors
+        }
     }
+    
+
+    // function sendEmail(e) {
+    //     e.preventDefault();
+    //     const emailCode = import.meta.env.VITE_EMAIL_JS_CODE;
+    //     const emailAuth = import.meta.env.VITE_EMAIL_AUTH;
+    //     emailjs.sendForm('contact_service', emailCode, e.target, emailAuth)
+    //         .then((result) => {
+    //             console.log(result.text);
+    //             setIsSubmitted(true); // Update state to indicate the form was submitted
+    //         }, (error) => {
+    //             console.log(error.text);
+    //         });
+    //     e.target.reset();
+    // }
 
     return (
           <div  className="text-center">
