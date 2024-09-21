@@ -107,6 +107,7 @@ export default function ContactForm() {
             setIsSubmitted(true);  // Update state to indicate the form was submitted
             e.target.reset();
         } catch (error) {
+            debugger
             console.log(error);  // Log any errors
         }
     }
