@@ -2,6 +2,7 @@
 
 Want to complete/Adds
 
+Figure out how to get upcoming events from a page that she can add. 
 
 Events page - instagram 
 Sticky navbar
