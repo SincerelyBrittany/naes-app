@@ -117,6 +117,10 @@ export default function ContactForm() {
     
         const emailCode = import.meta.env.VITE_EMAIL_JS_CODE;
         const emailAuth = import.meta.env.VITE_EMAIL_AUTH;
+
+        if (!emailCode || !emailAuth) {
+            throw new Error("Email credentials are missing!");
+        }
         
         try {
             const result = await emailjs.sendForm(

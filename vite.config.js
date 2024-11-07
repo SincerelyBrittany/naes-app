@@ -5,22 +5,28 @@ import { defineConfig } from "vite";
 import react from "@vitejs/plugin-react";
 // import { resolve } from "path";
 
-const viteEnv = {};
-Object.keys(process.env).forEach((key) => {
-  if (key.startsWith(`VITE_`)) {
-    viteEnv[`import.meta.env.${key}`] = process.env[key];
-  }
+export default defineConfig({
+  define: {
+    'process.env': process.env,
+  },
 });
 
-export default defineConfig({
-  resolve: {
-    alias: {
-      "@": require("path").resolve(__dirname, "src"),
-    },
-  },
-  define: viteEnv,
-  plugins: [vue()],
-});
+// const viteEnv = {};
+// Object.keys(process.env).forEach((key) => {
+//   if (key.startsWith(`VITE_`)) {
+//     viteEnv[`import.meta.env.${key}`] = process.env[key];
+//   }
+// });
+
+// export default defineConfig({
+//   resolve: {
+//     alias: {
+//       "@": require("path").resolve(__dirname, "src"),
+//     },
+//   },
+//   define: viteEnv,
+//   plugins: [vue()],
+// });
 
 // https://vitejs.dev/config/
 // export default defineConfig({
