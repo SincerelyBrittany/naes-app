@@ -6,8 +6,7 @@ import {
   FaPhoneAlt,
   FaRegPaperPlane
 } from "react-icons/fa";
-// import ContactForm from "./contactform";
-import ContactFormTwo from "./contactformTwo";
+import ContactForm from "./contactform";
 
 export default function Contact() {
   return (
@@ -138,8 +137,8 @@ export default function Contact() {
             </div>
           </div> */}
           
-          {/* <ContactForm /> */}
-          <ContactFormTwo />
+           <ContactForm /> 
+         
         </div>
       </section>
     </>

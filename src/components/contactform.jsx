@@ -52,107 +52,37 @@ const styles = {
 };
 
 export default function ContactForm() {
-
-    // function sendEmail(e) {
-    //     e.preventDefault();
-    //     const emailCode = import.meta.env.VITE_EMAIL_JS_CODE;
-    //     const emailAuth = import.meta.env.VITE_EMAIL_AUTH;
-    //     emailjs.sendForm('contact_service', emailCode, e.target, emailAuth)
-    //         .then((result) => {
-    //             console.log(result.text);
-    //         }, (error) => {
-    //             console.log(error.text);
-    //         });
-    //     e.target.reset();
-    // }
-
     const [isSubmitted, setIsSubmitted] = useState(false);
-    // async function sendEmail(e) {
-    //     e.preventDefault();
-    //     const emailCode = import.meta.env.VITE_EMAIL_JS_CODE;
-    //     const emailAuth = import.meta.env.VITE_EMAIL_AUTH;
-    
-    //     const postfields = {
-    //         user_id: 'rEj6kXSVO70sXjCXK',  // Your EmailJS user ID
-    //         service_id: 'contact_service',  // Your service ID
-    //         template_id: 'template_hkel2fd',  // Your template ID
-    //         template_params: {
-    //             name: e.target.name.value,
-    //             email: e.target.email.value,
-    //             subject: e.target.subject.value,
-    //             message: e.target.message.value,
-    //             phone: e.target.phone.value,
-    //             // Add your template parameters here, if any
-    //             // Example: name: e.target.name.value,
-    //         },
-    //     };
-    
-    //     try {
-    //         const response = await fetch('https://api.emailjs.com/api/v1.0/email/send', {
-    //             method: 'POST',
-    //             headers: {
-    //                 'Content-Type': 'application/json',
-    //             },
-    //             body: JSON.stringify(postfields),
-    //         });
-    
-    //         // Handle response as text first
-    //         const responseText = await response.text();
-    
-    //         if (!response.ok) {
-    //             throw new Error(responseText);  // Throw error with response text
-    //         }
-    
-    //         console.log(responseText);  // Log the response if needed
-    //         setIsSubmitted(true);  // Update state to indicate the form was submitted
-    //         e.target.reset();
-    //     } catch (error) {
-    //         debugger
-    //         console.log(error);  // Log any errors
-    //     }
-    // }
-    
-
-    function sendEmail(e) {
+    async function sendEmail(e) {
         e.preventDefault();
+    
         const emailCode = import.meta.env.VITE_EMAIL_JS_CODE;
         const emailAuth = import.meta.env.VITE_EMAIL_AUTH;
-        emailjs.sendForm('contact_service', 'template_hkel2fd', e.target, '6qBdG0NzwYGoZ24qr', 'x3D3jDne-sNbX-7ZbtxPq')
-            .then((result) => {
-                console.log(result.text);
-                setIsSubmitted(true); // Update state to indicate the form was submitted
-            }, (error) => {
-                console.log(error.text);
-            });
-        e.target.reset();
+
+        if (!emailCode || !emailAuth) {
+            throw new Error("Email credentials are missing!");
+        }
+        
+        try {
+            const result = await emailjs.sendForm(
+                'contact_service',
+                'template_hkel2fd',
+                e.target,
+                // emailCode,
+                emailAuth
+            );
+            
+            console.log(result.text);
+            setIsSubmitted(true); // Update state to indicate the form was submitted
+        } catch (error) {
+            console.log(error.text);
+        } finally {
+            e.target.reset(); // Always reset the form, regardless of success or error
+        }
     }
-
-    // const sendEmail = (e) => {
-    //     e.preventDefault();
-    
-    //     emailjs
-    //       .sendForm('contact_service', 'template_hkel2fd', e.target, {
-    //         publicKey: '6qBdG0NzwYGoZ24qr',
-    //       }, )
-    //       .then(
-    //         (result) => {
-    //             console.log(result.text);
-    //             setIsSubmitted(true);
-    //         },
-    //         (error) => {
-    //           console.log('FAILED...', error.text);
-    //         },
-    //       );
-    //   };
-
     return (
           <div  className="text-center">
-      <div>
-        {/* <div className="section-title mt-10">
-        <h2>Contact The Author</h2>
-        
-      </div> */}
-      
+      <div> 
         <div style={styles.container}>
             
             <div style={styles.form}>
@@ -162,9 +92,10 @@ export default function ContactForm() {
                         <i onClick={() => setIsSubmitted(false)}> Send another email</i>
                         </>
                     ) : (
-                <form onSubmit={sendEmail}>
-                    <div className="row pt-5 mx-auto">
-                        <div className="col-12 form-group mx-auto">
+                <form onSubmit={sendEmail} name="contact" method="POST">
+                     <input type="hidden" name="form-name" value="contact" />
+                    <div className="basic_info row pt-5 mx-auto">
+                        <div className="input col-12 form-group mx-auto">
                             <input
                                 type="text"
                                 style={styles.input}
@@ -173,7 +104,7 @@ export default function ContactForm() {
                                 // required
                             />
                         </div>
-                        <div className="col-12 form-group pt-2 mx-auto">
+                        <div className=" input col-12 form-group pt-2 mx-auto">
                             <input
                                 type="email"
                                 style={styles.input}
@@ -182,7 +113,7 @@ export default function ContactForm() {
                                 // required
                             />
                         </div>
-                        <div className="col-12 form-group pt-2 mx-auto">
+                        <div className=" input col-12 form-group pt-2 mx-auto">
                             <input
                                 type="tel"
                                 style={styles.input}
@@ -190,7 +121,7 @@ export default function ContactForm() {
                                 name="phone"
                             />
                         </div>
-                        <div className="col-12 form-group pt-2 mx-auto">
+                        <div className="input col-12 form-group pt-2 mx-auto">
                             <input
                                 type="text"
                                 style={styles.input}
@@ -198,7 +129,7 @@ export default function ContactForm() {
                                 name="subject"
                             />
                         </div>
-                        <div className="col-12 form-group pt-2 mx-auto">
+                        <div className="input col-12 form-group pt-2 mx-auto">
                             <textarea
                                 style={styles.textarea}
                                 cols="30"

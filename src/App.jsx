@@ -23,10 +23,13 @@ export default function App() {
       {/* <Counter /> */}
       {/* <Chapter /> */}
       {/* <Services /> */}
-      {/* <Projects />
-      <Testimonials /> */}
-      {/* <OrderSignedCopy/> */}
+      <Counter /> 
+      <br />
+      {/* <Projects /> */}
+      {/* <Testimonials />  */}
+       {/* <OrderSignedCopy/> */}
       <Author />
+      <Services />
       <Contact />
       <Footer />
     </>
