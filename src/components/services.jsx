@@ -13,7 +13,7 @@ import NovemberEvent from "../images/NovemberEvent.jpg";
 export default function Services() {
   return (
     <>
-      <section className="ftco-section ftco-no-pt">
+      <section className="ftco-section ftco-no-pt" id="projects-section">
         <div className="container">
           <div className="row justify-content-center py-5 mt-5">
             <div className="col-md-5 heading-section text-center">

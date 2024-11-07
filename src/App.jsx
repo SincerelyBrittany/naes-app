@@ -10,6 +10,7 @@ import Services from "./components/services";
 import Testimonials from "./components/testimonials";
 import Projects from "./components/projects";
 import Author from "./components/author";
+import OrderACopy from "./components/OrderACopy";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
 
@@ -29,6 +30,7 @@ export default function App() {
       {/* <Testimonials />  */}
        {/* <OrderSignedCopy/> */}
       <Author />
+      {/* <OrderACopy/> */}
       <Services />
       <Contact />
       <Footer />

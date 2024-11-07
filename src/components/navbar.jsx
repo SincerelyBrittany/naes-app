@@ -249,6 +249,19 @@ export default function CustomNavbar() {
             <li className="nav-item">
               <Link
                 activeClass="active"
+                to="projects-section"
+                spy={true}
+                smooth={true}
+                offset={50}
+                duration={500}
+                className="nav-link"
+              >
+                <span>Upcoming Events</span>
+              </Link>
+            </li>
+            <li className="nav-item">
+              <Link
+                activeClass="active"
                 to="contact-section"
                 spy={true}
                 smooth={true}
