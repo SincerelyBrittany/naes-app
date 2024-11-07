@@ -115,8 +115,8 @@ export default function ContactForm() {
 
     function sendEmail(e) {
         e.preventDefault();
-        const emailCode = import.meta.env.VITE_EMAIL_JS_CODE;
-        const emailAuth = import.meta.env.VITE_EMAIL_AUTH;
+        const emailCode = process.env.VITE_EMAIL_JS_CODE;
+        const emailAuth = process.env.VITE_EMAIL_AUTH;
         emailjs.sendForm('contact_service', 'template_hkel2fd', e.target, '6qBdG0NzwYGoZ24qr', 'x3D3jDne-sNbX-7ZbtxPq')
             .then((result) => {
                 console.log(result.text);
