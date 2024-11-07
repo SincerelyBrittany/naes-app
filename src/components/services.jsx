@@ -38,6 +38,7 @@ export default function Services() {
             </div>
             <div className="col-md-4 text-center d-flex">
               <div className="services-1 bg-light">
+              <Link to="https://www.eventbrite.com/e/black-excellence-winter-and-job-festival-2024-tickets-1026775171177?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl" target="_blank">
               <div
                 className="project img d-flex justify-content-center align-items-end"
                 style={{ backgroundImage: `url(${NovemberEvent})` }}
@@ -45,12 +46,16 @@ export default function Services() {
                 <div className="overlay" />
                 <div className="text p-4">
                   <h3>
-                    <Link to="https://www.eventbrite.com/e/black-excellence-winter-and-job-festival-2024-tickets-1026775171177?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl">Winter Festival</Link>
+              Winter Festival
                   </h3>
                   <span>2pm - 8pm</span>
+                  <br/>
                   <span>Queens, NY</span>
+                  </div>
+                
                 </div>
-              </div>
+                </Link>
+
                 {/* <span className="icon">
                   <i className="flaticon-network" />
                 </span>
