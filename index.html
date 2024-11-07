@@ -68,6 +68,22 @@
       <input type='email' name='email' />
     </form> -->
     <div id="root"></div>
+    <form name="contact" netlify data-netlify="true" hidden>
+      <div className="basic_info">
+        <div className="input">
+          <input type="text" name="name" id="name" />
+        </div>
+        <div className="input">
+          <input type="text" name="email" id="email" />
+        </div>
+      </div>
+      <div className="input">
+        <input type="text" name="subject" id="subject" />
+      </div>
+      <div className="input">
+        <textarea id="message" name="message"></textarea>
+      </div>
+    </form>
     <script type="module" src="/src/main.jsx"></script>
     <script type="text/javascript" src="/js/jquery.1.11.1.js"></script>
     <script type="text/javascript" src="/js/bootstrap.js"></script>

@@ -7,6 +7,7 @@ import {
   FaRegPaperPlane
 } from "react-icons/fa";
 import ContactForm from "./contactform";
+import ContactFormTwo from "./contactformTwo";
 
 export default function Contact() {
   return (
@@ -138,6 +139,7 @@ export default function Contact() {
           </div> */}
           
           {/* <ContactForm /> */}
+          <ContactFormTwo />
         </div>
       </section>
     </>
