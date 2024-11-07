@@ -115,8 +115,8 @@ export default function ContactForm() {
     async function sendEmail(e) {
         e.preventDefault();
     
-        const emailCode = import.meta.env.VITE_EMAIL_JS_CODE;
-        const emailAuth = import.meta.env.VITE_EMAIL_AUTH;
+        const emailCode = process.env.VITE_EMAIL_JS_CODE;
+        const emailAuth = process.env.VITE_EMAIL_AUTH;
         
         try {
             const result = await emailjs.sendForm(
