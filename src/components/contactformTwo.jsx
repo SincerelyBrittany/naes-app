@@ -112,20 +112,42 @@ export default function ContactForm() {
     //     }
     // }
     
-
-    function sendEmail(e) {
+    async function sendEmail(e) {
         e.preventDefault();
+    
         const emailCode = import.meta.env.VITE_EMAIL_JS_CODE;
         const emailAuth = import.meta.env.VITE_EMAIL_AUTH;
-        emailjs.sendForm('contact_service', 'template_hkel2fd', e.target, '6qBdG0NzwYGoZ24qr', 'x3D3jDne-sNbX-7ZbtxPq')
-            .then((result) => {
-                console.log(result.text);
-                setIsSubmitted(true); // Update state to indicate the form was submitted
-            }, (error) => {
-                console.log(error.text);
-            });
-        e.target.reset();
+        
+        try {
+            const result = await emailjs.sendForm(
+                'contact_service',
+                'template_hkel2fd',
+                e.target,
+                // emailCode,
+                emailAuth
+            );
+            
+            console.log(result.text);
+            setIsSubmitted(true); // Update state to indicate the form was submitted
+        } catch (error) {
+            console.log(error.text);
+        } finally {
+            e.target.reset(); // Always reset the form, regardless of success or error
+        }
     }
+    // function sendEmail(e) {
+    //     e.preventDefault();
+    //     const emailCode = import.meta.env.VITE_EMAIL_JS_CODE;
+    //     const emailAuth = import.meta.env.VITE_EMAIL_AUTH;
+    //     emailjs.sendForm('contact_service', 'template_hkel2fd', e.target, '6qBdG0NzwYGoZ24qr', 'x3D3jDne-sNbX-7ZbtxPq')
+    //         .then((result) => {
+    //             console.log(result.text);
+    //             setIsSubmitted(true); // Update state to indicate the form was submitted
+    //         }, (error) => {
+    //             console.log(error.text);
+    //         });
+    //     e.target.reset();
+    // }
 
     // const sendEmail = (e) => {
     //     e.preventDefault();
