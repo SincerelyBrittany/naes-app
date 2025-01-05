@@ -13,23 +13,30 @@ import Author from "./components/author";
 import OrderACopy from "./components/OrderACopy";
 import Contact from "./components/contact";
 import Footer from "./components/footer";
+import CheckoutHome from "./components/checkouthome";
+import InitialCheckoutScreen from './components/initialCheckoutScreen';
 
 export default function App() {
   return (
     <>
       <CustomNavbar />
       <HeroBanner />
-      {/* <Partner /> */}
+  
       <AboutSection />
       {/* <Counter /> */}
       {/* <Chapter /> */}
       {/* <Services /> */}
       <Counter /> 
+      <Partner />
+         {/* <OrderACopy/>  */}
       <br />
       {/* <Projects /> */}
       {/* <Testimonials />  */}
        {/* <OrderSignedCopy/> */}
       <Author />
+      {/* <InitialCheckoutScreen /> */}
+      {/* <InitialCheckoutScreen /> */}
+      {/* <CheckoutHome/> */}
       {/* <OrderACopy/> */}
       <Services />
       <Contact />
