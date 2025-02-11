@@ -9,82 +9,150 @@ import BookSix from "../images/book-6.jpg";
 import BookSeven from "../images/book-7.jpg";
 import BookEight from "../images/book-8.jpg";
 import NovemberEvent from "../images/NovemberEvent.jpg";
+import NewEvent from "../images/NewEvent.png";
 
 export default function Services() {
   return (
     <>
-      <section className="ftco-section ftco-no-pt" id="projects-section">
-        <div className="container">
-          <div className="row justify-content-center py-5 mt-5">
-            <div className="col-md-5 heading-section text-center">
-              {/* <span className="subheading">Services</span> */}
-              <h2 className="mb-4">Upcoming Events</h2>
-            </div>
-          </div>
-          <div className="row">
-            <div className="col-md-4 text-center d-flex">
-              {/* <div className="services-1 bg-light">
-                <span className="icon">
-                  <i className="flaticon-user-experience" />
-                </span>
-                <div className="desc">
-                  <h3 className="mb-5">Experience</h3>
-                  <p>
-                    A small river named Duden flows by their place and supplies
-                    it with the necessary regelialia.
-                  </p>
-                </div>
-              </div> */}
-            </div>
-            <div className="col-md-4 text-center d-flex">
-              <div className="services-1 bg-light">
-              <Link to="https://www.eventbrite.com/e/black-excellence-winter-and-job-festival-2024-tickets-1026775171177?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl" target="_blank">
-              <div
-                className="project img d-flex justify-content-center align-items-end"
-                style={{ backgroundImage: `url(${NovemberEvent})` }}
-              >
-                <div className="overlay" />
-                <div className="text p-4">
-                  <h3>
-              Winter Festival
-                  </h3>
-                  <span>2pm - 8pm</span>
-                  <br/>
-                  <span>Queens, NY</span>
-                  </div>
-                
-                </div>
-                </Link>
-
-                {/* <span className="icon">
-                  <i className="flaticon-network" />
-                </span>
-                <div className="desc">
-                  <h3 className="mb-5">Marketing Goals</h3>
-                  <p>
-                    A small river named Duden flows by their place and supplies
-                    it with the necessary regelialia.
-                  </p>
-                </div> */}
-              </div>
-            </div>
-            <div className="col-md-4 text-center d-flex">
-              {/* <div className="services-1 bg-light">
-                <span className="icon">
-                  <i className="flaticon-innovation" />
-                </span>
-                <div className="desc">
-                  <h3 className="mb-5">Targetting Vission</h3>
-                  <p>
-                    A small river named Duden flows by their place and supplies
-                    it with the necessary regelialia.
-                  </p>
-                </div>
-              </div> */}
-            </div>
+    <section className="ftco-section ftco-no-pt" id="projects-section">
+      <div className="container">
+        <div className="row justify-content-center py-5 mt-5">
+          <div className="col-md-5 heading-section text-center">
+            {/* <span className="subheading">Services</span> */}
+            <h2 className="mb-4">Upcoming Events</h2>
           </div>
         </div>
+        <div className="row">
+          <div className="col-md-4 text-center d-flex">
+            
+          </div>
+          <div className="col-md-4 text-center d-flex">
+            <div className="services-1 bg-light">
+            <Link to="https://newburghlibrary.libcal.com/event/13997086" target="_blank">
+            <div
+              className="project img d-flex justify-content-center align-items-end"
+              style={{ backgroundImage: `url(${NewEvent})` }}
+            >
+              <div className="overlay" />
+              <div className="text p-4">
+                <h3>
+          Saturday Story Time With Finicky Felicia
+                </h3>
+                <span>2pm - 2:30pm</span>
+                <br/>
+                <span>Newburgh, NY</span>
+                </div>
+              
+              </div>
+              </Link>
+
+              <span className="icon">
+                <i className="flaticon-network" />
+              </span>
+              {/* <div className="desc">
+                <h3 className="mb-5">Marketing Goals</h3>
+                <p>
+                  A small river named Duden flows by their place and supplies
+                  it with the necessary regelialia.
+                </p>
+              </div> */}
+            </div>
+          </div>
+          {/* <div className="col-md-4 text-center d-flex">
+            <div className="services-1 bg-light">
+              <span className="icon">
+                <i className="flaticon-innovation" />
+              </span>
+              <div className="desc">
+                <h3 className="mb-5">Targetting Vission</h3>
+                <p>
+                  A small river named Duden flows by their place and supplies
+                  it with the necessary regelialia.
+                </p>
+              </div>
+            </div>
+          </div> */}
+        </div>
+      </div>
       </section>
+
+    
+     
     </>
   );
 }
+
+
+
+// <section className="ftco-section ftco-no-pt" id="projects-section">
+// <div className="container">
+//   <div className="row justify-content-center py-5 mt-5">
+//     <div className="col-md-5 heading-section text-center">
+//       {/* <span className="subheading">Services</span> */}
+//       <h2 className="mb-4">Upcoming Events</h2>
+//     </div>
+//   </div>
+//   <div className="row">
+//     <div className="col-md-4 text-center d-flex">
+//       <div className="services-1 bg-light">
+//         <span className="icon">
+//           <i className="flaticon-user-experience" />
+//         </span>
+//         <div className="desc">
+//           <h3 className="mb-5">Experience</h3>
+//           <p>
+//             A small river named Duden flows by their place and supplies
+//             it with the necessary regelialia.
+//           </p>
+//         </div>
+//       </div>
+//     </div>
+//     <div className="col-md-4 text-center d-flex">
+//       <div className="services-1 bg-light">
+//       <Link to="https://www.eventbrite.com/e/black-excellence-winter-and-job-festival-2024-tickets-1026775171177?utm-campaign=social&utm-content=attendeeshare&utm-medium=discovery&utm-term=listing&utm-source=cp&aff=ebdsshcopyurl" target="_blank">
+//       <div
+//         className="project img d-flex justify-content-center align-items-end"
+//         style={{ backgroundImage: `url(${NovemberEvent})` }}
+//       >
+//         <div className="overlay" />
+//         <div className="text p-4">
+//           <h3>
+//       Winter Festival
+//           </h3>
+//           <span>2pm - 8pm</span>
+//           <br/>
+//           <span>Queens, NY</span>
+//           </div>
+        
+//         </div>
+//         </Link>
+
+//         <span className="icon">
+//           <i className="flaticon-network" />
+//         </span>
+//         <div className="desc">
+//           <h3 className="mb-5">Marketing Goals</h3>
+//           <p>
+//             A small river named Duden flows by their place and supplies
+//             it with the necessary regelialia.
+//           </p>
+//         </div>
+//       </div>
+//     </div>
+//     <div className="col-md-4 text-center d-flex">
+//       <div className="services-1 bg-light">
+//         <span className="icon">
+//           <i className="flaticon-innovation" />
+//         </span>
+//         <div className="desc">
+//           <h3 className="mb-5">Targetting Vission</h3>
+//           <p>
+//             A small river named Duden flows by their place and supplies
+//             it with the necessary regelialia.
+//           </p>
+//         </div>
+//       </div>
+//     </div>
+//   </div>
+// </div>
+// </section>
