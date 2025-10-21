@@ -43,13 +43,13 @@ h5 {
   line-height: 24px;
 } */
 a {
-  color: #608dfd;
+  color: #fed7aa;
   font-weight: 400;
 }
 a:hover,
 a:focus {
   text-decoration: none;
-  color: #608dfd;
+  color: #fed7aa;
 }
 ul,
 ol {

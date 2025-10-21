@@ -1,0 +1,249 @@
+/* Navbar.css - Styles for TypeScript Navbar Component */
+
+/* Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+  }
+  
+  body {
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+      'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+  }
+  
+  /* Navbar Base */
+  .navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    width: 100%;
+    z-index: 1000;
+    transition: all 0.3s ease;
+    background-color: transparent;
+  }
+  
+  .navbar-scrolled {
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+  }
+  
+  /* Navbar Container */
+  .navbar-container {
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 1.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5.5rem; /* Increased from 5rem for larger text */
+  }
+  
+  /* Adjust height for mobile */
+  @media (max-width: 640px) {
+    .navbar-container {
+      height: 4.5rem;
+    }
+  }
+  
+  /* Brand/Logo */
+  .navbar-brand {
+    font-size: 2rem; /* Increased from 1.5rem */
+    font-weight: bold;
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: color 0.3s ease;
+    font-family: inherit;
+  }
+  
+  /* Responsive brand size for mobile */
+  @media (max-width: 640px) {
+    .navbar-brand {
+      font-size: 1.75rem;
+    }
+  }
+  
+  .navbar-scrolled .navbar-brand {
+    /* color: #9333ea; */
+    color: #fed7aa;
+  }
+  
+  .brand-dot {
+    color: #ec4899;
+  }
+  
+  .navbar-brand:hover {
+    opacity: 0.8;
+  }
+  
+  /* Desktop Menu */
+  .navbar-menu {
+    display: none;
+    gap: 2rem;
+    align-items: center;
+  }
+  
+  .navbar-link {
+    font-weight: 500;
+    font-size: 1.125rem; /* Increased from 1rem */
+    color: white;
+    background: none;
+    border: none;
+    cursor: pointer;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    padding: 0.5rem 0;
+    position: relative;
+  }
+  
+  /* Active link indicator - animated underline */
+  .navbar-link::after {
+    content: '';
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 0;
+    height: 2px;
+    background: linear-gradient(90deg, #ec4899, #f472b6);
+    transition: width 0.3s ease;
+  }
+  
+  .navbar-link-active::after {
+    width: 100%;
+  }
+  
+  /* Active link color */
+  .navbar-link-active {
+    color: #fce7f3; /* Light pink when active and transparent navbar */
+    font-weight: 600;
+  }
+  
+  .navbar-scrolled .navbar-link {
+    color: #374151;
+  }
+  
+  .navbar-scrolled .navbar-link-active {
+    color: #ec4899; /* Pink when scrolled */
+  }
+  
+  .navbar-link:hover {
+    color: #ec4899;
+  }
+  
+  .navbar-scrolled .navbar-link:hover {
+    color: #ec4899;
+  }
+  
+  @media (min-width: 768px) {
+    .navbar-menu {
+      display: flex;
+    }
+  }
+  
+  /* Mobile Menu Button */
+  .navbar-mobile-button {
+    display: block;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0.5rem;
+    color: white;
+    transition: color 0.3s ease;
+  }
+  
+  .navbar-scrolled .navbar-mobile-button {
+    color: #374151;
+  }
+  
+  .navbar-mobile-button:hover {
+    opacity: 0.8;
+  }
+  
+  @media (min-width: 768px) {
+    .navbar-mobile-button {
+      display: none;
+    }
+  }
+  
+  /* Mobile Menu Dropdown */
+  .navbar-mobile-menu {
+    background-color: white;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    padding: 1rem;
+  }
+  
+  .navbar-mobile-link {
+    display: block;
+    width: 100%;
+    text-align: left;
+    padding: 0.75rem 1rem;
+    font-size: 1.125rem; /* Increased from 1rem to match desktop */
+    font-weight: 500;
+    color: #374151;
+    background: none;
+    border: none;
+    cursor: pointer;
+    border-radius: 0.5rem;
+    transition: all 0.3s ease;
+    font-family: inherit;
+    margin-bottom: 0.25rem;
+    position: relative;
+  }
+  
+  /* Active mobile link indicator */
+  .navbar-mobile-link-active {
+    background: linear-gradient(90deg, #f3e8ff, #fce7f3);
+    color: #9333ea;
+    font-weight: 600;
+    border-left: 3px solid #ec4899;
+  }
+  
+  .navbar-mobile-link:hover {
+    background-color: #f3e8ff;
+    color: #9333ea;
+  }
+  
+  .navbar-mobile-link:last-child {
+    margin-bottom: 0;
+  }
+  
+  @media (min-width: 768px) {
+    .navbar-mobile-menu {
+      display: none;
+    }
+  }
+  
+  /* Smooth Scrolling */
+  html {
+    scroll-behavior: smooth;
+  }
+  
+  /* Button Reset */
+  button {
+    font-family: inherit;
+    font-size: inherit;
+  }
+  
+  /* Focus Styles for Accessibility */
+  /* Only show focus outline for keyboard navigation, not mouse clicks */
+  .navbar-brand:focus-visible,
+  .navbar-link:focus-visible,
+  .navbar-mobile-button:focus-visible,
+  .navbar-mobile-link:focus-visible {
+    outline: 2px solid #9333ea;
+    outline-offset: 2px;
+    border-radius: 4px;
+  }
+  
+  /* Remove default focus outline */
+  .navbar-brand:focus,
+  .navbar-link:focus,
+  .navbar-mobile-button:focus,
+  .navbar-mobile-link:focus {
+    outline: none;
+  }
