@@ -47,7 +47,7 @@ const Navbar: React.FC = () => {
 
     // Observe all sections
     // const sections = ['home', 'about', 'author', 'order', 'events', 'contact'];
-    const sections = [   c];
+    const sections = ['home', 'about', 'author', 'contact'];
     sections.forEach((sectionId) => {
       const element = document.getElementById(sectionId);
       if (element) {
