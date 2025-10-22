@@ -51,12 +51,12 @@ const Hero: React.FC = () => {
           </a>
           
           {/* Full-width signed copy button */}
-          <button
+          {/* <button
             onClick={() => scrollToSection('order')}
             className="hero-btn hero-btn-signed"
           >
             Order A Signed Copy
-          </button>
+          </button> */}
         </div>
       </div>
       
