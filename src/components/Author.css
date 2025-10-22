@@ -1,0 +1,586 @@
+/* Author.css - About the Author Section Styles */
+
+/* ============================================ */
+/* BASE SECTION STYLES */
+/* ============================================ */
+
+/* Author Section Container */
+.author-section {
+    position: relative;
+    min-height: 100vh;
+    width: 100%;
+    display: flex;
+    align-items: center;
+    padding: 6rem 0;
+    background: linear-gradient(
+      135deg,
+      #ffffff 0%,
+      #fef3c7 30%,
+      #fce7f3 70%,
+      #f3e8ff 100%
+    );
+    overflow: hidden;
+  }
+  
+  /* Background decorative elements */
+  .author-section::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    left: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(147, 51, 234, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+  }
+  
+  .author-section::after {
+    content: '';
+    position: absolute;
+    bottom: -40%;
+    right: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(236, 72, 153, 0.08) 0%, transparent 70%);
+    border-radius: 50%;
+    z-index: 0;
+  }
+  
+  /* ============================================ */
+  /* CONTAINER & HEADER */
+  /* ============================================ */
+  
+  /* Main Container */
+  .author-container {
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    max-width: 1280px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+  
+  /* Section Header */
+  .author-header {
+    text-align: center;
+    margin-bottom: 4rem;
+    animation: fadeInDown 1s ease-out;
+  }
+  
+  .author-label {
+    display: inline-block;
+    font-size: 0.875rem;
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1.5px;
+    color: #f97316;
+    background: linear-gradient(135deg, rgba(249, 115, 22, 0.1), rgba(236, 72, 153, 0.1));
+    padding: 0.5rem 1rem;
+    border-radius: 50px;
+    margin-bottom: 1rem;
+  }
+  
+  .author-section-title {
+    font-size: 3.5rem;
+    font-weight: 900;
+    margin: 0;
+    line-height: 1.1;
+    background: linear-gradient(135deg, #9333ea 0%, #ec4899 50%, #f97316 100%);
+    -webkit-background-clip: text;
+    -webkit-text-fill-color: transparent;
+    background-clip: text;
+  }
+  
+  /* ============================================ */
+  /* GRID LAYOUT */
+  /* ============================================ */
+  
+  /* Grid Layout - TWO COLUMNS ON DESKTOP */
+  .author-grid {
+    display: grid;
+    grid-template-columns: 1fr 1.5fr;
+    gap: 5rem;
+    align-items: center;
+  }
+  
+  /* ============================================ */
+  /* IMAGE SIDE (LEFT COLUMN) */
+  /* ============================================ */
+  
+  .author-image-side {
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+    animation: fadeInLeft 1s ease-out 0.3s backwards;
+  }
+  
+  .author-image-wrapper {
+    position: relative;
+    width: 100%;
+    max-width: 400px;
+    aspect-ratio: 1;
+  }
+  
+  /* Placeholder for author photo */
+  .author-image-placeholder {
+    width: 100%;
+    height: 100%;
+      /* background: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
+  background-image: url('/src/assets/images/finicky-felicia-image.jpg');
+  background-size: cover;
+  background-position: center;
+  border-radius: 1.5rem;
+  box-shadow: 0 20px 50px rgba(147, 51, 234, 0.3);
+  transition: transform 0.3s ease, box-shadow 0.3s ease; */
+    background: linear-gradient(135deg, #ec4899 0%, #9333ea 100%);
+    border-radius: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 20px 50px rgba(236, 72, 153, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .author-image-placeholder:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 60px rgba(236, 72, 153, 0.4);
+  }
+  
+  /* Author photo (when using actual image) */
+  .author-photo {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    border-radius: 50%;
+    box-shadow: 0 20px 50px rgba(236, 72, 153, 0.3);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+  }
+  
+  .author-photo:hover {
+    transform: scale(1.05);
+    box-shadow: 0 25px 60px rgba(236, 72, 153, 0.4);
+  }
+  
+  .author-icon {
+    width: 100px;
+    height: 100px;
+    color: white;
+    margin-bottom: 1rem;
+    opacity: 0.9;
+  }
+  
+  .placeholder-text {
+    color: white;
+    font-size: 1.25rem;
+    font-weight: 600;
+    opacity: 0.9;
+    margin: 0;
+  }
+  
+  /* Decorative elements around image */
+  .author-decoration {
+    position: absolute;
+    border-radius: 50%;
+    opacity: 0.2;
+    z-index: -1;
+  }
+  
+  .decoration-1 {
+    top: -30px;
+    left: -30px;
+    width: 200px;
+    height: 200px;
+    background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+    animation: float 8s ease-in-out infinite;
+  }
+  
+  .decoration-2 {
+    bottom: -30px;
+    right: -30px;
+    width: 150px;
+    height: 150px;
+    background: linear-gradient(135deg, #9333ea 0%, #7c3aed 100%);
+    animation: float 8s ease-in-out infinite 4s;
+  }
+  
+  /* ============================================ */
+  /* SOCIAL MEDIA LINKS */
+  /* ============================================ */
+  
+  .author-social {
+    display: flex;
+    gap: 1rem;
+    justify-content: center;
+  }
+  
+  .social-link {
+    width: 50px;
+    height: 50px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: white;
+    border-radius: 50%;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    color: #9333ea;
+  }
+  
+  .social-link:hover {
+    background: linear-gradient(135deg, #9333ea 0%, #ec4899 100%);
+    color: white;
+    transform: translateY(-5px);
+    box-shadow: 0 8px 20px rgba(147, 51, 234, 0.3);
+  }
+  
+  .social-link svg {
+    width: 24px;
+    height: 24px;
+  }
+  
+  /* ============================================ */
+  /* BIO SIDE (RIGHT COLUMN) */
+  /* ============================================ */
+  
+  .author-bio-side {
+    position: relative;
+    animation: fadeInRight 1s ease-out 0.3s backwards;
+  }
+  
+  .author-bio-content {
+    width: 100%;
+  }
+  
+  /* Bio Text */
+  .author-bio-text {
+    margin-bottom: 3rem;
+  }
+  
+  .author-bio-text p {
+    font-size: 1.125rem;
+    line-height: 1.8;
+    color: #374151;
+    margin-bottom: 1.5rem;
+  }
+  
+  .author-intro {
+    font-size: 1.25rem;
+    font-weight: 600;
+    color: #9333ea;
+  }
+  
+  .author-story {
+    font-size: 1.125rem;
+  }
+  
+  .author-story em {
+    color: #ec4899;
+    font-weight: 600;
+    font-style: italic;
+  }
+  
+  .author-mission {
+    font-size: 1.125rem;
+  }
+  
+  /* ============================================ */
+  /* AUTHOR HIGHLIGHTS */
+  /* ============================================ */
+  
+  .author-highlights {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 1.5rem;
+  }
+  
+  .highlight-item {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: white;
+    border-radius: 1rem;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.08);
+    transition: all 0.3s ease;
+  }
+  
+  .highlight-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(147, 51, 234, 0.15);
+    background: linear-gradient(135deg, rgba(147, 51, 234, 0.03), rgba(236, 72, 153, 0.03));
+  }
+  
+  .highlight-icon {
+    font-size: 2rem;
+    flex-shrink: 0;
+  }
+  
+  .highlight-text h4 {
+    font-size: 1rem;
+    font-weight: 700;
+    color: #9333ea;
+    margin: 0 0 0.25rem 0;
+  }
+  
+  .highlight-text p {
+    font-size: 0.875rem;
+    color: #6b7280;
+    margin: 0;
+    line-height: 1.4;
+  }
+  
+  /* ============================================ */
+  /* RESPONSIVE DESIGN */
+  /* ============================================ */
+  
+  /* Large Desktop (1200px and above) */
+  @media (min-width: 1200px) {
+    .author-grid {
+      gap: 6rem;
+    }
+    
+    .author-container {
+      max-width: 1400px;
+    }
+  }
+  
+  /* Desktop (769px - 1199px) */
+  @media (min-width: 769px) and (max-width: 1199px) {
+    .author-grid {
+      gap: 4rem;
+    }
+    
+    .author-section-title {
+      font-size: 3rem;
+    }
+    
+    .author-image-wrapper {
+      max-width: 350px;
+    }
+  }
+  
+  /* Tablet (768px and below) - Single column stacked */
+  @media (max-width: 768px) {
+    .author-section {
+      padding: 4rem 0;
+    }
+    
+    .author-header {
+      margin-bottom: 3rem;
+    }
+    
+    .author-section-title {
+      font-size: 2.5rem;
+    }
+    
+    .author-grid {
+      grid-template-columns: 1fr;
+      gap: 3rem;
+    }
+    
+    .author-image-wrapper {
+      max-width: 300px;
+      margin: 0 auto;
+    }
+    
+    .author-bio-text p {
+      font-size: 1rem;
+    }
+    
+    .author-intro {
+      font-size: 1.125rem;
+    }
+    
+    .author-highlights {
+      grid-template-columns: 1fr;
+      gap: 1rem;
+    }
+    
+    .author-icon {
+      width: 80px;
+      height: 80px;
+    }
+  }
+  
+  /* Mobile (480px and below) */
+  @media (max-width: 480px) {
+    .author-section {
+      padding: 3rem 0;
+    }
+    
+    .author-container {
+      padding: 0 1rem;
+    }
+    
+    .author-header {
+      margin-bottom: 2rem;
+    }
+    
+    .author-label {
+      font-size: 0.75rem;
+      padding: 0.375rem 0.75rem;
+    }
+    
+    .author-section-title {
+      font-size: 2rem;
+    }
+    
+    .author-grid {
+      gap: 2rem;
+    }
+    
+    .author-image-wrapper {
+      max-width: 250px;
+    }
+    
+    .author-bio-text {
+      margin-bottom: 2rem;
+    }
+    
+    .author-bio-text p {
+      font-size: 0.9375rem;
+      margin-bottom: 1.25rem;
+    }
+    
+    .highlight-item {
+      padding: 1rem;
+      flex-direction: column;
+      text-align: center;
+      align-items: center;
+    }
+    
+    .highlight-icon {
+      font-size: 1.75rem;
+    }
+    
+    .social-link {
+      width: 45px;
+      height: 45px;
+    }
+    
+    .social-link svg {
+      width: 20px;
+      height: 20px;
+    }
+    
+    .author-icon {
+      width: 60px;
+      height: 60px;
+    }
+    
+    .placeholder-text {
+      font-size: 1rem;
+    }
+    
+    .decoration-1,
+    .decoration-2 {
+      width: 100px;
+      height: 100px;
+    }
+  }
+  
+  /* Very small screens (360px and below) */
+  @media (max-width: 360px) {
+    .author-section-title {
+      font-size: 1.75rem;
+    }
+    
+    .author-bio-text p {
+      font-size: 0.875rem;
+    }
+    
+    .author-image-wrapper {
+      max-width: 200px;
+    }
+  }
+  
+  /* ============================================ */
+  /* ANIMATIONS */
+  /* ============================================ */
+  
+  /* Fade in from top */
+  @keyframes fadeInDown {
+    from {
+      opacity: 0;
+      transform: translateY(-30px);
+    }
+    to {
+      opacity: 1;
+      transform: translateY(0);
+    }
+  }
+  
+  /* Fade in from left */
+  @keyframes fadeInLeft {
+    from {
+      opacity: 0;
+      transform: translateX(-50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Fade in from right */
+  @keyframes fadeInRight {
+    from {
+      opacity: 0;
+      transform: translateX(50px);
+    }
+    to {
+      opacity: 1;
+      transform: translateX(0);
+    }
+  }
+  
+  /* Floating animation */
+  @keyframes float {
+    0%, 100% {
+      transform: translateY(0) rotate(0deg);
+    }
+    50% {
+      transform: translateY(-25px) rotate(10deg);
+    }
+  }
+  
+  /* ============================================ */
+  /* ACCESSIBILITY */
+  /* ============================================ */
+  
+  /* Reduce motion for users who prefer it */
+  @media (prefers-reduced-motion: reduce) {
+    .author-header,
+    .author-image-side,
+    .author-bio-side {
+      animation: none;
+    }
+    
+    .decoration-1,
+    .decoration-2 {
+      animation: none;
+    }
+    
+    .highlight-item:hover,
+    .author-image-placeholder:hover,
+    .author-photo:hover,
+    .social-link:hover {
+      transform: none;
+    }
+  }
+  
+  /* High contrast mode support */
+  @media (prefers-contrast: high) {
+    .author-section-title {
+      -webkit-text-fill-color: #9333ea;
+    }
+    
+    .highlight-item,
+    .social-link {
+      border: 2px solid #9333ea;
+    }
+  }

@@ -1,0 +1,481 @@
+/* Hero.css - Hero Section Styles */
+
+/* Hero Section */
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  
+  /* Background image - UPDATE THIS PATH to your image location */
+  background-image: url('/src/assets/images/hero-background.jpg.jpg');
+  background-size: cover;
+  background-position: center center;
+  background-repeat: no-repeat;
+  background-attachment: scroll; /* Changed from fixed for better mobile support */
+}
+
+/* Improved mobile background handling */
+@media (max-width: 1024px) {
+  .hero {
+    background-attachment: scroll;
+    background-size: cover;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero {
+    background-position: 55% center; /* Adjust to show more of the character */
+    background-size: cover;
+    min-height: 100svh; /* Use svh for better mobile support */
+  }
+}
+
+@media (max-width: 480px) {
+  .hero {
+    background-position: 60% center; /* Fine-tune for small screens */
+    background-size: auto 100%; /* Prevent stretching */
+    min-height: 100svh;
+  }
+}
+
+/* For very wide images on mobile, use contain */
+@media (max-width: 480px) and (orientation: portrait) {
+  .hero {
+    background-size: cover;
+    background-position: 65% center;
+  }
+}
+
+/* Overlay for better text readability */
+.hero-overlay {
+  position: absolute;
+  inset: 0;
+  background: linear-gradient(
+    135deg,
+    rgba(147, 51, 234, 0.7) 0%,
+    rgba(236, 72, 153, 0.6) 50%,
+    rgba(147, 51, 234, 0.7) 100%
+  );
+  z-index: 1;
+}
+
+/* Alternative overlay options (comment/uncomment to try different looks) */
+
+/* Option 1: Darker overlay for more contrast */
+/*
+.hero-overlay {
+  background: rgba(0, 0, 0, 0.4);
+}
+*/
+
+/* Option 2: Lighter overlay */
+/*
+.hero-overlay {
+  background: rgba(255, 255, 255, 0.3);
+}
+*/
+
+/* Option 3: Gradient from top */
+/*
+.hero-overlay {
+  background: linear-gradient(
+    to bottom,
+    rgba(147, 51, 234, 0.8) 0%,
+    transparent 100%
+  );
+}
+*/
+
+/* Hero Content Container */
+.hero-content {
+  position: relative;
+  z-index: 2;
+  text-align: center;
+  color: white;
+  padding: 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  animation: fadeInUp 1s ease-out;
+}
+
+/* Hero Title */
+.hero-title {
+  font-size: 10rem; /* Increased from 3rem */
+  font-weight: 900; /* Bolder */
+  margin-bottom: 1.5rem;
+  text-shadow: 3px 3px 6px rgba(255, 255, 255, 0.4);
+  line-height: 1.1;
+  animation: fadeInScale 1s ease-out;
+  background: linear-gradient(135deg, #ffffff 0%, #fef3c7 50%, #fed7aa 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+
+/* Hero Subtitle */
+.hero-subtitle {
+  font-size: 1.875rem; /* Increased from 1.5rem */
+  font-weight: 700; /* Bolder */
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.4);
+  animation: fadeInUp 1s ease-out 0.3s backwards;
+  letter-spacing: 0.5px;
+}
+
+/* Hero Description */
+.hero-description {
+  font-size: 1.25rem; /* Increased from 1.125rem */
+  margin-bottom: 2.5rem;
+  line-height: 1.7;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.4);
+  max-width: 700px;
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 1s ease-out 0.5s backwards;
+  font-weight: 500;
+}
+
+/* Buttons Container */
+.hero-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+  max-width: 600px; /* Constrain the width */
+  margin-left: auto;
+  margin-right: auto;
+  animation: fadeInUp 1s ease-out 0.7s backwards;
+}
+
+/* Button Base Styles */
+.hero-btn {
+  display: inline-block;
+  padding: 1.125rem 2.75rem;
+  font-size: 1.125rem;
+  font-weight: 600;
+  border-radius: 50px;
+  text-decoration: none;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  cursor: pointer;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+  border: none;
+  font-family: inherit;
+  position: relative;
+  overflow: hidden;
+  flex: 1;
+  min-width: 200px;
+}
+
+/* Button shine effect on hover */
+.hero-btn::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: -100%;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(
+    90deg,
+    transparent,
+    rgba(255, 255, 255, 0.3),
+    transparent
+  );
+  transition: left 0.5s;
+}
+
+.hero-btn:hover::before {
+  left: 100%;
+}
+
+/* Primary Button - Amazon (Coral) */
+.hero-btn-primary {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  color: white;
+}
+
+.hero-btn-primary:hover {
+  background: linear-gradient(135deg, #db2777 0%, #be185d 100%);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.5);
+}
+
+.hero-btn-primary:active {
+  transform: translateY(-1px) scale(1);
+}
+
+/* Secondary Button - Barnes & Noble (Rose Pink) */
+.hero-btn-secondary {
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  color: white;
+}
+
+.hero-btn-secondary:hover {
+  background: linear-gradient(135deg, #db2777 0%, #be185d 100%);
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(236, 72, 153, 0.5);
+}
+
+.hero-btn-secondary:active {
+  transform: translateY(-1px) scale(1);
+}
+
+/* Signed Copy Button - White (Special) */
+.hero-btn-signed {
+  width: 100%;
+  background: white;
+  color: #f97316; /* Coral text */
+  font-weight: 700;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  box-shadow: 0 4px 15px rgba(0, 0, 0, 0.15);
+  animation: pulse 2s ease-in-out infinite;
+  flex: none;
+  border: 2px solid transparent;
+}
+
+.hero-btn-signed:hover {
+  background: #fef3c7; /* Light golden tint */
+  color: #ea580c; /* Darker coral */
+  transform: translateY(-3px) scale(1.02);
+  box-shadow: 0 8px 25px rgba(249, 115, 22, 0.3);
+  animation: none;
+  border-color: #f97316;
+}
+
+.hero-btn-signed:active {
+  transform: translateY(-1px) scale(1);
+}
+
+/* Scroll Indicator - Fixed to bottom of hero section */
+.hero-scroll-indicator {
+  position: absolute;
+  bottom: 2rem;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.5rem;
+  color: white;
+  font-size: 0.875rem;
+  text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
+  animation: bounce 2s infinite;
+  z-index: 3; /* Above content and overlay */
+}
+
+.hero-scroll-arrow {
+  animation: bounce 2s infinite;
+}
+
+/* ============================================ */
+/* RESPONSIVE STYLES */
+/* ============================================ */
+
+/* Tablet (768px and below) */
+@media (max-width: 768px) {
+  .hero {
+    min-height: 100vh;
+    background-position: 55% center;
+  }
+  
+  .hero-content {
+    padding: 5rem 1.5rem 2rem;
+    max-width: 100%;
+  }
+  
+  .hero-title {
+    font-size: 3rem; /* Scaled down from 5rem */
+    line-height: 1.1;
+    margin-bottom: 1rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.25rem; /* Scaled down from 1.875rem */
+    margin-bottom: 1rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem; /* Scaled down from 1.25rem */
+    margin-bottom: 2rem;
+  }
+  
+  .hero-btn {
+    padding: 1rem 2rem;
+    font-size: 1rem;
+    min-width: 150px;
+  }
+  
+  .hero-buttons {
+    flex-direction: column;
+    align-items: stretch;
+    gap: 0.75rem;
+    max-width: 100%;
+  }
+  
+  .hero-btn {
+    width: 100%;
+    flex: none;
+  }
+  
+  /* Signed copy button already full width */
+  .hero-btn-signed {
+    order: 3; /* Ensure it appears last */
+  }
+}
+
+/* Mobile (480px and below) */
+@media (max-width: 480px) {
+  .hero {
+    background-position: 60% center;
+    background-size: cover;
+    min-height: 100svh; /* Better mobile viewport support */
+  }
+  
+  .hero-content {
+    padding: 5rem 1rem 2rem;
+  }
+  
+  .hero-title {
+    font-size: 2.25rem; /* Scaled down for small screens */
+    margin-bottom: 0.75rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1.125rem;
+    margin-bottom: 0.75rem;
+  }
+  
+  .hero-description {
+    font-size: 0.9375rem;
+    margin-bottom: 1.5rem;
+    line-height: 1.5;
+  }
+  
+  .hero-btn {
+    padding: 0.875rem 1.5rem;
+    font-size: 0.9375rem;
+    min-width: unset;
+  }
+  
+  .hero-buttons {
+    gap: 0.75rem;
+    max-width: 100%;
+  }
+  
+  .hero-scroll-indicator {
+    bottom: 1rem;
+    font-size: 0.75rem;
+  }
+}
+
+/* Very small screens (360px and below) */
+@media (max-width: 360px) {
+  .hero {
+    background-position: 65% center;
+  }
+  
+  .hero-title {
+    font-size: 2rem; /* Further scaled down */
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero-subtitle {
+    font-size: 1rem;
+    margin-bottom: 0.5rem;
+  }
+  
+  .hero-description {
+    font-size: 0.875rem;
+    margin-bottom: 1.25rem;
+  }
+  
+  .hero-content {
+    padding: 4.5rem 0.875rem 1.5rem;
+  }
+  
+  .hero-btn {
+    font-size: 0.875rem;
+    padding: 0.75rem 1.25rem;
+  }
+  
+  .hero-scroll-indicator {
+    bottom: 0.75rem;
+    font-size: 0.7rem;
+  }
+}
+
+/* ============================================ */
+/* ANIMATIONS */
+/* ============================================ */
+
+/* Fade in and slide up animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Fade in and scale animation for title */
+@keyframes fadeInScale {
+  from {
+    opacity: 0;
+    transform: scale(0.9);
+  }
+  to {
+    opacity: 1;
+    transform: scale(1);
+  }
+}
+
+/* Pulse animation for signed copy button */
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.03);
+  }
+}
+
+/* Bounce animation for scroll indicator */
+@keyframes bounce {
+  0%, 20%, 50%, 80%, 100% {
+    transform: translateY(0);
+  }
+  40% {
+    transform: translateY(-10px);
+  }
+  60% {
+    transform: translateY(-5px);
+  }
+}
+
+/* ============================================ */
+/* ACCESSIBILITY */
+/* ============================================ */
+
+/* Ensure text is readable for users who prefer reduced motion */
+@media (prefers-reduced-motion: reduce) {
+  .hero-content {
+    animation: none;
+  }
+  
+  .hero-scroll-indicator,
+  .hero-scroll-arrow {
+    animation: none;
+  }
+  
+  .hero {
+    background-attachment: scroll;
+  }
+}

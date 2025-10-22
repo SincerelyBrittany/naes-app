@@ -1,80 +1,96 @@
-/* #root {
-  max-width: 1280px;
+:root {
+  /* Brand Colors */
+  --color-primary: #f97316;
+  --color-primary-dark: #ea580c;
+  --color-secondary: #ec4899;
+  --color-secondary-dark: #db2777;
+  --color-accent: #f59e0b;
+  --color-accent-dark: #d97706;
+  --color-special: #ffffff;
+  
+  /* Text Colors */
+  --text-dark: #374151;
+  --text-medium: #6b7280;
+  --text-light: #9ca3af;
+  
+  /* Background Colors */
+  --bg-white: #ffffff;
+  --bg-light-peach: #fef3c7;
+  --bg-soft-coral: #fed7aa;
+  --bg-light-pink: #fce7f3;
+  --bg-gray: #f9fafb;
+}
 
-  margin: 0 auto;
+/* Then use them like: */
+.button {
+  background: var(--color-primary);
+  color: var(--color-special);
+}
+/* App.css - Demo section styles */
+
+.app {
+  min-height: 100vh;
+}
+
+/* Section Base Styles */
+.section {
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
   padding: 2rem;
-  text-align: center;
 }
 
-a {
-  text-decoration: none;
+.section h1 {
+  font-size: 3rem;
+  margin-bottom: 1rem;
 }
 
-.a-tag-button {
-  display: block;
-  width: 115px;
-  height: 25px;
-  background: #4e9caf;
-  padding: 10px;
-  text-align: center;
-  border-radius: 5px;
+.section p {
+  font-size: 1.25rem;
+  color: #6b7280;
+  max-width: 600px;
+}
+
+/* Individual Section Colors */
+.section-home {
+  background: linear-gradient(135deg, #9333ea, #ec4899);
   color: white;
-  font-weight: bold;
-  line-height: 25px;
-} */
-
-/* .logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
-}
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
-}
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
+.section-home p {
+  color: rgba(255, 255, 255, 0.9);
+}
+
+.section-about {
+  background: #f9fafb;
+}
+
+.section-author {
+  background: #ffffff;
+}
+
+.section-order {
+  background: #f3e8ff;
+}
+
+.section-events {
+  background: #fce7f3;
+}
+
+.section-contact {
+  background: #e5e7eb;
+}
+
+/* Responsive Typography */
+@media (max-width: 768px) {
+  .section h1 {
+    font-size: 2rem;
   }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
-}
-
-.card {
-  padding: 2em;
-}
-
-.read-the-docs {
-  color: #888;
-} */
-
-@media screen and (max-width: 400px) {
-  #features {
-    padding: 20px;
-    width: 111%;
-  }
-  #about-the-book,
-  #about,
-  #events,
-  #testimonials,
-  #team,
-  #contact,
-  #footer {
-    width: 111%;
-  }
-
-  #portfolio {
-    width: 110%;
+  
+  .section p {
+    font-size: 1rem;
   }
 }
