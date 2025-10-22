@@ -1,6 +1,6 @@
 // Popup.tsx - Popup Component for Events and Newsletter
 import React, { useState, useEffect } from 'react';
-import { popupConfig, shouldShowPopup, markPopupClosed } from './popupConfig';
+import { popupConfig, shouldShowPopup, markPopupClosed } from './Popupconfig';
 import './Popup.css';
 
 const Popup: React.FC = () => {
