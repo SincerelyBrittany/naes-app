@@ -63,11 +63,11 @@ async function handleCheckout() {
         },
       ],
       mode: 'payment',
-      successUrl: `http://localhost:5173/success`,
-      cancelUrl: `http://localhost:5173/cancel`,
+      successUrl: `${window.location.origin}/success`,
+      cancelUrl: `${window.location.origin}/cancel`,
       // customerEmail: 'customer@email.com',
     });
-  
+
     if (error) {
       console.warn(error.message);
     }

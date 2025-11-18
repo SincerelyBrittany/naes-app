@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import About from "../images/about.jpg";
 import InitialCheckoutScreen from "./initialCheckoutScreen";
 
 export default function OrderACopy() {

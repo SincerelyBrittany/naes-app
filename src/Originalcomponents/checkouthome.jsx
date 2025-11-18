@@ -12,11 +12,13 @@ export default function CheckoutHome() {
         },
       ],
       mode: 'payment',
-      successUrl: `http://localhost:3000/success`,
-      cancelUrl: `http://localhost:3000/cancel`,
+      successUrl: `${window.location.origin}/success`,
+      cancelUrl: `${window.location.origin}/cancel`,
       // customerEmail: 'customer@email.com',
     });
-    console.warn(error.message);
+    if (error) {
+      console.warn(error.message);
+    }
   }
 
   return <button onClick={handleCheckout}>Checkout</button>;
