@@ -47,7 +47,8 @@ const Navbar: React.FC = () => {
 
     // Observe all sections
     // const sections = ['home', 'about', 'author', 'order', 'events', 'contact'];
-    const sections = ['home', 'about', 'author', 'contact'];
+    // const sections = ['home', 'about', 'author', 'contact'];
+        const sections = ['home', 'about', 'author', 'order', 'contact'];
     sections.forEach((sectionId) => {
       const element = document.getElementById(sectionId);
       if (element) {
@@ -77,7 +78,8 @@ const Navbar: React.FC = () => {
 
   // Navigation menu items
   // const menuItems: MenuItem[] = ['Home', 'About', 'Author', 'Order', 'Events', 'Contact'];
-  const menuItems: MenuItem[] = ['Home', 'About', 'Author', 'Contact'];
+  // const menuItems: MenuItem[] = ['Home', 'About', 'Author', 'Contact'];
+    const menuItems: MenuItem[] = ['Home', 'About', 'Author',  'Order', 'Contact'];
 
   return (
     <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>

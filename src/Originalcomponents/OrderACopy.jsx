@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import InitialCheckoutScreen from "./initialCheckoutScreen";
+import "./OrderACopy.css";
 
 export default function OrderACopy() {
   // State to manage the visibility of the checkout form
@@ -11,29 +12,35 @@ export default function OrderACopy() {
   };
 
   return (
-    <>
-      <section className="ftco-section ftco-no-pt ftco-no-pb ftco-counter img" id="section-counter">
-        <div className="container">
-          <div className="row d-md-flex align-items-center align-items-stretch">
-            <div className="col-md d-flex justify-content-center counter-wrap">
-              <div className="block-18 bg-light">
-                <div className="text">
-                  <strong className="number"></strong>
-                  {/* Span that toggles the form visibility */}
-                  <span onClick={showCheckoutForm}>
-                      {showForm && <h1> Order A Signed Copy</h1>}
-                      {!showForm && <h1> Click Here to Order A Signed Copy</h1>}
-                  </span>
-
-                  {/* Conditionally render InitialCheckoutScreen */}
-                  {showForm && <InitialCheckoutScreen />}
+    <section className="order-copy-section">
+      <div className="order-copy-container">
+        <div className="order-copy-block">
+          <div className="order-copy-content">
+            {showForm ? (
+              <>
+                <div className="form-header">
+                  <h1>Order A Signed Copy</h1>
+                  <button 
+                    className="close-form-btn"
+                    onClick={showCheckoutForm}
+                  >
+                    Back
+                  </button>
                 </div>
-              </div>
-            </div>
+                <InitialCheckoutScreen />
+              </>
+            ) : (
+              <button 
+                className="order-copy-btn"
+                onClick={showCheckoutForm}
+              >
+                Click Here to Order A Signed Copy
+              </button>
+            )}
           </div>
         </div>
-      </section>
-    </>
+      </div>
+    </section>
   );
 }
 
