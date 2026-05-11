@@ -1,8 +1,9 @@
 {
   "settings": {
-    "showEventPopup": false,
-    "showSubscribePopup": true,
+    "showEventPopup": true,
+    "showSubscribePopup": false,
     "delayTimeMs": 2,
     "showAgainAfterDays": 10
-  }
+  },
+  "hideEventsSection": true
 }
