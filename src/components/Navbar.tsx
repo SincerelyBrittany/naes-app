@@ -3,7 +3,7 @@ import React, { useState, useEffect } from 'react';
 import './Navbar.css';
 
 // Type definition for menu items
-type MenuItem = 'Home' | 'About' | 'Author' | 'Order' | 'Events' | 'Contact';
+type MenuItem = 'Home' | 'About' | 'Author' | 'Events' | 'Contact';
 
 const Navbar: React.FC = () => {
   // State with explicit types
@@ -46,8 +46,7 @@ const Navbar: React.FC = () => {
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
     // Observe all sections
-    // const sections = ['home', 'about', 'author', 'order', 'events', 'contact'];
-    const sections = ['home', 'about', 'author', 'contact'];
+    const sections = ['home', 'about', 'author', 'events', 'contact'];
     sections.forEach((sectionId) => {
       const element = document.getElementById(sectionId);
       if (element) {
@@ -90,8 +89,7 @@ const Navbar: React.FC = () => {
   };
 
   // Navigation menu items
-  // const menuItems: MenuItem[] = ['Home', 'About', 'Author', 'Order', 'Events', 'Contact'];
-  const menuItems: MenuItem[] = ['Home', 'About', 'Author', 'Contact'];
+  const menuItems: MenuItem[] = ['Home', 'About', 'Author', 'Events', 'Contact'];
 
   return (
     <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>

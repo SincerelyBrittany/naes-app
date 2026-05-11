@@ -6,6 +6,7 @@ import About from './components/About';
 import Author from './components/Author';
 import Gallery from './components/Gallery';
 import Popup from './components/Popup';
+import Events from './components/Events';
 
 import './App.css';
 import Contact from './components/Contact';
@@ -17,6 +18,7 @@ const App: React.FC = () => {
       <Hero />
       <About />
       <Author/>
+      <Events />
       {/* <Gallery /> */}
       <Contact />
       {/* Demo sections for testing the navbar */}

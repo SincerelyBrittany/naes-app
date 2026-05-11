@@ -1,0 +1,30 @@
+{
+  "settings": {
+    "activePopup": "event",
+    "delayTimeMs": 2500,
+    "showAgainAfterDays": 7
+  },
+  "popupEventId": "newburgh-storytime-2026",
+  "subscribePopup": {
+    "title": "Stay Connected!",
+    "subtitle": "Get updates on new books and events",
+    "description": "Subscribe to receive exclusive updates about upcoming books, special events, and helpful tips for parents of picky eaters.",
+    "buttonText": "Subscribe",
+    "placeholder": "Enter your email address",
+    "successMessage": "Thank you for subscribing! Check your email for confirmation."
+  },
+  "upcomingEvents": [
+    {
+      "id": "newburgh-storytime-2026",
+      "title": "Saturday Story Time With Finicky Felicia",
+      "date": "2026-06-20",
+      "time": "2:00 PM - 2:30 PM",
+      "location": "Newburgh, NY",
+      "description": "Join Narene Russell for a special reading and family-friendly story time session.",
+      "registrationUrl": "https://newburghlibrary.libcal.com/event/13997086",
+      "image": "",
+      "featured": true
+    }
+  ],
+  "pastEvents": []
+}

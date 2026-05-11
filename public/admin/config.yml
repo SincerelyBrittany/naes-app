@@ -1,0 +1,86 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "site_content"
+    label: "Site Content"
+    files:
+      - name: "events"
+        label: "Events + Popup"
+        file: "public/content/events.json"
+        format: "json"
+        editor:
+          preview: false
+        fields:
+          - label: "Popup Settings"
+            name: "settings"
+            widget: "object"
+            fields:
+              - label: "Active Popup"
+                name: "activePopup"
+                widget: "select"
+                options: ["event", "subscribe", "disabled"]
+              - label: "Popup Delay (ms)"
+                name: "delayTimeMs"
+                widget: "number"
+                min: 0
+                step: 100
+                value_type: "int"
+              - label: "Show Popup Again After Days"
+                name: "showAgainAfterDays"
+                widget: "number"
+                min: 0
+                step: 1
+                value_type: "int"
+
+          - label: "Popup Event ID"
+            name: "popupEventId"
+            widget: "string"
+            hint: "Use an event id from Upcoming Events (or leave blank to use featured/first event)."
+            required: false
+
+          - label: "Subscribe Popup"
+            name: "subscribePopup"
+            widget: "object"
+            fields:
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Subtitle", name: "subtitle", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Button Text", name: "buttonText", widget: "string" }
+              - { label: "Email Placeholder", name: "placeholder", widget: "string" }
+              - { label: "Success Message", name: "successMessage", widget: "string" }
+
+          - label: "Upcoming Events"
+            name: "upcomingEvents"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.date}}"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+              - { label: "Time", name: "time", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Registration URL", name: "registrationUrl", widget: "string", required: false }
+              - { label: "Image", name: "image", widget: "image", required: false }
+              - { label: "Featured", name: "featured", widget: "boolean", default: false, required: false }
+
+          - label: "Past Events"
+            name: "pastEvents"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.date}}"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+              - { label: "Time", name: "time", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Registration URL", name: "registrationUrl", widget: "string", required: false }
+              - { label: "Image", name: "image", widget: "image", required: false }
