@@ -228,6 +228,7 @@
     background-image: none;
     background-color: transparent;
     justify-content: flex-start;
+    gap: 0;
   }
 
   .hero-visual {
@@ -241,7 +242,8 @@
     background-size: contain;
     background-position: center top;
     background-repeat: no-repeat;
-    background-color: #d946ef;
+    /* Same as top of .hero-copy-panel gradient — avoids a letterbox “seam” */
+    background-color: #c026d3;
   }
 
   /* Match desktop hero tint — dims illustration under the nav */
@@ -268,7 +270,8 @@
     min-height: 0;
     justify-content: flex-start;
     min-height: unset;
-    padding: 1.5rem 1.35rem 0.35rem;
+    margin-top: -1px;
+    padding: 1.25rem 1.35rem 0.35rem;
     background: linear-gradient(
       180deg,
       #c026d3 0%,
@@ -279,7 +282,7 @@
   }
 
   .hero-content {
-    padding: calc(0.35rem + env(safe-area-inset-top, 0px)) 0 1rem;
+    padding: calc(0.5rem + env(safe-area-inset-top, 0px)) 0 1rem;
     animation: fadeInUp 1s ease-out;
   }
 
