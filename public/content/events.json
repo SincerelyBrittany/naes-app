@@ -1,6 +1,7 @@
 {
   "settings": {
-    "activePopup": "event",
+    "showEventPopup": true,
+    "showSubscribePopup": false,
     "delayTimeMs": 2500,
     "showAgainAfterDays": 7
   },

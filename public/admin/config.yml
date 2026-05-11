@@ -22,10 +22,16 @@ collections:
             name: "settings"
             widget: "object"
             fields:
-              - label: "Active Popup"
-                name: "activePopup"
-                widget: "select"
-                options: ["event", "subscribe", "disabled"]
+              - label: "Show event popup (optional)"
+                name: "showEventPopup"
+                widget: "boolean"
+                default: false
+                hint: "Turn on to promote an upcoming event in the popup. Needs at least one upcoming event (or a matching Popup Event ID below). If both this and Subscribe are on, the event popup shows when an event exists; otherwise the subscribe popup shows."
+              - label: "Show subscribe popup"
+                name: "showSubscribePopup"
+                widget: "boolean"
+                default: false
+                hint: "Turn on to show the email signup popup. Edit the Subscribe Popup section when this is enabled."
               - label: "Popup Delay (ms)"
                 name: "delayTimeMs"
                 widget: "number"
@@ -45,16 +51,17 @@ collections:
             hint: "Use an event id from Upcoming Events (or leave blank to use featured/first event)."
             required: false
 
-          - label: "Subscribe Popup"
+          - label: "Subscribe Popup (optional — fill when subscribe popup is on)"
             name: "subscribePopup"
             widget: "object"
+            required: false
             fields:
-              - { label: "Title", name: "title", widget: "string" }
-              - { label: "Subtitle", name: "subtitle", widget: "string" }
-              - { label: "Description", name: "description", widget: "text" }
-              - { label: "Button Text", name: "buttonText", widget: "string" }
-              - { label: "Email Placeholder", name: "placeholder", widget: "string" }
-              - { label: "Success Message", name: "successMessage", widget: "string" }
+              - { label: "Title", name: "title", widget: "string", required: false }
+              - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - { label: "Button Text", name: "buttonText", widget: "string", required: false }
+              - { label: "Email Placeholder", name: "placeholder", widget: "string", required: false }
+              - { label: "Success Message", name: "successMessage", widget: "string", required: false }
 
           - label: "Upcoming Events"
             name: "upcomingEvents"

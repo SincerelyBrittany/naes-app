@@ -21,12 +21,19 @@ export interface SubscribePopupContent {
   successMessage: string;
 }
 
+export interface EventsContentSettings {
+  /** When on, may show the event popup if there is a matching upcoming event. */
+  showEventPopup: boolean;
+  /** When on, may show the email subscribe popup. */
+  showSubscribePopup: boolean;
+  delayTimeMs: number;
+  showAgainAfterDays: number;
+  /** Legacy: used only if showEventPopup / showSubscribePopup are absent from JSON. */
+  activePopup?: PopupType;
+}
+
 export interface EventsContent {
-  settings: {
-    activePopup: PopupType;
-    delayTimeMs: number;
-    showAgainAfterDays: number;
-  };
+  settings: EventsContentSettings;
   popupEventId?: string;
   subscribePopup: SubscribePopupContent;
   upcomingEvents: EventItem[];
@@ -35,7 +42,8 @@ export interface EventsContent {
 
 const defaultContent: EventsContent = {
   settings: {
-    activePopup: 'disabled',
+    showEventPopup: false,
+    showSubscribePopup: false,
     delayTimeMs: 3000,
     showAgainAfterDays: 7
   },
@@ -52,6 +60,28 @@ const defaultContent: EventsContent = {
   pastEvents: []
 };
 
+const normalizeSettings = (raw: Partial<EventsContentSettings> | undefined): EventsContentSettings => {
+  const base = { ...defaultContent.settings, ...raw };
+  const hasNewBooleans =
+    typeof raw?.showEventPopup === 'boolean' || typeof raw?.showSubscribePopup === 'boolean';
+
+  if (!hasNewBooleans && raw?.activePopup) {
+    if (raw.activePopup === 'event') {
+      return { ...base, showEventPopup: true, showSubscribePopup: false };
+    }
+    if (raw.activePopup === 'subscribe') {
+      return { ...base, showEventPopup: false, showSubscribePopup: true };
+    }
+    return { ...base, showEventPopup: false, showSubscribePopup: false };
+  }
+
+  return {
+    ...base,
+    showEventPopup: Boolean(base.showEventPopup),
+    showSubscribePopup: Boolean(base.showSubscribePopup)
+  };
+};
+
 export const fetchEventsContent = async (): Promise<EventsContent> => {
   try {
     const response = await fetch('/content/events.json', { cache: 'no-store' });
@@ -63,7 +93,7 @@ export const fetchEventsContent = async (): Promise<EventsContent> => {
     return {
       ...defaultContent,
       ...json,
-      settings: { ...defaultContent.settings, ...(json.settings ?? {}) },
+      settings: normalizeSettings(json.settings),
       subscribePopup: { ...defaultContent.subscribePopup, ...(json.subscribePopup ?? {}) },
       upcomingEvents: Array.isArray(json.upcomingEvents) ? json.upcomingEvents : [],
       pastEvents: Array.isArray(json.pastEvents) ? json.pastEvents : []
@@ -86,6 +116,19 @@ export const getPopupEvent = (content: EventsContent): EventItem | null => {
 
   const featuredEvent = content.upcomingEvents.find((event) => event.featured);
   return featuredEvent ?? content.upcomingEvents[0];
+};
+
+/** Event popup wins if enabled and an event exists; else subscribe if enabled. */
+export const getEffectivePopupType = (content: EventsContent): PopupType => {
+  const { showEventPopup, showSubscribePopup } = content.settings;
+  const event = showEventPopup ? getPopupEvent(content) : null;
+  if (showEventPopup && event) {
+    return 'event';
+  }
+  if (showSubscribePopup) {
+    return 'subscribe';
+  }
+  return 'disabled';
 };
 
 const parseDate = (value: string): number => {

@@ -5,6 +5,7 @@ import {
   type EventsContent,
   fetchEventsContent,
   formatEventDate,
+  getEffectivePopupType,
   getPopupEvent
 } from '../lib/eventsContent';
 import './Popup.css';
@@ -16,7 +17,7 @@ const Popup: React.FC = () => {
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
   const [content, setContent] = useState<EventsContent | null>(null);
 
-  const popupType = content?.settings.activePopup ?? 'disabled';
+  const popupType = content ? getEffectivePopupType(content) : 'disabled';
   const popupEvent = content ? getPopupEvent(content) : null;
 
   useEffect(() => {
@@ -29,7 +30,7 @@ const Popup: React.FC = () => {
 
       setContent(loadedContent);
 
-      if (shouldShowPopup(loadedContent.settings.activePopup, loadedContent.settings.showAgainAfterDays)) {
+      if (shouldShowPopup(getEffectivePopupType(loadedContent), loadedContent.settings.showAgainAfterDays)) {
         timer = setTimeout(() => {
           setIsVisible(true);
           document.body.style.overflow = 'hidden'; // Prevent background scrolling
@@ -164,6 +165,7 @@ const Popup: React.FC = () => {
                 className="popup-button event-button"
                 onClick={handleEventClick}
                 type="button"
+                disabled={!popupEvent.registrationUrl}
               >
                 Register Now
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
