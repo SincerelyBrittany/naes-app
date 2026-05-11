@@ -54,33 +54,40 @@ export interface EventsContent {
 const defaultContent: EventsContent = {
   hideEventsSection: false,
   settings: {
-    popupMode: 'none',
+    popupMode: 'subscribe',
     delayTimeMs: 3000,
     showAgainAfterDays: 7
   },
   popupEventId: undefined,
   subscribePopup: {
-    title: 'Stay Connected!',
-    subtitle: 'Get updates on new books and events',
-    description: 'Subscribe for updates about upcoming books and events.',
-    buttonText: 'Subscribe',
-    placeholder: 'Enter your email address',
-    successMessage: 'Thank you for subscribing!'
+    title: 'Stay in the loop',
+    subtitle: '',
+    description: '',
+    buttonText: 'Sign up',
+    placeholder: 'Your email address',
+    successMessage: "Thanks — you're on the list."
   },
   upcomingEvents: [],
   pastEvents: []
 };
 
-const isPopupMode = (value: unknown): value is PopupMode =>
-  value === 'none' || value === 'event' || value === 'subscribe';
+const parsePopupMode = (value: unknown): PopupMode | null => {
+  if (typeof value !== 'string') return null;
+  const normalized = value.trim().toLowerCase();
+  if (normalized === 'none' || normalized === 'event' || normalized === 'subscribe') {
+    return normalized;
+  }
+  return null;
+};
 
 const normalizeSettings = (raw: RawSettingsInput | undefined): EventsContentSettings => {
   const defaults = defaultContent.settings;
   const merged = { ...defaults, ...(raw ?? {}) };
 
   let popupMode: PopupMode = defaults.popupMode;
-  if (raw && isPopupMode(raw.popupMode)) {
-    popupMode = raw.popupMode;
+  const parsedMode = raw ? parsePopupMode(raw.popupMode) : null;
+  if (parsedMode) {
+    popupMode = parsedMode;
   } else if (raw) {
     const hasLegacyBooleans =
       typeof raw.showEventPopup === 'boolean' || typeof raw.showSubscribePopup === 'boolean';

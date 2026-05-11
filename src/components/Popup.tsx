@@ -21,36 +21,53 @@ const Popup: React.FC = () => {
   const popupEvent = content ? getPopupEvent(content) : null;
 
   useEffect(() => {
-    let isMounted = true;
-    let timer: ReturnType<typeof setTimeout> | null = null;
+    let cancelled = false;
 
     const load = async (): Promise<void> => {
       const loadedContent = await fetchEventsContent();
-      if (!isMounted) return;
-
+      if (cancelled) return;
       setContent(loadedContent);
-
-      if (shouldShowPopup(getEffectivePopupType(loadedContent), loadedContent.settings.showAgainAfterDays)) {
-        timer = setTimeout(() => {
-          setIsVisible(true);
-          document.body.style.overflow = 'hidden'; // Prevent background scrolling
-        }, loadedContent.settings.delayTimeMs);
-      }
     };
 
     load();
-
     return () => {
-      isMounted = false;
-      if (timer) clearTimeout(timer);
-      document.body.style.overflow = 'unset';
+      cancelled = true;
     };
   }, []);
 
+  useEffect(() => {
+    if (!content) {
+      setIsVisible(false);
+      return;
+    }
+
+    const effective = getEffectivePopupType(content);
+    if (!shouldShowPopup(effective, content.settings.showAgainAfterDays)) {
+      setIsVisible(false);
+      document.body.style.overflow = 'unset';
+      return;
+    }
+
+    setIsVisible(false);
+    const delayMs = Math.max(0, content.settings.delayTimeMs);
+
+    const timer = window.setTimeout(() => {
+      setIsVisible(true);
+      document.body.style.overflow = 'hidden';
+    }, delayMs);
+
+    return () => {
+      window.clearTimeout(timer);
+      document.body.style.overflow = 'unset';
+    };
+  }, [content]);
+
   const closePopup = (): void => {
+    if (!content) return;
+    const closedType = getEffectivePopupType(content);
     setIsVisible(false);
     document.body.style.overflow = 'unset';
-    markPopupClosed(popupType);
+    markPopupClosed(closedType);
   };
 
   const handleSubscribe = async (e: React.FormEvent): Promise<void> => {
@@ -193,10 +210,16 @@ const Popup: React.FC = () => {
                 </svg>
               </div>
 
-              <h2 className="popup-title">{content.subscribePopup.title}</h2>
-              <p className="popup-subtitle">{content.subscribePopup.subtitle}</p>
-              
-              <p className="popup-description">{content.subscribePopup.description}</p>
+              {content.subscribePopup.title.trim() ? (
+                <h2 className="popup-title">{content.subscribePopup.title.trim()}</h2>
+              ) : null}
+              {content.subscribePopup.subtitle.trim() ? (
+                <p className="popup-subtitle">{content.subscribePopup.subtitle.trim()}</p>
+              ) : null}
+
+              {content.subscribePopup.description.trim() ? (
+                <p className="popup-description">{content.subscribePopup.description.trim()}</p>
+              ) : null}
 
               {/* Subscribe Form */}
               {!showSuccess ? (
@@ -206,7 +229,9 @@ const Popup: React.FC = () => {
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder={content.subscribePopup.placeholder}
+                      placeholder={
+                        content.subscribePopup.placeholder.trim() || 'Your email address'
+                      }
                       required
                       className="subscribe-input"
                       disabled={isSubmitting}
@@ -225,7 +250,7 @@ const Popup: React.FC = () => {
                       </>
                     ) : (
                       <>
-                        {content.subscribePopup.buttonText}
+                        {content.subscribePopup.buttonText.trim() || 'Sign up'}
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <line x1="5" y1="12" x2="19" y2="12"></line>
                           <polyline points="12 5 19 12 12 19"></polyline>
@@ -241,7 +266,10 @@ const Popup: React.FC = () => {
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
                   </div>
-                  <p>{content.subscribePopup.successMessage}</p>
+                  <p>
+                    {content.subscribePopup.successMessage.trim() ||
+                      "Thanks — you're on the list."}
+                  </p>
                 </div>
               )}
 

@@ -34,8 +34,8 @@ collections:
                 name: "popupMode"
                 widget: "select"
                 required: false
-                default: "none"
-                hint: "Pick one. Event mode only shows a popup if there is at least one upcoming event (or a matching Popup Event ID)."
+                default: "subscribe"
+                hint: "Default is subscribe (email). Event only shows if there is a matching upcoming event. Pick None to turn all automatic popups off."
                 options:
                   - { label: "None — no automatic popup", value: "none" }
                   - { label: "Event popup (upcoming event)", value: "event" }
@@ -63,7 +63,7 @@ collections:
             hint: "Use an event id from Upcoming Events (or leave blank to use featured/first event)."
             required: false
 
-          - label: "Subscribe Popup (optional — fill when subscribe popup is on)"
+          - label: "Subscribe Popup (optional text — leave subtitle & description empty for email-only)"
             name: "subscribePopup"
             widget: "object"
             required: false

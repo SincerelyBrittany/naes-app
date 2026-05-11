@@ -1,18 +1,18 @@
 {
   "hideEventsSection": false,
   "settings": {
-    "popupMode": "event",
-    "delayTimeMs": 2500,
+    "popupMode": "subscribe",
+    "delayTimeMs": 3000,
     "showAgainAfterDays": 7
   },
   "popupEventId": "newburgh-storytime-2026",
   "subscribePopup": {
-    "title": "Stay Connected!",
-    "subtitle": "Get updates on new books and events",
-    "description": "Subscribe to receive exclusive updates about upcoming books, special events, and helpful tips for parents of picky eaters.",
-    "buttonText": "Subscribe",
-    "placeholder": "Enter your email address",
-    "successMessage": "Thank you for subscribing! Check your email for confirmation."
+    "title": "Stay in the loop",
+    "subtitle": "",
+    "description": "",
+    "buttonText": "Sign up",
+    "placeholder": "Your email address",
+    "successMessage": "Thanks — you're on the list."
   },
   "upcomingEvents": [
     {
