@@ -248,14 +248,17 @@
 /* Tablet (768px and below) */
 @media (max-width: 768px) {
   .hero {
-    min-height: 100dvh;
+    min-height: 100svh;
+    height: 100svh;
+    align-items: flex-start;
+    justify-content: flex-start;
     background-position: center top;
     background-size: contain;
     background-color: #d946ef; /* Fill letterbox area when using contain */
   }
   
   .hero-content {
-    padding: 5rem 1.5rem 2rem;
+    padding: calc(4.5rem + env(safe-area-inset-top) + 1rem) 1.5rem 7rem;
     max-width: 100%;
   }
   
@@ -302,13 +305,12 @@
 /* Mobile (480px and below) */
 @media (max-width: 480px) {
   .hero {
-    min-height: 100dvh;
-    background-position: center top;
-    background-size: contain;
+    min-height: 100svh;
+    height: 100svh;
   }
   
   .hero-content {
-    padding: 5rem 1rem 2rem;
+    padding: calc(4.5rem + env(safe-area-inset-top) + 1rem) 1rem 7rem;
   }
   
   .hero-title {
@@ -346,11 +348,6 @@
 
 /* Very small screens (360px and below) */
 @media (max-width: 360px) {
-  .hero {
-    background-position: center top;
-    background-size: contain;
-  }
-  
   .hero-title {
     font-size: 2rem; /* Further scaled down */
     margin-bottom: 0.5rem;
