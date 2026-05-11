@@ -17,38 +17,6 @@
   background-attachment: scroll; /* Changed from fixed for better mobile support */
 }
 
-/* Improved mobile background handling */
-@media (max-width: 1024px) {
-  .hero {
-    background-attachment: scroll;
-    background-size: cover;
-  }
-}
-
-@media (max-width: 768px) {
-  .hero {
-    background-position: 55% center; /* Adjust to show more of the character */
-    background-size: cover;
-    min-height: 100svh; /* Use svh for better mobile support */
-  }
-}
-
-@media (max-width: 480px) {
-  .hero {
-    background-position: 60% center; /* Fine-tune for small screens */
-    background-size: auto 100%; /* Prevent stretching */
-    min-height: 100svh;
-  }
-}
-
-/* For very wide images on mobile, use contain */
-@media (max-width: 480px) and (orientation: portrait) {
-  .hero {
-    background-size: cover;
-    background-position: 65% center;
-  }
-}
-
 /* Overlay for better text readability */
 .hero-overlay {
   position: absolute;
@@ -264,8 +232,9 @@
   color: white;
   font-size: 0.875rem;
   text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.3);
-  animation: bounce 2s infinite;
   z-index: 3; /* Above content and overlay */
+  width: max-content;
+  text-align: center;
 }
 
 .hero-scroll-arrow {
@@ -279,8 +248,10 @@
 /* Tablet (768px and below) */
 @media (max-width: 768px) {
   .hero {
-    min-height: 100vh;
-    background-position: 55% center;
+    min-height: 100dvh;
+    background-position: center top;
+    background-size: contain;
+    background-color: #d946ef; /* Fill letterbox area when using contain */
   }
   
   .hero-content {
@@ -331,9 +302,9 @@
 /* Mobile (480px and below) */
 @media (max-width: 480px) {
   .hero {
-    background-position: 60% center;
-    background-size: cover;
-    min-height: 100svh; /* Better mobile viewport support */
+    min-height: 100dvh;
+    background-position: center top;
+    background-size: contain;
   }
   
   .hero-content {
@@ -368,7 +339,7 @@
   }
   
   .hero-scroll-indicator {
-    bottom: 1rem;
+    bottom: 4rem;
     font-size: 0.75rem;
   }
 }
@@ -376,7 +347,8 @@
 /* Very small screens (360px and below) */
 @media (max-width: 360px) {
   .hero {
-    background-position: 65% center;
+    background-position: center top;
+    background-size: contain;
   }
   
   .hero-title {
@@ -404,7 +376,7 @@
   }
   
   .hero-scroll-indicator {
-    bottom: 0.75rem;
+    bottom: 3rem;
     font-size: 0.7rem;
   }
 }

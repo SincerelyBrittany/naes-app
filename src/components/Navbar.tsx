@@ -69,10 +69,24 @@ const Navbar: React.FC = () => {
   // Smooth scroll to section
   const scrollToSection = (sectionId: string): void => {
     const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth' });
-      setIsMobileMenuOpen(false);
-    }
+    if (!element) return;
+
+    // Close mobile menu first so its height does not affect target alignment.
+    setIsMobileMenuOpen(false);
+
+    window.requestAnimationFrame(() => {
+      const navbar = document.querySelector('.navbar-container') as HTMLElement | null;
+      const navbarOffset = navbar?.offsetHeight ?? 72;
+
+      // Keep home anchored at page top; offset the rest for fixed navbar.
+      if (sectionId === 'home') {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+        return;
+      }
+
+      const targetTop = element.getBoundingClientRect().top + window.scrollY - navbarOffset;
+      window.scrollTo({ top: Math.max(targetTop, 0), behavior: 'smooth' });
+    });
   };
 
   // Navigation menu items
