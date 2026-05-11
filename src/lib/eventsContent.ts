@@ -1,5 +1,18 @@
 export type PopupType = 'event' | 'subscribe' | 'disabled';
 
+/** What the site should try to show in the automatic popup (Decap + JSON). */
+export type PopupMode = 'none' | 'event' | 'subscribe';
+
+/** Raw `settings` from JSON (includes optional legacy keys). */
+type RawSettingsInput = {
+  popupMode?: PopupMode;
+  delayTimeMs?: number;
+  showAgainAfterDays?: number;
+  activePopup?: PopupType;
+  showEventPopup?: boolean;
+  showSubscribePopup?: boolean;
+};
+
 export interface EventItem {
   id: string;
   title: string;
@@ -22,14 +35,10 @@ export interface SubscribePopupContent {
 }
 
 export interface EventsContentSettings {
-  /** When on, may show the event popup if there is a matching upcoming event. */
-  showEventPopup: boolean;
-  /** When on, may show the email subscribe popup. */
-  showSubscribePopup: boolean;
+  /** none = no popup; event = registration popup when an upcoming event exists; subscribe = email signup. */
+  popupMode: PopupMode;
   delayTimeMs: number;
   showAgainAfterDays: number;
-  /** Legacy: used only if showEventPopup / showSubscribePopup are absent from JSON. */
-  activePopup?: PopupType;
 }
 
 export interface EventsContent {
@@ -45,8 +54,7 @@ export interface EventsContent {
 const defaultContent: EventsContent = {
   hideEventsSection: false,
   settings: {
-    showEventPopup: false,
-    showSubscribePopup: false,
+    popupMode: 'none',
     delayTimeMs: 3000,
     showAgainAfterDays: 7
   },
@@ -63,26 +71,51 @@ const defaultContent: EventsContent = {
   pastEvents: []
 };
 
-const normalizeSettings = (raw: Partial<EventsContentSettings> | undefined): EventsContentSettings => {
-  const base = { ...defaultContent.settings, ...raw };
-  const hasNewBooleans =
-    typeof raw?.showEventPopup === 'boolean' || typeof raw?.showSubscribePopup === 'boolean';
+const isPopupMode = (value: unknown): value is PopupMode =>
+  value === 'none' || value === 'event' || value === 'subscribe';
 
-  if (!hasNewBooleans && raw?.activePopup) {
-    if (raw.activePopup === 'event') {
-      return { ...base, showEventPopup: true, showSubscribePopup: false };
+const normalizeSettings = (raw: RawSettingsInput | undefined): EventsContentSettings => {
+  const defaults = defaultContent.settings;
+  const merged = { ...defaults, ...(raw ?? {}) };
+
+  let popupMode: PopupMode = defaults.popupMode;
+  if (raw && isPopupMode(raw.popupMode)) {
+    popupMode = raw.popupMode;
+  } else if (raw) {
+    const hasLegacyBooleans =
+      typeof raw.showEventPopup === 'boolean' || typeof raw.showSubscribePopup === 'boolean';
+    if (hasLegacyBooleans) {
+      if (raw.showEventPopup && !raw.showSubscribePopup) popupMode = 'event';
+      else if (!raw.showEventPopup && raw.showSubscribePopup) popupMode = 'subscribe';
+      else if (raw.showEventPopup && raw.showSubscribePopup) popupMode = 'event';
+      else popupMode = 'none';
+    } else if (raw.activePopup === 'event') {
+      popupMode = 'event';
+    } else if (raw.activePopup === 'subscribe') {
+      popupMode = 'subscribe';
     }
-    if (raw.activePopup === 'subscribe') {
-      return { ...base, showEventPopup: false, showSubscribePopup: true };
-    }
-    return { ...base, showEventPopup: false, showSubscribePopup: false };
   }
 
-  return {
-    ...base,
-    showEventPopup: Boolean(base.showEventPopup),
-    showSubscribePopup: Boolean(base.showSubscribePopup)
+  const coerceNonNegativeNumber = (value: unknown, fallback: number): number => {
+    if (typeof value === 'number' && !Number.isNaN(value) && value >= 0) {
+      return value;
+    }
+    if (typeof value === 'string' && value.trim() !== '') {
+      const n = Number(value);
+      if (!Number.isNaN(n) && n >= 0) {
+        return n;
+      }
+    }
+    return fallback;
   };
+
+  const delayTimeMs = coerceNonNegativeNumber(merged.delayTimeMs, defaults.delayTimeMs);
+  const showAgainAfterDays = coerceNonNegativeNumber(
+    merged.showAgainAfterDays,
+    defaults.showAgainAfterDays
+  );
+
+  return { popupMode, delayTimeMs, showAgainAfterDays };
 };
 
 export const fetchEventsContent = async (): Promise<EventsContent> => {
@@ -122,14 +155,14 @@ export const getPopupEvent = (content: EventsContent): EventItem | null => {
   return featuredEvent ?? content.upcomingEvents[0];
 };
 
-/** Event popup wins if enabled and an event exists; else subscribe if enabled. */
+/** Resolves to the popup UI type from `popupMode` and available event data. */
 export const getEffectivePopupType = (content: EventsContent): PopupType => {
-  const { showEventPopup, showSubscribePopup } = content.settings;
-  const event = showEventPopup ? getPopupEvent(content) : null;
-  if (showEventPopup && event) {
-    return 'event';
+  const { popupMode } = content.settings;
+  if (popupMode === 'event') {
+    const event = getPopupEvent(content);
+    return event ? 'event' : 'disabled';
   }
-  if (showSubscribePopup) {
+  if (popupMode === 'subscribe') {
     return 'subscribe';
   }
   return 'disabled';

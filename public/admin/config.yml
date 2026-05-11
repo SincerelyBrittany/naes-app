@@ -22,31 +22,37 @@ collections:
             name: "hideEventsSection"
             widget: "boolean"
             default: false
+            required: false
             hint: "When checked, the Events block and the Events link in the navigation are hidden. Popup settings below are not affected."
 
           - label: "Popup Settings"
             name: "settings"
             widget: "object"
+            required: false
             fields:
-              - label: "Show event popup (optional)"
-                name: "showEventPopup"
-                widget: "boolean"
-                default: false
-                hint: "Turn on to promote an upcoming event in the popup. Needs at least one upcoming event (or a matching Popup Event ID below). If both this and Subscribe are on, the event popup shows when an event exists; otherwise the subscribe popup shows."
-              - label: "Show subscribe popup"
-                name: "showSubscribePopup"
-                widget: "boolean"
-                default: false
-                hint: "Turn on to show the email signup popup. Edit the Subscribe Popup section when this is enabled."
+              - label: "Which popup to show"
+                name: "popupMode"
+                widget: "select"
+                required: false
+                default: "none"
+                hint: "Pick one. Event mode only shows a popup if there is at least one upcoming event (or a matching Popup Event ID)."
+                options:
+                  - { label: "None — no automatic popup", value: "none" }
+                  - { label: "Event popup (upcoming event)", value: "event" }
+                  - { label: "Subscribe / newsletter popup", value: "subscribe" }
               - label: "Popup Delay (ms)"
                 name: "delayTimeMs"
                 widget: "number"
+                required: false
+                default: 3000
                 min: 0
                 step: 100
                 value_type: "int"
               - label: "Show Popup Again After Days"
                 name: "showAgainAfterDays"
                 widget: "number"
+                required: false
+                default: 7
                 min: 0
                 step: 1
                 value_type: "int"
