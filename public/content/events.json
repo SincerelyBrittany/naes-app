@@ -5,7 +5,7 @@
     "delayTimeMs": 2,
     "showAgainAfterDays": 10
   },
-  "hideEventsSection": true,
+  "hideEventsSection": false,
   "upcomingEvents": [
     {
       "time": "9:00Pm",
