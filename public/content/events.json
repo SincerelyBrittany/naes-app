@@ -1,5 +1,5 @@
 {
-  "hideEventsSection": true,
+  "hideEventsSection": false,
   "settings": {
     "popupMode": "event",
     "delayTimeMs": 3
