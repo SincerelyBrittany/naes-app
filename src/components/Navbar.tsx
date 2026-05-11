@@ -1,5 +1,6 @@
 // Navbar.tsx - TypeScript React Component
 import React, { useState, useEffect } from 'react';
+import { fetchEventsContent } from '../lib/eventsContent';
 import './Navbar.css';
 
 // Type definition for menu items
@@ -10,6 +11,7 @@ const Navbar: React.FC = () => {
   const [isScrolled, setIsScrolled] = useState<boolean>(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState<boolean>(false);
   const [activeSection, setActiveSection] = useState<string>('home'); // Track active section
+  const [hideEventsSection, setHideEventsSection] = useState<boolean>(false);
 
   // Scroll event handler
   useEffect(() => {
@@ -25,6 +27,18 @@ const Navbar: React.FC = () => {
     
     // Cleanup function
     return () => window.removeEventListener('scroll', handleScroll);
+  }, []);
+
+  useEffect(() => {
+    let isMounted = true;
+    fetchEventsContent().then((content) => {
+      if (isMounted) {
+        setHideEventsSection(content.hideEventsSection === true);
+      }
+    });
+    return () => {
+      isMounted = false;
+    };
   }, []);
 
   // Intersection Observer to detect active section
@@ -45,8 +59,13 @@ const Navbar: React.FC = () => {
 
     const observer = new IntersectionObserver(observerCallback, observerOptions);
 
-    // Observe all sections
-    const sections = ['home', 'about', 'author', 'events', 'contact'];
+    const sections = [
+      'home',
+      'about',
+      'author',
+      ...(hideEventsSection ? [] : ['events']),
+      'contact'
+    ];
     sections.forEach((sectionId) => {
       const element = document.getElementById(sectionId);
       if (element) {
@@ -54,7 +73,6 @@ const Navbar: React.FC = () => {
       }
     });
 
-    // Cleanup
     return () => {
       sections.forEach((sectionId) => {
         const element = document.getElementById(sectionId);
@@ -63,7 +81,7 @@ const Navbar: React.FC = () => {
         }
       });
     };
-  }, []);
+  }, [hideEventsSection]);
 
   // Smooth scroll to section
   const scrollToSection = (sectionId: string): void => {
@@ -88,8 +106,10 @@ const Navbar: React.FC = () => {
     });
   };
 
-  // Navigation menu items
-  const menuItems: MenuItem[] = ['Home', 'About', 'Author', 'Events', 'Contact'];
+  const allMenuItems: MenuItem[] = ['Home', 'About', 'Author', 'Events', 'Contact'];
+  const menuItems: MenuItem[] = hideEventsSection
+    ? allMenuItems.filter((item) => item !== 'Events')
+    : allMenuItems;
 
   return (
     <nav className={`navbar ${isScrolled ? 'navbar-scrolled' : ''}`}>

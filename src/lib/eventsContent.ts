@@ -33,6 +33,8 @@ export interface EventsContentSettings {
 }
 
 export interface EventsContent {
+  /** When true, the public Events section and nav link are hidden. */
+  hideEventsSection?: boolean;
   settings: EventsContentSettings;
   popupEventId?: string;
   subscribePopup: SubscribePopupContent;
@@ -41,6 +43,7 @@ export interface EventsContent {
 }
 
 const defaultContent: EventsContent = {
+  hideEventsSection: false,
   settings: {
     showEventPopup: false,
     showSubscribePopup: false,
@@ -93,6 +96,7 @@ export const fetchEventsContent = async (): Promise<EventsContent> => {
     return {
       ...defaultContent,
       ...json,
+      hideEventsSection: json.hideEventsSection === true,
       settings: normalizeSettings(json.settings),
       subscribePopup: { ...defaultContent.subscribePopup, ...(json.subscribePopup ?? {}) },
       upcomingEvents: Array.isArray(json.upcomingEvents) ? json.upcomingEvents : [],

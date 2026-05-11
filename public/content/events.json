@@ -1,4 +1,5 @@
 {
+  "hideEventsSection": false,
   "settings": {
     "showEventPopup": true,
     "showSubscribePopup": false,

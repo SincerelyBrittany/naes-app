@@ -40,6 +40,12 @@
   gap: 1.5rem;
 }
 
+.events-grid--single {
+  grid-template-columns: 1fr;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
 .events-group-title {
   margin-bottom: 1rem;
   color: #374151;
@@ -107,6 +113,12 @@
   border-radius: 12px;
   padding: 1rem;
   color: #6b7280;
+}
+
+.events-empty-centered {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
 }
 
 @media (max-width: 900px) {

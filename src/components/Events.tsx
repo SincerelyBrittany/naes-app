@@ -30,6 +30,7 @@ const EventCard: React.FC<{ event: EventItem; isPast?: boolean }> = ({ event, is
 );
 
 const Events: React.FC = () => {
+  const [hideSection, setHideSection] = useState<boolean>(false);
   const [upcomingEvents, setUpcomingEvents] = useState<EventItem[]>([]);
   const [pastEvents, setPastEvents] = useState<EventItem[]>([]);
 
@@ -40,6 +41,7 @@ const Events: React.FC = () => {
       const content = await fetchEventsContent();
       if (!isMounted) return;
 
+      setHideSection(content.hideEventsSection === true);
       setUpcomingEvents(sortEventsByDate(content.upcomingEvents));
       setPastEvents(sortEventsByDate(content.pastEvents, true));
     };
@@ -50,42 +52,60 @@ const Events: React.FC = () => {
     };
   }, []);
 
+  if (hideSection) {
+    return null;
+  }
+
+  const hasUpcoming = upcomingEvents.length > 0;
+  const hasPast = pastEvents.length > 0;
+
+  const gridClassName = [
+    'events-grid',
+    (hasUpcoming && !hasPast) || (!hasUpcoming && hasPast) ? 'events-grid--single' : ''
+  ]
+    .filter(Boolean)
+    .join(' ');
+
   return (
     <section id="events" className="events-section">
       <div className="events-container">
         <div className="events-header">
           <span className="events-label">Appearances</span>
           <h2 className="events-heading">Events</h2>
-          <p className="events-subtitle">See where Finicky Felicia will be featured next.</p>
+          <p className="events-subtitle">
+            {hasPast && !hasUpcoming
+              ? 'Recent appearances and past events.'
+              : 'See where Finicky Felicia will be featured next.'}
+          </p>
         </div>
 
-        <div className="events-grid">
-          <div>
-            <h3 className="events-group-title">Upcoming Events</h3>
-            {upcomingEvents.length ? (
-              <div className="events-list">
-                {upcomingEvents.map((event) => (
-                  <EventCard key={event.id} event={event} />
-                ))}
+        {!hasUpcoming && !hasPast ? (
+          <p className="events-empty events-empty-centered">No events at the moment.</p>
+        ) : (
+          <div className={gridClassName}>
+            {hasUpcoming && (
+              <div>
+                <h3 className="events-group-title">Upcoming Events</h3>
+                <div className="events-list">
+                  {upcomingEvents.map((event) => (
+                    <EventCard key={event.id} event={event} />
+                  ))}
+                </div>
               </div>
-            ) : (
-              <p className="events-empty">No upcoming events yet.</p>
             )}
-          </div>
 
-          <div>
-            <h3 className="events-group-title">Past Events</h3>
-            {pastEvents.length ? (
-              <div className="events-list">
-                {pastEvents.map((event) => (
-                  <EventCard key={event.id} event={event} isPast />
-                ))}
+            {hasPast && (
+              <div>
+                <h3 className="events-group-title">Past Events</h3>
+                <div className="events-list">
+                  {pastEvents.map((event) => (
+                    <EventCard key={event.id} event={event} isPast />
+                  ))}
+                </div>
               </div>
-            ) : (
-              <p className="events-empty">Past events will appear here.</p>
             )}
           </div>
-        </div>
+        )}
       </div>
     </section>
   );

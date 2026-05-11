@@ -18,6 +18,12 @@ collections:
         editor:
           preview: false
         fields:
+          - label: "Hide events section on the website"
+            name: "hideEventsSection"
+            widget: "boolean"
+            default: false
+            hint: "When checked, the Events block and the Events link in the navigation are hidden. Popup settings below are not affected."
+
           - label: "Popup Settings"
             name: "settings"
             widget: "object"
