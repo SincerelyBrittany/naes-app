@@ -246,6 +246,8 @@
     background-color: #c026d3;
     transform: translateZ(0);
     -webkit-transform: translateZ(0);
+    /* Pulls the purple block under the art — more reliable than a hairline -margin on the panel */
+    margin-bottom: -20px;
   }
 
   /* Match desktop hero tint — dims illustration under the nav */
@@ -255,8 +257,7 @@
     left: 0;
     right: 0;
     top: 0;
-    /* Bleed past box bottom so no hairline shows between flex items on iOS */
-    height: calc(100% + 8px);
+    height: calc(100% + 24px);
     z-index: 1;
     pointer-events: none;
     background: linear-gradient(
@@ -278,9 +279,9 @@
     min-height: unset;
     position: relative;
     z-index: 2;
-    /* Pull panel up over the art strip so any 1px gap is covered by solid gradient */
-    margin-top: -8px;
-    padding: calc(1.25rem + 8px) 1.35rem 0.35rem;
+    margin-top: 0;
+    /* Extra top padding = overlap amount so copy doesn’t sit under the image */
+    padding: calc(1.25rem + 20px) 1.35rem 0.35rem;
     background: linear-gradient(
       180deg,
       #c026d3 0%,
@@ -288,6 +289,25 @@
       #9333ea 65%,
       #7e22ce 100%
     );
+  }
+
+  /* Thin solid bridge only at the seam (not a full-panel box-shadow) */
+  .hero-copy-panel::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: -28px;
+    height: 32px;
+    background: #c026d3;
+    z-index: 0;
+    pointer-events: none;
+  }
+
+  .hero-content,
+  .hero-scroll-indicator {
+    position: relative;
+    z-index: 1;
   }
 
   .hero-content {
@@ -358,7 +378,7 @@
   }
 
   .hero-copy-panel {
-    padding: calc(1.25rem + 8px) 1.1rem 0.15rem;
+    padding: calc(1.25rem + 20px) 1.1rem 0.15rem;
   }
 
   .hero-content {
