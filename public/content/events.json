@@ -5,5 +5,18 @@
     "delayTimeMs": 2,
     "showAgainAfterDays": 10
   },
-  "hideEventsSection": true
+  "hideEventsSection": true,
+  "upcomingEvents": [
+    {
+      "time": "9:00Pm",
+      "featured": true,
+      "date": "2026-05-20",
+      "location": "NA",
+      "registrationUrl": "www.narenerussell.com",
+      "title": "Event of the year",
+      "id": "1",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTCHo3CkaH0oRY3MvrEN0xgn-x_Lsn3Lm3lVQ&s",
+      "description": "Testing the description"
+    }
+  ]
 }
