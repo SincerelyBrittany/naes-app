@@ -1,0 +1,8 @@
+{
+  "settings": {
+    "showEventPopup": false,
+    "showSubscribePopup": true,
+    "delayTimeMs": 2,
+    "showAgainAfterDays": 10
+  }
+}
