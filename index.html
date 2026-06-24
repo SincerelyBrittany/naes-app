@@ -84,6 +84,18 @@
         <textarea id="message" name="message"></textarea>
       </div>
     </form>
+    <script src="https://identity.netlify.com/v1/netlify-identity-widget.js"></script>
+    <script>
+      if (window.netlifyIdentity) {
+        window.netlifyIdentity.on("init", function (user) {
+          if (!user) {
+            window.netlifyIdentity.on("login", function () {
+              document.location.href = "/admin/";
+            });
+          }
+        });
+      }
+    </script>
     <script type="module" src="/src/main.jsx"></script>
     <script type="text/javascript" src="/js/jquery.1.11.1.js"></script>
     <script type="text/javascript" src="/js/bootstrap.js"></script>

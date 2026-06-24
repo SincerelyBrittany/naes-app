@@ -1,6 +1,13 @@
 // Popup.tsx - Popup Component for Events and Newsletter
 import React, { useState, useEffect } from 'react';
-import { popupConfig, shouldShowPopup, markPopupClosed } from './Popupconfig';
+import { shouldShowPopup, markPopupClosed } from './Popupconfig';
+import {
+  type EventsContent,
+  fetchEventsContent,
+  formatEventDate,
+  getEffectivePopupType,
+  getPopupEvent
+} from '../lib/eventsContent';
 import './Popup.css';
 
 const Popup: React.FC = () => {
@@ -8,24 +15,59 @@ const Popup: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
+  const [content, setContent] = useState<EventsContent | null>(null);
+
+  const popupType = content ? getEffectivePopupType(content) : 'disabled';
+  const popupEvent = content ? getPopupEvent(content) : null;
 
   useEffect(() => {
-    // Check if popup should be shown
-    if (shouldShowPopup(popupConfig.activePopup)) {
-      // Show popup after delay
-      const timer = setTimeout(() => {
-        setIsVisible(true);
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
-      }, popupConfig.delayTime);
+    let cancelled = false;
 
-      return () => clearTimeout(timer);
-    }
+    const load = async (): Promise<void> => {
+      const loadedContent = await fetchEventsContent();
+      if (cancelled) return;
+      setContent(loadedContent);
+    };
+
+    load();
+    return () => {
+      cancelled = true;
+    };
   }, []);
 
+  useEffect(() => {
+    if (!content) {
+      setIsVisible(false);
+      return;
+    }
+
+    const effective = getEffectivePopupType(content);
+    if (!shouldShowPopup(effective, content.settings.showAgainAfterDays)) {
+      setIsVisible(false);
+      document.body.style.overflow = 'unset';
+      return;
+    }
+
+    setIsVisible(false);
+    const delayMs = Math.max(0, content.settings.delayTimeMs);
+
+    const timer = window.setTimeout(() => {
+      setIsVisible(true);
+      document.body.style.overflow = 'hidden';
+    }, delayMs);
+
+    return () => {
+      window.clearTimeout(timer);
+      document.body.style.overflow = 'unset';
+    };
+  }, [content]);
+
   const closePopup = (): void => {
+    if (!content) return;
+    const closedType = getEffectivePopupType(content);
     setIsVisible(false);
     document.body.style.overflow = 'unset';
-    markPopupClosed(popupConfig.activePopup);
+    markPopupClosed(closedType);
   };
 
   const handleSubscribe = async (e: React.FormEvent): Promise<void> => {
@@ -59,13 +101,14 @@ const Popup: React.FC = () => {
   };
 
   const handleEventClick = (): void => {
+    if (!popupEvent?.registrationUrl) return;
     // Open event registration link in new tab
-    window.open(popupConfig.eventPopup.eventLink, '_blank');
+    window.open(popupEvent.registrationUrl, '_blank');
     closePopup();
   };
 
   // Don't render if popup is disabled or not visible
-  if (popupConfig.activePopup === 'disabled' || !isVisible) {
+  if (popupType === 'disabled' || !isVisible || !content) {
     return null;
   }
 
@@ -86,14 +129,14 @@ const Popup: React.FC = () => {
         </button>
 
         {/* EVENT POPUP */}
-        {popupConfig.activePopup === 'event' && (
+        {popupType === 'event' && popupEvent && (
           <div className="popup-content event-popup">
             {/* Optional Event Image */}
-            {popupConfig.eventPopup.image && (
+            {popupEvent.image && (
               <div className="popup-image-wrapper">
                 <img
-                  src={popupConfig.eventPopup.image}
-                  alt="Event"
+                  src={popupEvent.image}
+                  alt={popupEvent.title}
                   className="popup-image"
                 />
                 <div className="popup-image-overlay"></div>
@@ -111,10 +154,10 @@ const Popup: React.FC = () => {
                 </svg>
               </div>
 
-              <h2 className="popup-title">{popupConfig.eventPopup.title}</h2>
-              <p className="popup-subtitle">{popupConfig.eventPopup.subtitle}</p>
+              <h2 className="popup-title">{popupEvent.title}</h2>
+              <p className="popup-subtitle">Join Narene Russell for a special event</p>
               
-              <p className="popup-description">{popupConfig.eventPopup.description}</p>
+              <p className="popup-description">{popupEvent.description}</p>
 
               {/* Event Details */}
               <div className="event-details">
@@ -123,14 +166,14 @@ const Popup: React.FC = () => {
                     <circle cx="12" cy="12" r="10"></circle>
                     <polyline points="12 6 12 12 16 14"></polyline>
                   </svg>
-                  <span>{popupConfig.eventPopup.eventDate}</span>
+                  <span>{formatEventDate(popupEvent.date)} at {popupEvent.time}</span>
                 </div>
                 <div className="event-detail-item">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"></path>
                     <circle cx="12" cy="10" r="3"></circle>
                   </svg>
-                  <span>{popupConfig.eventPopup.eventLocation}</span>
+                  <span>{popupEvent.location}</span>
                 </div>
               </div>
 
@@ -139,8 +182,9 @@ const Popup: React.FC = () => {
                 className="popup-button event-button"
                 onClick={handleEventClick}
                 type="button"
+                disabled={!popupEvent.registrationUrl}
               >
-                {popupConfig.eventPopup.buttonText}
+                Register Now
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <line x1="5" y1="12" x2="19" y2="12"></line>
                   <polyline points="12 5 19 12 12 19"></polyline>
@@ -155,7 +199,7 @@ const Popup: React.FC = () => {
         )}
 
         {/* SUBSCRIBE POPUP */}
-        {popupConfig.activePopup === 'subscribe' && (
+        {popupType === 'subscribe' && (
           <div className="popup-content subscribe-popup">
             <div className="popup-body">
               {/* Decorative Icon */}
@@ -166,10 +210,16 @@ const Popup: React.FC = () => {
                 </svg>
               </div>
 
-              <h2 className="popup-title">{popupConfig.subscribePopup.title}</h2>
-              <p className="popup-subtitle">{popupConfig.subscribePopup.subtitle}</p>
-              
-              <p className="popup-description">{popupConfig.subscribePopup.description}</p>
+              {content.subscribePopup.title.trim() ? (
+                <h2 className="popup-title">{content.subscribePopup.title.trim()}</h2>
+              ) : null}
+              {content.subscribePopup.subtitle.trim() ? (
+                <p className="popup-subtitle">{content.subscribePopup.subtitle.trim()}</p>
+              ) : null}
+
+              {content.subscribePopup.description.trim() ? (
+                <p className="popup-description">{content.subscribePopup.description.trim()}</p>
+              ) : null}
 
               {/* Subscribe Form */}
               {!showSuccess ? (
@@ -179,7 +229,9 @@ const Popup: React.FC = () => {
                       type="email"
                       value={email}
                       onChange={(e) => setEmail(e.target.value)}
-                      placeholder={popupConfig.subscribePopup.placeholder}
+                      placeholder={
+                        content.subscribePopup.placeholder.trim() || 'Your email address'
+                      }
                       required
                       className="subscribe-input"
                       disabled={isSubmitting}
@@ -198,7 +250,7 @@ const Popup: React.FC = () => {
                       </>
                     ) : (
                       <>
-                        {popupConfig.subscribePopup.buttonText}
+                        {content.subscribePopup.buttonText.trim() || 'Sign up'}
                         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                           <line x1="5" y1="12" x2="19" y2="12"></line>
                           <polyline points="12 5 19 12 12 19"></polyline>
@@ -214,7 +266,10 @@ const Popup: React.FC = () => {
                       <polyline points="20 6 9 17 4 12"></polyline>
                     </svg>
                   </div>
-                  <p>{popupConfig.subscribePopup.successMessage}</p>
+                  <p>
+                    {content.subscribePopup.successMessage.trim() ||
+                      "Thanks — you're on the list."}
+                  </p>
                 </div>
               )}
 

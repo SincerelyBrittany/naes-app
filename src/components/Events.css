@@ -1,0 +1,128 @@
+.events-section {
+  padding: 5rem 0;
+  background: linear-gradient(135deg, #fff7ed 0%, #ffffff 100%);
+}
+
+.events-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.25rem;
+}
+
+.events-header {
+  text-align: center;
+  margin-bottom: 2.5rem;
+}
+
+.events-label {
+  color: #f97316;
+  font-weight: 700;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+  font-size: 0.75rem;
+}
+
+.events-heading {
+  font-size: 2.5rem;
+  margin: 0.5rem 0;
+  color: #9333ea;
+}
+
+.events-subtitle {
+  color: #6b7280;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1.5rem;
+}
+
+.events-grid--single {
+  grid-template-columns: 1fr;
+  max-width: 640px;
+  margin: 0 auto;
+}
+
+.events-group-title {
+  margin-bottom: 1rem;
+  color: #374151;
+}
+
+.events-list {
+  display: grid;
+  gap: 1rem;
+}
+
+.event-card {
+  border: 1px solid #f3f4f6;
+  border-radius: 14px;
+  background: #ffffff;
+  padding: 1rem;
+  box-shadow: 0 10px 24px rgba(15, 23, 42, 0.06);
+}
+
+.event-card-past {
+  opacity: 0.9;
+}
+
+.event-meta {
+  display: flex;
+  gap: 0.75rem;
+  flex-wrap: wrap;
+  color: #9333ea;
+  font-weight: 600;
+  font-size: 0.9rem;
+  margin-bottom: 0.5rem;
+}
+
+.event-title {
+  margin: 0.25rem 0;
+  color: #111827;
+  font-size: 1.15rem;
+}
+
+.event-location {
+  color: #f97316;
+  font-weight: 600;
+  margin: 0.25rem 0 0.5rem;
+}
+
+.event-description {
+  margin: 0;
+  color: #4b5563;
+  line-height: 1.5;
+}
+
+.event-link {
+  display: inline-block;
+  margin-top: 0.9rem;
+  color: #ffffff;
+  background: linear-gradient(135deg, #f97316 0%, #ea580c 100%);
+  text-decoration: none;
+  border-radius: 999px;
+  padding: 0.55rem 1rem;
+  font-weight: 700;
+}
+
+.events-empty {
+  background: #ffffff;
+  border: 1px dashed #e5e7eb;
+  border-radius: 12px;
+  padding: 1rem;
+  color: #6b7280;
+}
+
+.events-empty-centered {
+  max-width: 480px;
+  margin: 0 auto;
+  text-align: center;
+}
+
+@media (max-width: 900px) {
+  .events-grid {
+    grid-template-columns: 1fr;
+  }
+}

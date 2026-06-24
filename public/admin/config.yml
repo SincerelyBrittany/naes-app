@@ -1,0 +1,105 @@
+backend:
+  name: git-gateway
+  branch: main
+
+media_folder: "public/uploads"
+public_folder: "/uploads"
+
+publish_mode: editorial_workflow
+
+collections:
+  - name: "site_content"
+    label: "Site Content"
+    files:
+      - name: "events"
+        label: "Events + Popup"
+        file: "public/content/events.json"
+        format: "json"
+        editor:
+          preview: false
+        fields:
+          - label: "Hide events section on the website"
+            name: "hideEventsSection"
+            widget: "boolean"
+            default: false
+            required: false
+            hint: "When checked, the Events block and the Events link in the navigation are hidden. Popup settings below are not affected."
+
+          - label: "Popup Settings"
+            name: "settings"
+            widget: "object"
+            required: false
+            fields:
+              - label: "Which popup to show"
+                name: "popupMode"
+                widget: "select"
+                required: false
+                default: "subscribe"
+                hint: "Default is subscribe (email). Event only shows if there is a matching upcoming event. Pick None to turn all automatic popups off."
+                options:
+                  - { label: "None — no automatic popup", value: "none" }
+                  - { label: "Event popup (upcoming event)", value: "event" }
+                  - { label: "Subscribe / newsletter popup", value: "subscribe" }
+              - label: "Popup Delay (ms)"
+                name: "delayTimeMs"
+                widget: "number"
+                required: false
+                default: 3000
+                min: 0
+                step: 100
+                value_type: "int"
+              - label: "Show Popup Again After Days"
+                name: "showAgainAfterDays"
+                widget: "number"
+                required: false
+                default: 7
+                min: 0
+                step: 1
+                value_type: "int"
+
+          - label: "Popup Event ID"
+            name: "popupEventId"
+            widget: "string"
+            hint: "Use an event id from Upcoming Events (or leave blank to use featured/first event)."
+            required: false
+
+          - label: "Subscribe Popup (optional text — leave subtitle & description empty for email-only)"
+            name: "subscribePopup"
+            widget: "object"
+            required: false
+            fields:
+              - { label: "Title", name: "title", widget: "string", required: false }
+              - { label: "Subtitle", name: "subtitle", widget: "string", required: false }
+              - { label: "Description", name: "description", widget: "text", required: false }
+              - { label: "Button Text", name: "buttonText", widget: "string", required: false }
+              - { label: "Email Placeholder", name: "placeholder", widget: "string", required: false }
+              - { label: "Success Message", name: "successMessage", widget: "string", required: false }
+
+          - label: "Upcoming Events"
+            name: "upcomingEvents"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.date}}"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+              - { label: "Time", name: "time", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Registration URL", name: "registrationUrl", widget: "string", required: false }
+              - { label: "Image", name: "image", widget: "image", required: false }
+              - { label: "Featured", name: "featured", widget: "boolean", default: false, required: false }
+
+          - label: "Past Events"
+            name: "pastEvents"
+            widget: "list"
+            summary: "{{fields.title}} — {{fields.date}}"
+            fields:
+              - { label: "ID", name: "id", widget: "string" }
+              - { label: "Title", name: "title", widget: "string" }
+              - { label: "Date", name: "date", widget: "datetime", date_format: "YYYY-MM-DD", time_format: false, format: "YYYY-MM-DD" }
+              - { label: "Time", name: "time", widget: "string" }
+              - { label: "Location", name: "location", widget: "string" }
+              - { label: "Description", name: "description", widget: "text" }
+              - { label: "Registration URL", name: "registrationUrl", widget: "string", required: false }
+              - { label: "Image", name: "image", widget: "image", required: false }
