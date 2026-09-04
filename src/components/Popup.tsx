@@ -1,6 +1,8 @@
 // Popup.tsx - Popup Component for Events and Newsletter
 import React, { useState, useEffect } from 'react';
 import { popupConfig, shouldShowPopup, markPopupClosed } from './Popupconfig';
+import { getMailchimpSubscribeUrl } from '../config/site';
+import { trackSubscribe } from '../lib/analytics';
 import './Popup.css';
 
 const Popup: React.FC = () => {
@@ -8,14 +10,13 @@ const Popup: React.FC = () => {
   const [email, setEmail] = useState<string>('');
   const [isSubmitting, setIsSubmitting] = useState<boolean>(false);
   const [showSuccess, setShowSuccess] = useState<boolean>(false);
+  const [errorMessage, setErrorMessage] = useState<string>('');
 
   useEffect(() => {
-    // Check if popup should be shown
     if (shouldShowPopup(popupConfig.activePopup)) {
-      // Show popup after delay
       const timer = setTimeout(() => {
         setIsVisible(true);
-        document.body.style.overflow = 'hidden'; // Prevent background scrolling
+        document.body.style.overflow = 'hidden';
       }, popupConfig.delayTime);
 
       return () => clearTimeout(timer);
@@ -31,40 +32,55 @@ const Popup: React.FC = () => {
   const handleSubscribe = async (e: React.FormEvent): Promise<void> => {
     e.preventDefault();
     setIsSubmitting(true);
+    setErrorMessage('');
 
-    // Simulate API call (replace with your actual email service integration)
-    // Example services: Mailchimp, ConvertKit, EmailOctopus, etc.
+    const mailchimpUrl = getMailchimpSubscribeUrl();
+
     try {
-      // TODO: Replace with your actual email service endpoint
-      // await fetch(popupConfig.subscribePopup.subscribeEndpoint, {
-      //   method: 'POST',
-      //   headers: { 'Content-Type': 'application/json' },
-      //   body: JSON.stringify({ email })
-      // });
+      if (!mailchimpUrl) {
+        throw new Error(
+          'Newsletter is not configured yet. Please try again later or use the contact form.'
+        );
+      }
 
-      // For now, simulate success after 1 second
+      // Mailchimp expects form-urlencoded POST; JSONP-style via hidden form is also common.
+      // Using fetch with no-cors so the browser can submit without CORS errors.
+      const formData = new FormData();
+      formData.append('EMAIL', email);
+      // Honeypot field Mailchimp embeds often use
+      formData.append('b_bot', '');
+
+      await fetch(mailchimpUrl, {
+        method: 'POST',
+        mode: 'no-cors',
+        body: formData,
+      });
+
+      // no-cors hides the response; treat as success if the request did not throw
+      trackSubscribe(true);
+      setShowSuccess(true);
+      setIsSubmitting(false);
+
       setTimeout(() => {
-        setShowSuccess(true);
-        setIsSubmitting(false);
-        
-        // Close popup after showing success message
-        setTimeout(() => {
-          closePopup();
-        }, 2000);
-      }, 1000);
+        closePopup();
+      }, 2000);
     } catch (error) {
       console.error('Subscription error:', error);
+      trackSubscribe(false);
+      setErrorMessage(
+        error instanceof Error
+          ? error.message
+          : 'Something went wrong. Please try again.'
+      );
       setIsSubmitting(false);
     }
   };
 
   const handleEventClick = (): void => {
-    // Open event registration link in new tab
     window.open(popupConfig.eventPopup.eventLink, '_blank');
     closePopup();
   };
 
-  // Don't render if popup is disabled or not visible
   if (popupConfig.activePopup === 'disabled' || !isVisible) {
     return null;
   }
@@ -72,7 +88,6 @@ const Popup: React.FC = () => {
   return (
     <div className="popup-overlay" onClick={closePopup}>
       <div className="popup-container" onClick={(e) => e.stopPropagation()}>
-        {/* Close Button */}
         <button
           className="popup-close"
           onClick={closePopup}
@@ -85,10 +100,8 @@ const Popup: React.FC = () => {
           </svg>
         </button>
 
-        {/* EVENT POPUP */}
         {popupConfig.activePopup === 'event' && (
           <div className="popup-content event-popup">
-            {/* Optional Event Image */}
             {popupConfig.eventPopup.image && (
               <div className="popup-image-wrapper">
                 <img
@@ -101,7 +114,6 @@ const Popup: React.FC = () => {
             )}
 
             <div className="popup-body">
-              {/* Decorative Icon */}
               <div className="popup-icon event-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <rect x="3" y="4" width="18" height="18" rx="2" ry="2"></rect>
@@ -113,10 +125,8 @@ const Popup: React.FC = () => {
 
               <h2 className="popup-title">{popupConfig.eventPopup.title}</h2>
               <p className="popup-subtitle">{popupConfig.eventPopup.subtitle}</p>
-              
               <p className="popup-description">{popupConfig.eventPopup.description}</p>
 
-              {/* Event Details */}
               <div className="event-details">
                 <div className="event-detail-item">
                   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
@@ -134,7 +144,6 @@ const Popup: React.FC = () => {
                 </div>
               </div>
 
-              {/* Action Button */}
               <button
                 className="popup-button event-button"
                 onClick={handleEventClick}
@@ -154,11 +163,9 @@ const Popup: React.FC = () => {
           </div>
         )}
 
-        {/* SUBSCRIBE POPUP */}
         {popupConfig.activePopup === 'subscribe' && (
           <div className="popup-content subscribe-popup">
             <div className="popup-body">
-              {/* Decorative Icon */}
               <div className="popup-icon subscribe-icon">
                 <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                   <path d="M4 4h16c1.1 0 2 .9 2 2v12c0 1.1-.9 2-2 2H4c-1.1 0-2-.9-2-2V6c0-1.1.9-2 2-2z"></path>
@@ -168,10 +175,8 @@ const Popup: React.FC = () => {
 
               <h2 className="popup-title">{popupConfig.subscribePopup.title}</h2>
               <p className="popup-subtitle">{popupConfig.subscribePopup.subtitle}</p>
-              
               <p className="popup-description">{popupConfig.subscribePopup.description}</p>
 
-              {/* Subscribe Form */}
               {!showSuccess ? (
                 <form onSubmit={handleSubscribe} className="subscribe-form">
                   <div className="input-wrapper">
@@ -183,9 +188,16 @@ const Popup: React.FC = () => {
                       required
                       className="subscribe-input"
                       disabled={isSubmitting}
+                      autoComplete="email"
                     />
                   </div>
-                  
+
+                  {errorMessage && (
+                    <p className="popup-error" role="alert">
+                      {errorMessage}
+                    </p>
+                  )}
+
                   <button
                     type="submit"
                     className="popup-button subscribe-button"
@@ -225,7 +237,6 @@ const Popup: React.FC = () => {
               )}
             </div>
 
-            {/* Decorative Elements */}
             <div className="popup-decoration decoration-1"></div>
             <div className="popup-decoration decoration-2"></div>
           </div>
