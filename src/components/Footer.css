@@ -1,0 +1,124 @@
+/* Footer.css */
+.site-footer {
+  background: linear-gradient(180deg, #7e22ce 0%, #6b21a8 100%);
+  color: rgba(255, 255, 255, 0.92);
+  padding: 3rem 1.5rem 2rem;
+}
+
+.site-footer-inner {
+  max-width: 1100px;
+  margin: 0 auto;
+  display: grid;
+  gap: 2rem;
+  grid-template-columns: 1.4fr 1fr 1fr;
+}
+
+.site-footer-brand {
+  font-size: 1.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin: 0 0 0.75rem;
+}
+
+.site-footer-tagline {
+  margin: 0 0 1rem;
+  line-height: 1.55;
+  font-size: 0.95rem;
+  color: rgba(255, 255, 255, 0.85);
+  max-width: 28rem;
+}
+
+.site-footer-heading {
+  margin: 0 0 0.75rem;
+  font-size: 0.8rem;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  color: #fde68a;
+}
+
+.site-footer-links {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.site-footer-links a,
+.site-footer-credit a,
+.site-footer-link-btn {
+  color: rgba(255, 255, 255, 0.9);
+  text-decoration: none;
+  font-size: 0.95rem;
+  background: none;
+  border: none;
+  padding: 0;
+  cursor: pointer;
+  font-family: inherit;
+  text-align: left;
+}
+
+.site-footer-links a:hover,
+.site-footer-credit a:hover,
+.site-footer-link-btn:hover {
+  color: #fed7aa;
+  text-decoration: underline;
+}
+
+.site-footer-social {
+  display: flex;
+  gap: 0.75rem;
+  margin-top: 0.5rem;
+}
+
+.site-footer-social a {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 2.5rem;
+  height: 2.5rem;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+  color: #fff;
+  transition: background 0.2s ease;
+}
+
+.site-footer-social a:hover {
+  background: rgba(255, 255, 255, 0.22);
+}
+
+.site-footer-social svg {
+  width: 1.15rem;
+  height: 1.15rem;
+}
+
+.site-footer-bottom {
+  max-width: 1100px;
+  margin: 2.25rem auto 0;
+  padding-top: 1.25rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem 1.5rem;
+  justify-content: space-between;
+  font-size: 0.85rem;
+  color: rgba(255, 255, 255, 0.75);
+}
+
+.site-footer-credit {
+  margin: 0;
+  max-width: 36rem;
+  line-height: 1.5;
+}
+
+@media (max-width: 768px) {
+  .site-footer-inner {
+    grid-template-columns: 1fr;
+    gap: 1.75rem;
+  }
+
+  .site-footer {
+    padding: 2.5rem 1.25rem 1.75rem;
+  }
+}

@@ -1,42 +1,14 @@
-// import path from "path";
-const path = require("path");
-import vue from "@vitejs/plugin-vue";
-import { defineConfig } from "vite";
-import react from "@vitejs/plugin-react";
-// import { resolve } from "path";
+import { defineConfig, loadEnv } from 'vite';
+import react from '@vitejs/plugin-react';
 
-export default defineConfig({
-  define: {
-    'process.env': process.env,
-  },
+export default defineConfig(({ mode }) => {
+  const env = loadEnv(mode, process.cwd(), '');
+  // Ensure HTML %VITE_SITE_URL% has a fallback during build
+  if (!env.VITE_SITE_URL) {
+    process.env.VITE_SITE_URL = 'https://narenerussell.com';
+  }
+
+  return {
+    plugins: [react()],
+  };
 });
-
-// const viteEnv = {};
-// Object.keys(process.env).forEach((key) => {
-//   if (key.startsWith(`VITE_`)) {
-//     viteEnv[`import.meta.env.${key}`] = process.env[key];
-//   }
-// });
-
-// export default defineConfig({
-//   resolve: {
-//     alias: {
-//       "@": require("path").resolve(__dirname, "src"),
-//     },
-//   },
-//   define: viteEnv,
-//   plugins: [vue()],
-// });
-
-// https://vitejs.dev/config/
-// export default defineConfig({
-//   plugins: [react()],
-// })
-
-// export default {
-//   alias: {
-//     "@": require("path").resolve(__dirname, "src"),
-//   },
-//   define: viteEnv,
-//   plugins: [vue()],
-// };

@@ -1,5 +1,7 @@
 // Hero.tsx - Hero/Home Section Component
 import React from 'react';
+import { AMAZON_URL, BARNES_URL } from '../config/site';
+import { trackBuyClick } from '../lib/analytics';
 import './Hero.css';
 
 const Hero: React.FC = () => {
@@ -24,19 +26,21 @@ const Hero: React.FC = () => {
 
           <div className="hero-buttons">
             <a
-              href="https://www.amazon.com/Finicky-Felicia-Narene-Russell/dp/B0B45CHGVW"
+              href={AMAZON_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="hero-btn hero-btn-primary"
+              onClick={() => trackBuyClick('amazon')}
             >
               Buy on Amazon
             </a>
 
             <a
-              href="https://www.barnesandnoble.com/w/finicky-felicia-narene-russell/1144045912"
+              href={BARNES_URL}
               target="_blank"
               rel="noopener noreferrer"
               className="hero-btn hero-btn-secondary"
+              onClick={() => trackBuyClick('barnes_noble')}
             >
               Barnes & Noble
             </a>

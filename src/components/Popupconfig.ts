@@ -55,10 +55,11 @@ export interface PopupConfig {
 
 export const popupConfig: PopupConfig = {
   // Choose: 'event', 'subscribe', or 'disabled'
-  activePopup: 'disabled', // 👈 CHANGE THIS TO SWITCH POPUPS
-  
-  // Wait 3 seconds before showing popup
-  delayTime: 3000,
+  // Newsletter paused until Mailchimp (or similar) is set up — contact form uses EmailJS
+  activePopup: 'disabled',
+
+  // Wait 5 seconds before showing popup (less aggressive than 3s)
+  delayTime: 5000,
   
   // Don't show again for 7 days after user closes it
   showAgainAfterDays: 7,
