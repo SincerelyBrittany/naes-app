@@ -3,43 +3,49 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <!-- <link
-      rel="stylesheet"
-      href="path/to/font-awesome/css/font-awesome.min.css"
-    /> -->
+
+    <title>Finicky Felicia | Children's Book About Picky Eaters by Narene Russell</title>
+    <meta
+      name="description"
+      content="Finicky Felicia is a delightful children's book by Narene Russell about a picky eater who learns to love vegetables and healthy foods. Perfect for kids, parents, and teachers. Buy on Amazon or Barnes &amp; Noble."
+    />
+    <meta
+      name="keywords"
+      content="Finicky Felicia, Narene Russell, children's book, picky eater, healthy foods, vegetables, kids book, Nae's Place"
+    />
+    <meta name="author" content="Narene Russell" />
+    <link rel="canonical" href="%VITE_SITE_URL%/" />
+
+    <meta property="og:type" content="book" />
+    <meta property="og:site_name" content="Nae's Place" />
+    <meta property="og:title" content="Finicky Felicia | Children's Book by Narene Russell" />
+    <meta
+      property="og:description"
+      content="A delightful children's book about learning to love healthy foods. Join Felicia on her journey from sweets to vegetables."
+    />
+    <meta property="og:url" content="%VITE_SITE_URL%/" />
+    <meta property="og:image" content="%VITE_SITE_URL%/img/og-cover.jpg" />
+    <meta property="og:image:alt" content="Finicky Felicia book cover illustration" />
+    <meta property="book:author" content="Narene Russell" />
+
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="Finicky Felicia | Children's Book by Narene Russell" />
+    <meta
+      name="twitter:description"
+      content="A delightful children's book about a picky eater who learns to love healthy foods."
+    />
+    <meta name="twitter:image" content="%VITE_SITE_URL%/img/og-cover.jpg" />
+
+    <link rel="icon" type="image/png" href="/favicon.png" />
+    <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link
       href="https://fonts.googleapis.com/css2?family=Bubblegum+Sans&family=Castoro+Titling&family=Roboto:wght@300&display=swap"
       rel="stylesheet"
     />
-    <!-- <link
-      rel="stylesheet"
-      href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css"
-      integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65"
-      crossorigin="anonymous"
-    /> -->
-
-
-    <!-- <link rel="shortcut icon" href="img/favicon.ico" type="image/x-icon" /> -->
-    <link rel="apple-touch-icon" href="img/apple-touch-icon.png" />
-    <link
-      rel="apple-touch-icon"
-      sizes="72x72"
-      href="img/apple-touch-icon-72x72.png"
-    />
-    <link
-      rel="apple-touch-icon"
-      sizes="114x114"
-      href="img/apple-touch-icon-114x114.png"
-    />
-  
     <link rel="stylesheet" type="text/css" href="/css/bootstrap.css" />
-    <!-- <link
-      rel="stylesheet"
-      type="text/css"
-      href="fonts/font-awesome/css/font-awesome.css"
-    /> -->
     <link rel="stylesheet" type="text/css" href="/css/style.css" />
     <link
       rel="stylesheet"
@@ -59,14 +65,54 @@
       href="https://fonts.googleapis.com/css?family=Raleway:300,400,500,600,700,800,900"
       rel="stylesheet"
     />
-    <title>Naes Place</title>
+
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Book",
+            "name": "Finicky Felicia",
+            "author": {
+              "@type": "Person",
+              "name": "Narene Russell",
+              "url": "%VITE_SITE_URL%/"
+            },
+            "description": "A delightful children's book about learning to love healthy foods. Join Felicia on her journey from being a picky eater who only loves sweets to discovering the joy of vegetables.",
+            "image": "%VITE_SITE_URL%/img/og-cover.jpg",
+            "url": "%VITE_SITE_URL%/",
+            "inLanguage": "en",
+            "genre": "Children's Fiction",
+            "bookFormat": "https://schema.org/Paperback",
+            "offers": [
+              {
+                "@type": "Offer",
+                "url": "https://www.amazon.com/Finicky-Felicia-Narene-Russell/dp/B0B45CHGVW",
+                "availability": "https://schema.org/InStock",
+                "seller": { "@type": "Organization", "name": "Amazon" }
+              },
+              {
+                "@type": "Offer",
+                "url": "https://www.barnesandnoble.com/w/finicky-felicia-narene-russell/1144045912",
+                "availability": "https://schema.org/InStock",
+                "seller": { "@type": "Organization", "name": "Barnes & Noble" }
+              }
+            ]
+          },
+          {
+            "@type": "WebSite",
+            "name": "Nae's Place",
+            "url": "%VITE_SITE_URL%/",
+            "publisher": {
+              "@type": "Person",
+              "name": "Narene Russell"
+            }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
-    <!-- A little help for the Netlify post-processing bots -->
-    <!-- <form name='contactForm' netlify hidden>
-      <input type='text' name='name' />
-      <input type='email' name='email' />
-    </form> -->
     <div id="root"></div>
     <form name="contact" netlify data-netlify="true" hidden>
       <div className="basic_info">

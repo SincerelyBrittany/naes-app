@@ -1,32 +1,28 @@
-// App.tsx - Example of how to use the Navbar component
+// App.tsx
 import React from 'react';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import About from './components/About';
 import Author from './components/Author';
-import Gallery from './components/Gallery';
 import Popup from './components/Popup';
+import Footer from './components/Footer';
+import Analytics from './components/Analytics';
+import Contact from './components/Contact';
 
 import './App.css';
-import Contact from './components/Contact';
 
 const App: React.FC = () => {
   return (
     <div className="app">
+      <Analytics />
       <Navbar />
       <Hero />
       <About />
-      <Author/>
+      <Author />
       {/* <Gallery /> */}
       <Contact />
-      {/* Demo sections for testing the navbar */}
-      <Popup/>
-    
-      {/* <section id="order" className="section section-order">
-        <h1>Order Section</h1>
-        <p>On mobile, you'll see a hamburger menu</p>
-      </section> */}
-      
+      <Footer />
+      <Popup />
     </div>
   );
 };
