@@ -60,13 +60,23 @@ Done:
 - Full page text available without JavaScript (AI crawlers don't run JavaScript)
 
 To do:
-- [ ] Add Amazon Author Central and Goodreads author page URLs to `sameAs` once they exist
+- [x] Goodreads book and author pages linked in `sameAs` and on the site
+- [ ] Claim the Goodreads author profile and add a bio and photo
+- [ ] Set up Amazon Author Central and add its URL to `sameAs`
 - [ ] Keep the author name, book title, and description the same everywhere online
 - [ ] Get the book mentioned on other sites: reviews, blogs, interviews, Goodreads lists, podcasts
 
-### "Black author" / representation searches
-The site doesn't say anything about representation yet, so it can't rank for those searches. Waiting on Narene's preferred wording before adding it to the page text, meta description, and structured data.
+### Representation searches ("Black author", "Black children's book")
+Done:
+- Page title, meta description, and social share text name Narene as a Black / African American author and the book as being about a Black family
+- About section, author highlights, footer, and two FAQ answers say the same in plain language
+- Structured data and `llms.txt` describe the author and characters
+
+To do:
+- [ ] Submit the book to lists that already rank: Goodreads lists (e.g. "Picture Books with Black Characters"), library "diverse books" lists, Black-owned bookstore and parenting blogs
+- [ ] Reach out to roundups like "children's books by Black authors" and "picture books about healthy eating"
+- [ ] Ask readers to leave reviews on Goodreads and Amazon that mention the representation in their own words
 
 ## Other issues found in review
-- Body text across the site is small (about 11px) because `bootstrap.css` sets the root font size to 10px. Google's mobile checks prefer 16px body text. Fixing this means adjusting sizes in every component's CSS.
-- The social share image (`finicky-felicia-cover.jpg`) is portrait, so Facebook and X crop it. A 1200×630 landscape version would look better in shares.
+- [ ] Body text across the site is small (about 11px) because `bootstrap.css` sets the root font size to 10px. Google's mobile checks prefer 16px body text. Fixing this means adjusting sizes in every component's CSS.
+- [x] Social share image is now a 1200×630 landscape version (`finicky-felicia-share.jpg`)

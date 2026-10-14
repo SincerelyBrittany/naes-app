@@ -1,6 +1,7 @@
 // Author.tsx - About the Author Section Component
 import React from 'react';
-import { FACEBOOK_URL, INSTAGRAM_URL } from '../config/site';
+import { FaGoodreadsG } from 'react-icons/fa';
+import { FACEBOOK_URL, GOODREADS_AUTHOR_URL, INSTAGRAM_URL } from '../config/site';
 import authorPhoto from '../assets/images/AuthorImage.jpg';
 import './Author.css';
 
@@ -61,6 +62,16 @@ const Author: React.FC = () => {
                 </svg>
               </a>
 
+              <a 
+                href={GOODREADS_AUTHOR_URL} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="social-link"
+                aria-label="Goodreads"
+              >
+                <FaGoodreadsG aria-hidden="true" />
+              </a>
+
               {/* <a 
                 href="https://twitter.com/yourhandle" 
                 target="_blank" 
@@ -102,7 +113,7 @@ const Author: React.FC = () => {
                   <div className="highlight-icon">👨‍👩‍👧‍👦</div>
                   <div className="highlight-text">
                     <h4>Family</h4>
-                    <p>Mother of 4, Grandmother of 4</p>
+                    <p>African American mother of 4, grandmother of 4</p>
                   </div>
                 </div>
                 

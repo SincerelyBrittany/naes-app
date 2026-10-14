@@ -53,6 +53,13 @@ const About: React.FC = () => {
                   to taste vegetables while learning how important it is to eat vegetables.
                 </p>
                 
+                <p className="about-story">
+                  Felicia and her family are Black, as is every character in the story.
+                  It’s a book where Black children can see themselves at the
+                  kitchen table, and where any child can relate to Felicia’s battle with
+                  vegetables.
+                </p>
+
                 <p className="about-cta">
                   Read more to learn how Finicky Felicia became less finicky!
                 </p>
