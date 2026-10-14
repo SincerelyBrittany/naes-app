@@ -1,5 +1,7 @@
 // Author.tsx - About the Author Section Component
 import React from 'react';
+import { FACEBOOK_URL, INSTAGRAM_URL } from '../config/site';
+import authorPhoto from '../assets/images/AuthorImage.jpg';
 import './Author.css';
 
 const Author: React.FC = () => {
@@ -16,18 +18,16 @@ const Author: React.FC = () => {
           {/* Author Image Side */}
           <div className="author-image-side">
             <div className="author-image-wrapper">
-              {/* Author photo - replace with actual image */}
+              {/* Real <img> (not a CSS background) so search engines can index the photo */}
               <div className="author-image-placeholder">
-              {/* <img 
-                src="/src/assets/images/AuthorImage.jpg" 
-                alt="Narene Russell" 
-                className="author-photo"
-                /> */}
-                {/* <svg className="author-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg> */}
-                {/* <p className="placeholder-text">Author Photo</p> */}
+                <img
+                  src={authorPhoto}
+                  alt="Narene Russell, author of the children's book Finicky Felicia"
+                  width={863}
+                  height={1000}
+                  loading="lazy"
+                  className="author-photo"
+                />
               </div>
               
               {/* Decorative elements */}
@@ -38,7 +38,7 @@ const Author: React.FC = () => {
             {/* Social Media Links (Optional) */}
             <div className="author-social">
               <a 
-                href="https://www.instagram.com/naes.place/" 
+                href={INSTAGRAM_URL} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="social-link"
@@ -50,7 +50,7 @@ const Author: React.FC = () => {
               </a>
 
               <a 
-                href="https://www.facebook.com/p/Finicky-Felicia-100084813500514/?paipv=0&eav=AfYZFEEW3U-F3YIHA84OywVP7iyvvNdSnCIbrOEfu4jeLNCMo7GnPwep9JMj4oUha0Y&_rdr" 
+                href={FACEBOOK_URL} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="social-link"

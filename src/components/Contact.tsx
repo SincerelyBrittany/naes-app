@@ -1,6 +1,7 @@
 // Contact.tsx - Contact Section Component
 import React, { useState } from 'react';
 import emailjs from 'emailjs-com';
+import { FACEBOOK_URL, INSTAGRAM_URL } from '../config/site';
 import './Contact.css';
 
 interface FormData {
@@ -213,7 +214,7 @@ const Contact: React.FC = () => {
               {/* Social Links */}
               <div className="contact-social">
                 <a 
-                  href="https://www.instagram.com/naes.place/" 
+                  href={INSTAGRAM_URL} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="contact-social-link"
@@ -225,7 +226,7 @@ const Contact: React.FC = () => {
                 </a>
 
                 <a 
-                  href="https://www.facebook.com/p/Finicky-Felicia-100084813500514/?paipv=0&eav=AfYZFEEW3U-F3YIHA84OywVP7iyvvNdSnCIbrOEfu4jeLNCMo7GnPwep9JMj4oUha0Y&_rdr" 
+                  href={FACEBOOK_URL} 
                   target="_blank" 
                   rel="noopener noreferrer"
                   className="contact-social-link"

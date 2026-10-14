@@ -10,13 +10,16 @@ const About: React.FC = () => {
           {/* Image/Visual Side */}
           <div className="about-image-side">
             <div className="about-image-wrapper">
-              {/* Placeholder for book image - replace with actual image */}
+              {/* Real <img> (not a CSS background) so search engines can index the cover */}
               <div className="about-image-placeholder">
-                {/* <svg className="book-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"></path>
-                  <path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"></path>
-                </svg> */}
-                {/* <p className="placeholder-text">Book Image Here</p> */}
+                <img
+                  src="/img/finicky-felicia-book-cover.jpg"
+                  alt="Cover of the children's book Finicky Felicia by Narene Russell, showing Felicia frowning at a plate of broccoli"
+                  width={439}
+                  height={595}
+                  loading="lazy"
+                  className="about-cover-img"
+                />
               </div>
               
               {/* Decorative elements */}
