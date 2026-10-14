@@ -4,11 +4,12 @@ Last updated: 2026-10-14. SEO details live in [SEO-NOTES.md](SEO-NOTES.md).
 
 ## 1. Netlify setup
 - [ ] **Update Node.js from 18 to 22.** Netlify's Agent Runners warn that Node 18 is too old (it's also past end-of-life). Either add a `.nvmrc` file containing `22` to the repo, or set `NODE_VERSION` = `22` in Netlify → Site configuration → Environment variables.
-- [ ] Set the build command to `npm run build` (needed for prerendering).
-- [ ] Add environment variables: `VITE_GA_MEASUREMENT_ID`, `VITE_SITE_URL` = `https://narenerussell.com`, plus the Stripe and EmailJS `VITE_…` values the site uses.
+- [x] Build command is `npm run build` (confirmed: prerendered text is live).
+- [x] `VITE_GA_MEASUREMENT_ID` is set (confirmed in the live build).
+- [ ] Double-check the other environment variables in Netlify: `VITE_SITE_URL` = `https://narenerussell.com`, plus the Stripe and EmailJS `VITE_…` values the site uses.
 
 ## 2. Open pull requests to decide on
-- [ ] **#20 — SEO + Analytics fix** (`seo-setup`). Ready to merge after the Netlify setup above.
+- [x] **#20 / #21 — SEO + Analytics fix** (`seo-setup`). Merged and live.
 - [ ] **#19 — "adds css changes"** (`updates-css`). Most of it is already in `main` from the Phase 1 SEO commit. What's left: Mailchimp newsletter wiring in the popup, an `.env.example` file, and small privacy page edits. Its Analytics code is the older broken version. Recommendation: copy over the newsletter code if you still want it, then close this PR.
 - [ ] **#14 — "adds admin logic"** (`admin`). Adds a Decap CMS admin page at `/admin` for editing events without code, an Events section, and makes the popup read from editable content. Still useful if you want an admin, but it's from May and will need conflicts fixed against the current site before merging.
 - [ ] **#17 — "Update Site Content 'events'"** (`cms/site_content/events`). An event update made through the CMS. Depends on #14; merge or close it together with #14.
@@ -18,7 +19,9 @@ Last updated: 2026-10-14. SEO details live in [SEO-NOTES.md](SEO-NOTES.md).
 - [ ] If yes: enable Netlify Identity + Git Gateway (Decap's login), fix conflicts, and test logging in at `/admin`.
 
 ## 4. SEO
-- [ ] Finish the steps in [SEO-NOTES.md](SEO-NOTES.md): Search Console sitemap, Bing Webmaster Tools, Goodreads author profile, Amazon Author Central, getting on book lists.
+- [ ] **Google Search Console — not set up yet.** Confirm the site is verified, submit `sitemap.xml`, request indexing for the homepage, and link it to Google Analytics. Step-by-step checklist in [SEO-NOTES.md](SEO-NOTES.md#google-search-console-setup-not-done-yet).
+- [ ] Bing Webmaster Tools (import from Search Console once it's set up).
+- [ ] Remaining SEO steps in [SEO-NOTES.md](SEO-NOTES.md): Goodreads author profile, Amazon Author Central, getting on book lists.
 - [ ] Fix small body text (about 11px; Google prefers 16px on mobile).
 - [ ] Add FAQ to the top menu.
 
