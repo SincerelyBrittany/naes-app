@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
           <h1 className="hero-title">Finicky Felicia</h1>
 
           <p className="hero-subtitle">
-            A delightful children’s book about learning to love healthy foods!
+            A delightful children’s picture book by Black author Narene Russell about learning to love healthy foods!
           </p>
 
           <p className="hero-description">

@@ -8,6 +8,7 @@ import Popup from './components/Popup';
 import Footer from './components/Footer';
 import Analytics from './components/Analytics';
 import Contact from './components/Contact';
+import FAQ from './components/FAQ';
 
 import './App.css';
 
@@ -20,6 +21,7 @@ const App: React.FC = () => {
       <About />
       <Author />
       {/* <Gallery /> */}
+      <FAQ />
       <Contact />
       <Footer />
       <Popup />

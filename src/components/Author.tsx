@@ -1,5 +1,8 @@
 // Author.tsx - About the Author Section Component
 import React from 'react';
+import { FaGoodreadsG } from 'react-icons/fa';
+import { FACEBOOK_URL, GOODREADS_AUTHOR_URL, INSTAGRAM_URL } from '../config/site';
+import authorPhoto from '../assets/images/AuthorImage.jpg';
 import './Author.css';
 
 const Author: React.FC = () => {
@@ -16,18 +19,16 @@ const Author: React.FC = () => {
           {/* Author Image Side */}
           <div className="author-image-side">
             <div className="author-image-wrapper">
-              {/* Author photo - replace with actual image */}
+              {/* Real <img> (not a CSS background) so search engines can index the photo */}
               <div className="author-image-placeholder">
-              {/* <img 
-                src="/src/assets/images/AuthorImage.jpg" 
-                alt="Narene Russell" 
-                className="author-photo"
-                /> */}
-                {/* <svg className="author-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-                  <path d="M20 21v-2a4 4 0 0 0-4-4H8a4 4 0 0 0-4 4v2"></path>
-                  <circle cx="12" cy="7" r="4"></circle>
-                </svg> */}
-                {/* <p className="placeholder-text">Author Photo</p> */}
+                <img
+                  src={authorPhoto}
+                  alt="Narene Russell, author of the children's book Finicky Felicia"
+                  width={863}
+                  height={1000}
+                  loading="lazy"
+                  className="author-photo"
+                />
               </div>
               
               {/* Decorative elements */}
@@ -38,7 +39,7 @@ const Author: React.FC = () => {
             {/* Social Media Links (Optional) */}
             <div className="author-social">
               <a 
-                href="https://www.instagram.com/naes.place/" 
+                href={INSTAGRAM_URL} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="social-link"
@@ -50,7 +51,7 @@ const Author: React.FC = () => {
               </a>
 
               <a 
-                href="https://www.facebook.com/p/Finicky-Felicia-100084813500514/?paipv=0&eav=AfYZFEEW3U-F3YIHA84OywVP7iyvvNdSnCIbrOEfu4jeLNCMo7GnPwep9JMj4oUha0Y&_rdr" 
+                href={FACEBOOK_URL} 
                 target="_blank" 
                 rel="noopener noreferrer"
                 className="social-link"
@@ -59,6 +60,16 @@ const Author: React.FC = () => {
                 <svg viewBox="0 0 24 24" fill="currentColor">
                   <path d="M24 12.073c0-6.627-5.373-12-12-12s-12 5.373-12 12c0 5.99 4.388 10.954 10.125 11.854v-8.385H7.078v-3.47h3.047V9.43c0-3.007 1.792-4.669 4.533-4.669 1.312 0 2.686.235 2.686.235v2.953H15.83c-1.491 0-1.956.925-1.956 1.874v2.25h3.328l-.532 3.47h-2.796v8.385C19.612 23.027 24 18.062 24 12.073z"/>
                 </svg>
+              </a>
+
+              <a 
+                href={GOODREADS_AUTHOR_URL} 
+                target="_blank" 
+                rel="noopener noreferrer"
+                className="social-link"
+                aria-label="Goodreads"
+              >
+                <FaGoodreadsG aria-hidden="true" />
               </a>
 
               {/* <a 
@@ -102,7 +113,7 @@ const Author: React.FC = () => {
                   <div className="highlight-icon">👨‍👩‍👧‍👦</div>
                   <div className="highlight-text">
                     <h4>Family</h4>
-                    <p>Mother of 4, Grandmother of 4</p>
+                    <p>African American mother of 4, grandmother of 4</p>
                   </div>
                 </div>
                 

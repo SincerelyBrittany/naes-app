@@ -15,6 +15,11 @@ export const AMAZON_URL =
 export const BARNES_URL =
   'https://www.barnesandnoble.com/w/finicky-felicia-narene-russell/1144045912';
 
+export const GOODREADS_URL =
+  'https://www.goodreads.com/book/show/61324486-finicky-felicia';
+export const GOODREADS_AUTHOR_URL =
+  'https://www.goodreads.com/author/show/22492304.Narene_Russell';
+
 export const INSTAGRAM_URL = 'https://www.instagram.com/naes.place/';
 export const FACEBOOK_URL =
   'https://www.facebook.com/p/Finicky-Felicia-100084813500514/';

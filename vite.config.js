@@ -9,5 +9,7 @@ export default defineConfig(({ mode }) => {
 
   return {
     plugins: [react()],
+    // react-icons' ESM build can't be loaded by Node directly, so bundle it into the prerender build
+    ssr: { noExternal: ['react-icons'] },
   };
 });
