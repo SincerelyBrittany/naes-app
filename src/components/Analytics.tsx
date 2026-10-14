@@ -12,8 +12,10 @@ const Analytics: React.FC = () => {
     document.head.appendChild(script);
 
     window.dataLayer = window.dataLayer || [];
-    window.gtag = function gtag(...args: unknown[]) {
-      window.dataLayer?.push(args);
+    // gtag.js only processes the real `arguments` object, not a spread array.
+    window.gtag = function gtag() {
+      // eslint-disable-next-line prefer-rest-params
+      window.dataLayer?.push(arguments);
     };
     window.gtag('js', new Date());
     window.gtag('config', GA_MEASUREMENT_ID);
