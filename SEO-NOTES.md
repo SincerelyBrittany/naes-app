@@ -17,6 +17,23 @@ A single-book author site won't outrank Amazon, Scholastic, or "best of" lists f
 2. **Long-tail searches:** "picky eater children's book", "children's book about eating vegetables", "picture book about a Black girl who is a picky eater". These are winnable.
 3. **Lists and roundups:** for broad terms like "children's books by Black authors", the realistic path is getting the book *included* on the pages that already rank (blog lists, library lists, Goodreads lists), not outranking them.
 
+## Google Search Console setup (not done yet)
+
+The site side is ready: the verification file (`/googlec6995ffddfdb14d7.html`), `sitemap.xml`, and `robots.txt` are all live. These steps happen in your Google account at https://search.google.com/search-console.
+
+- [ ] **Confirm the property is verified.** Open Search Console and check that `narenerussell.com` appears in the property dropdown at the top left. If it says "unverified", click it and choose "HTML file" verification (the file is already on the site).
+- [ ] **Recommended: also add a Domain property.** Add property → Domain → `narenerussell.com`. Google gives you a TXT record; add it in your domain's DNS settings (wherever the domain is registered, or Netlify DNS if Netlify manages it). This covers `www`, `http`, and `https` versions in one place.
+- [ ] **Submit the sitemap.** Left menu → Sitemaps → enter `sitemap.xml` → Submit. Status should change to "Success" within a day or two.
+- [ ] **Request indexing for the homepage.** Top search bar → paste `https://narenerussell.com/` → "Request indexing".
+- [ ] **Check the URL Inspection result.** On that same page, click "View crawled page" / "Test live URL" and confirm Google sees the page text (title, FAQ, author section).
+- [ ] **Link Search Console to Google Analytics.** In Google Analytics: Admin → Product links → Search Console links → Link. This shows search queries inside Analytics.
+- [ ] **Add Narene as a user if she wants access.** Settings → Users and permissions → Add user.
+- [ ] **Check back in 1–2 weeks:**
+  - Pages report: homepage should show as "Indexed"
+  - Performance report: see which searches show the site (look for "Finicky Felicia", "Narene Russell", picky eater and Black author searches)
+  - Any "Enhancements" reports in the left menu: fix errors Google reports about the structured data
+- [ ] **Then set up Bing:** https://www.bing.com/webmasters → "Import from Google Search Console". This also covers DuckDuckGo and Yahoo, and feeds ChatGPT search.
+
 ## Status
 
 ### SEO
@@ -32,8 +49,7 @@ Done:
 To do:
 - [ ] In Netlify, make sure the build command is `npm run build` (not `vite build`), or prerendering won't run
 - [ ] Add `VITE_GA_MEASUREMENT_ID` and `VITE_SITE_URL` in Netlify environment variables, then redeploy
-- [ ] Submit `sitemap.xml` in Google Search Console and request indexing for the homepage
-- [ ] Add the site to Bing Webmaster Tools (it can import from Search Console)
+- [ ] Finish the Google Search Console setup above
 - [ ] Test the live page at https://search.google.com/test/rich-results and https://validator.schema.org
 - [ ] Get links from other sites: Amazon Author Central, Goodreads author page, Instagram/Facebook bios, libraries, schools, local news
 - [ ] Update prices in `index.html` structured data if they change on Amazon or Barnes & Noble
