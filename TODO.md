@@ -1,6 +1,6 @@
 # To Do — narenerussell.com
 
-Last updated: 2026-10-14. SEO details live in [SEO-NOTES.md](SEO-NOTES.md).
+Last updated: 2026-11-01. SEO details live in [SEO-NOTES.md](SEO-NOTES.md).
 
 ## 1. Netlify setup
 - [ ] **Update Node.js from 18 to 22.** Netlify's Agent Runners warn that Node 18 is too old (it's also past end-of-life). Either add a `.nvmrc` file containing `22` to the repo, or set `NODE_VERSION` = `22` in Netlify → Site configuration → Environment variables.
@@ -27,7 +27,9 @@ Last updated: 2026-10-14. SEO details live in [SEO-NOTES.md](SEO-NOTES.md).
 
 ## 5. Stripe + signed copies with a personal message
 - [ ] Decide what to sell: signed paperback, signed hardcover, or both, and the price including shipping.
-- [ ] Simplest option: a **Stripe Payment Link** with a custom text field ("Who should the book be signed to? Any message?") and shipping address collection. No server code needed; the site just links a "Order a signed copy" button to it. Orders and messages show up in the Stripe dashboard.
+- [x] Sandbox payment link is connected locally. Checkout collects the signature name, a personal message, and a shipping address. The button reads `VITE_PUBLIC_STRIPE_PAYMENT_LINK`.
+- [ ] Add that same payment-link URL in Netlify so a preview or the live site can open checkout. The sandbox link only accepts test cards.
+- [ ] **Later: taxes and shipping rates.** Add shipping rates so postage is its own charge (instead of being folded into the $20 price), and turn on Stripe Tax once the business location and sales-tax registrations are set. Checkout should then add the right tax on top of the book and shipping.
 - [ ] Check the Stripe IDs in `.env` files: `.env` has a `price_…` ID but `.env.production` has a `prod_…` (product) ID. Checkout needs the `price_…` one.
 - [ ] Old checkout code exists in `src/Originalcomponents/` (`checkouthome.jsx`, `initialCheckoutScreen.jsx`, `OrderACopy.jsx`) and `src/lib/getStripe.js`. Reuse or delete.
 - [ ] Test with Stripe test mode before going live.
