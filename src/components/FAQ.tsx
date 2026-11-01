@@ -3,7 +3,7 @@
 // and AI answer tools can quote them directly. The same list feeds the
 // FAQPage structured data below, so the visible text and markup stay in sync.
 import React from 'react';
-import { AMAZON_URL, BARNES_URL, GOODREADS_URL } from '../config/site';
+import { AMAZON_URL, BARNES_URL, GOODREADS_URL, SIGNED_COPY_URL } from '../config/site';
 import './FAQ.css';
 
 interface FaqItem {
@@ -27,16 +27,16 @@ const faqs: FaqItem[] = [
     answer:
       'Finicky Felicia was written by Narene Russell, a mother of four and grandmother of four, and illustrated by James Scales Jr. The story is based on Narene’s grandson, a real-life picky eater.',
   },
-  {
-    question: 'Is Finicky Felicia written by a Black author?',
-    answer:
-      'Yes. Finicky Felicia was written by Narene Russell, an African American author, and illustrated by James Scales Jr.',
-  },
-  {
-    question: 'Does Finicky Felicia have Black characters?',
-    answer:
-      'Yes. Felicia is a little Black girl, the story centers on her Black family, and every character in the book is Black. It’s a picture book where Black children can see themselves, and where any family with a picky eater will feel at home.',
-  },
+  // {
+  //   question: 'Is Finicky Felicia written by a Black author?',
+  //   answer:
+  //     'Yes. Finicky Felicia was written by Narene Russell, an African American author, and illustrated by James Scales Jr.',
+  // },
+  // {
+  //   question: 'Does Finicky Felicia have Black characters?',
+  //   answer:
+  //     'Yes. Felicia is a little Black girl, the story centers on her Black family, and every character in the book is Black. It’s a picture book where Black children can see themselves, and where any family with a picky eater will feel at home.',
+  // },
   {
     question: 'Is Finicky Felicia a good book for picky eaters?',
     answer:
@@ -45,7 +45,7 @@ const faqs: FaqItem[] = [
   {
     question: 'Where can I buy Finicky Felicia?',
     answer:
-      'Finicky Felicia is available in paperback on Amazon and in hardcover at Barnes & Noble. You can also find it on Goodreads.',
+      'Finicky Felicia is available in paperback on Amazon and in hardcover at Barnes & Noble. Signed copies can be ordered directly from the author. You can also find it on Goodreads.',
   },
 ];
 
@@ -86,6 +86,12 @@ const FAQ: React.FC = () => {
                     <a href={BARNES_URL} target="_blank" rel="noopener noreferrer">
                       Buy at Barnes &amp; Noble
                     </a>
+                    {SIGNED_COPY_URL && (
+                      <>
+                        {' · '}
+                        <a href={SIGNED_COPY_URL}>Order a signed copy</a>
+                      </>
+                    )}
                     {' · '}
                     <a href={GOODREADS_URL} target="_blank" rel="noopener noreferrer">
                       See it on Goodreads

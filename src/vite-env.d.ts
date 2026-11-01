@@ -13,6 +13,7 @@ interface ImportMetaEnv {
   readonly VITE_EMAIL_PURCHASE?: string;
   readonly VITE_PUBLIC_STRIPE_PUBLISHABLE_KEY?: string;
   readonly VITE_PUBLIC_STRIPE_PRICE_ID?: string;
+  readonly VITE_PUBLIC_STRIPE_PAYMENT_LINK?: string;
 }
 
 interface ImportMeta {

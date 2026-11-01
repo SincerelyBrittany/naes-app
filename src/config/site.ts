@@ -20,6 +20,15 @@ export const GOODREADS_URL =
 export const GOODREADS_AUTHOR_URL =
   'https://www.goodreads.com/author/show/22492304.Narene_Russell';
 
+/**
+ * Stripe Payment Link for a signed copy.
+ * Create the link in Stripe (custom field for the inscription, plus shipping),
+ * then set VITE_PUBLIC_STRIPE_PAYMENT_LINK to the https://buy.stripe.com/… URL.
+ */
+export const SIGNED_COPY_URL =
+  (import.meta.env.VITE_PUBLIC_STRIPE_PAYMENT_LINK as string | undefined)?.trim() ||
+  '';
+
 export const INSTAGRAM_URL = 'https://www.instagram.com/naes.place/';
 export const FACEBOOK_URL =
   'https://www.facebook.com/p/Finicky-Felicia-100084813500514/';

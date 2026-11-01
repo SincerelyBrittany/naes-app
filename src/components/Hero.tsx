@@ -1,6 +1,6 @@
 // Hero.tsx - Hero/Home Section Component
 import React from 'react';
-import { AMAZON_URL, BARNES_URL } from '../config/site';
+import { AMAZON_URL, BARNES_URL, SIGNED_COPY_URL } from '../config/site';
 import { trackBuyClick } from '../lib/analytics';
 import './Hero.css';
 
@@ -15,7 +15,7 @@ const Hero: React.FC = () => {
           <h1 className="hero-title">Finicky Felicia</h1>
 
           <p className="hero-subtitle">
-            A delightful children’s picture book by Black author Narene Russell about learning to love healthy foods!
+            A delightful children’s picture book by author Narene Russell about learning to love healthy foods!
           </p>
 
           <p className="hero-description">
@@ -42,6 +42,21 @@ const Hero: React.FC = () => {
               onClick={() => trackBuyClick('barnes_noble')}
             >
               Barnes & Noble
+            </a>
+
+            <a
+              href={SIGNED_COPY_URL || undefined}
+              className="hero-btn hero-btn-signed"
+              aria-disabled={!SIGNED_COPY_URL}
+              onClick={(event) => {
+                if (!SIGNED_COPY_URL) {
+                  event.preventDefault();
+                  return;
+                }
+                trackBuyClick('signed_copy');
+              }}
+            >
+              Order a Signed Copy
             </a>
           </div>
         </div>

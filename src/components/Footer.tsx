@@ -26,7 +26,7 @@ const Footer: React.FC = () => {
           <p className="site-footer-brand">{SITE_NAME}</p>
           <p className="site-footer-tagline">
             Home of <em>{BOOK_TITLE}</em> by African American author {AUTHOR_NAME} —
-            a children&apos;s picture book about a Black family and their picky eater.
+            a children&apos;s picture book about a family and their picky eater.
           </p>
           <div className="site-footer-social">
             <a

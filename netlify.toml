@@ -1,0 +1,7 @@
+# Sandbox checkout for pull-request and branch previews only.
+# Production keeps the environment variables set in the Netlify UI.
+[context.deploy-preview.environment]
+  VITE_PUBLIC_STRIPE_PAYMENT_LINK = "https://buy.stripe.com/test_3cI3cwdVReG00WN60KeQM00"
+
+[context.branch-deploy.environment]
+  VITE_PUBLIC_STRIPE_PAYMENT_LINK = "https://buy.stripe.com/test_3cI3cwdVReG00WN60KeQM00"

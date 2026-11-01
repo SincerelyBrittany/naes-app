@@ -23,7 +23,9 @@ export function trackEvent(
   window.gtag('event', eventName, params);
 }
 
-export function trackBuyClick(store: 'amazon' | 'barnes_noble'): void {
+export function trackBuyClick(
+  store: 'amazon' | 'barnes_noble' | 'signed_copy'
+): void {
   trackEvent('buy_click', {
     store,
     book: 'Finicky Felicia',
